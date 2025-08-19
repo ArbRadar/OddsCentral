@@ -1,0 +1,104 @@
+
+services:
+  db:
+    container_name: supabase-db
+    image: supabase/postgres:15.1.0.147
+    restart: unless-stopped
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+
+  auth:
+    container_name: supabase-auth
+    image: supabase/gotrue:v2.143.0
+    depends_on:
+      - db
+    restart: unless-stopped
+    ports:
+      - "9998:9999"
+    environment:
+      GOTRUE_API_HOST: 0.0.0.0
+      GOTRUE_API_PORT: 9999
+      API_EXTERNAL_URL: http://localhost:54320
+      GOTRUE_DB_DRIVER: postgres
+      GOTRUE_DB_DATABASE_URL: postgresql://postgres:postgres@db:5432/postgres?search_path=auth
+      GOTRUE_SITE_URL: http://localhost:3000
+      GOTRUE_URI_ALLOW_LIST: '*'
+      GOTRUE_DISABLE_SIGNUP: 'false'
+      GOTRUE_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      GOTRUE_JWT_EXP: 3600
+      GOTRUE_JWT_DEFAULT_GROUP_NAME: authenticated
+      GOTRUE_INSTANCE_ID: 00000000-0000-0000-0000-000000000000
+
+  rest:
+    container_name: supabase-rest
+    image: postgrest/postgrest:v11.2.2
+    depends_on:
+      - db
+    restart: unless-stopped
+    ports:
+      - "54320:3000"
+    environment:
+      PGRST_DB_URI: postgresql://postgres:postgres@db:5432/postgres
+      PGRST_DB_SCHEMAS: public,storage,graphql_public
+      PGRST_DB_ANON_ROLE: anon
+      PGRST_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      PGRST_DB_USE_LEGACY_GUCS: 'false'
+
+  realtime:
+    container_name: supabase-realtime
+    image: supabase/realtime:v2.25.66
+    depends_on:
+      - db
+    restart: unless-stopped
+    ports:
+      - "54325:4000"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: postgres
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_SSL: 'false'
+      PORT: 4000
+      JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      REPLICATION_MODE: RLS
+      REPLICATION_POLL_INTERVAL: 100
+      SECURE_CHANNELS: 'true'
+      SLOT_NAME: supabase_realtime_rls
+      TEMPORARY_SLOT: 'true'
+
+  storage:
+    container_name: supabase-storage
+    image: supabase/storage-api:v0.46.4
+    depends_on:
+      - db
+      - rest
+    restart: unless-stopped
+    ports:
+      - "5001:5000"
+    environment:
+      ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
+      SERVICE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU
+      POSTGREST_URL: http://rest:3000
+      PGRST_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/postgres
+      FILE_SIZE_LIMIT: 52428800
+      STORAGE_BACKEND: file
+      FILE_STORAGE_BACKEND_PATH: /var/lib/storage
+      TENANT_ID: stub
+      REGION: stub
+      GLOBAL_S3_BUCKET: stub
+      ENABLE_IMAGE_TRANSFORMATION: 'true'
+      IMGPROXY_URL: http://imgproxy:8080
+    volumes:
+      - ./storage-data:/var/lib/storage
+
+volumes:
+  postgres-data:
+  storage-data:

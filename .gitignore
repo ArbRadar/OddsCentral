@@ -1,0 +1,47 @@
+# Database files
+supabase-local/postgres-data/
+*.db
+*.sqlite
+
+# Node modules (if any)
+node_modules/
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+
+# Chrome extension files
+*.crx
+*.pem
+
+# Temporary files
+tmp/
+temp/
+
+# Python cache (from icon creation script)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python

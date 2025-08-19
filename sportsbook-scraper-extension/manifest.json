@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Sportsbook Data Scraper",
+  "version": "1.0.0",
+  "description": "Scrapes sportsbook odds data and stores in Supabase",
+  "permissions": [
+    "tabs",
+    "storage",
+    "alarms",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://localhost:54320/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["analytics.html", "analytics.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

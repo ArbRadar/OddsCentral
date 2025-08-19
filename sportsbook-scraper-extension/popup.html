@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 400px;
+      min-height: 300px;
+      margin: 0;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f5f5;
+    }
+    
+    h1 {
+      font-size: 18px;
+      margin: 0 0 16px 0;
+      color: #333;
+    }
+    
+    .status {
+      background: white;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .status-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    
+    .status-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .status-label {
+      color: #666;
+    }
+    
+    .status-value {
+      font-weight: 500;
+      color: #333;
+    }
+    
+    .status-value.active {
+      color: #10b981;
+    }
+    
+    .status-value.inactive {
+      color: #ef4444;
+    }
+    
+    .tabs-section {
+      background: white;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tabs-header {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      color: #333;
+    }
+    
+    .tab-item {
+      padding: 10px;
+      margin-bottom: 8px;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      background: #fafafa;
+    }
+    
+    .tab-item.active {
+      background: #e8f5e9;
+      border-color: #4caf50;
+    }
+    
+    .tab-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .tab-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    
+    .tab-title {
+      font-weight: 500;
+      font-size: 14px;
+      color: #333;
+      flex: 1;
+      margin-right: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .tab-toggle {
+      padding: 4px 12px;
+      background: #f3f4f6;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      color: #374151;
+      transition: all 0.2s;
+    }
+    
+    .tab-toggle:hover {
+      background: #e5e7eb;
+    }
+    
+    .tab-toggle.active {
+      background: #4caf50;
+      color: white;
+      border-color: #4caf50;
+    }
+    
+    .tab-url {
+      color: #666;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .tab-stats {
+      display: flex;
+      gap: 15px;
+      margin-top: 6px;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .empty-state {
+      text-align: center;
+      color: #999;
+      padding: 20px;
+      font-size: 14px;
+    }
+    
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    
+    button {
+      padding: 10px;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      background: #3b82f6;
+    }
+    
+    button:hover {
+      background: #2563eb;
+    }
+    
+    button:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+    
+    button.secondary {
+      background: #6b7280;
+    }
+    
+    button.secondary:hover {
+      background: #4b5563;
+    }
+    
+    button.analytics {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      grid-column: 1 / -1;
+      margin-bottom: 8px;
+    }
+    
+    button.analytics:hover {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    }
+  </style>
+</head>
+<body>
+  <h1>Sportsbook Scraper Control</h1>
+  
+  <div class="status">
+    <div class="status-item">
+      <span class="status-label">Database Connection:</span>
+      <span class="status-value" id="supabase-status">Checking...</span>
+    </div>
+    <div class="status-item">
+      <span class="status-label">Active Scraping Tabs:</span>
+      <span class="status-value" id="active-count">0</span>
+    </div>
+    <div class="status-item">
+      <span class="status-label">Total Games:</span>
+      <span class="status-value" id="games-count">0</span>
+    </div>
+  </div>
+  
+  <div class="tabs-section">
+    <div class="tabs-header">Current Tab</div>
+    <div id="current-tab">
+      <div class="empty-state">Not on a sportsbook page</div>
+    </div>
+  </div>
+  
+  <div class="tabs-section">
+    <div class="tabs-header">Active Scraping Tabs</div>
+    <div id="active-tabs-list">
+      <div class="empty-state">No tabs currently scraping</div>
+    </div>
+  </div>
+  
+  <div class="controls">
+    <button id="analytics-btn" class="analytics">View Analytics</button>
+    <button id="refresh-btn">Refresh</button>
+    <button id="stop-all-btn" class="secondary">Stop All</button>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
