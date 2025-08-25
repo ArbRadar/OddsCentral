@@ -33,6 +33,8 @@ class ScrapyMonitorDirect:
         self.worker_id = f"scrapy_monitor_{os.getpid()}"
         self.poll_interval = 30
         self.batch_size = 10
+        self.last_cleanup = datetime.utcnow()
+        self.cleanup_interval_minutes = 10  # Run cleanup every 10 minutes
         
     def signal_handler(self, signum, frame):
         logger.info("Shutdown signal received")
@@ -188,6 +190,40 @@ class ScrapyMonitorDirect:
         except Exception as e:
             logger.error(f"Error updating job: {e}")
     
+    def perform_data_cleanup(self):
+        """Perform data cleanup to maintain 1-hour retention policy"""
+        try:
+            conn = self.get_db_connection()
+            cursor = conn.cursor()
+            
+            # Call the scheduled cleanup function we created
+            cursor.execute("SELECT * FROM scheduled_cleanup()")
+            result = cursor.fetchone()
+            
+            if result and result[0]:
+                result_json = result[0]
+                if result_json.get('success'):
+                    logger.info(f"🧹 Data cleanup completed: Deleted {result_json['total_deleted']} records")
+                    logger.info(f"   Games: {result_json['games_deleted']}, Odds: {result_json['odds_deleted']}")
+                    logger.info(f"   Execution time: {result_json['execution_time_ms']}ms")
+                else:
+                    logger.error(f"❌ Data cleanup failed: {result_json.get('error', 'Unknown error')}")
+            
+            conn.commit()
+            cursor.close()
+            conn.close()
+            
+            # Update last cleanup time
+            self.last_cleanup = datetime.utcnow()
+            
+        except Exception as e:
+            logger.error(f"Error performing data cleanup: {e}")
+    
+    def should_run_cleanup(self):
+        """Check if it's time to run cleanup"""
+        time_since_last_cleanup = datetime.utcnow() - self.last_cleanup
+        return time_since_last_cleanup.total_seconds() >= (self.cleanup_interval_minutes * 60)
+    
     def write_endpoints_file(self, endpoints):
         """Write endpoints to file for Scrapy"""
         try:
@@ -272,6 +308,11 @@ class ScrapyMonitorDirect:
                     logger.info("Scraping disabled in config")
                     time.sleep(60)
                     continue
+                
+                # Check if cleanup should be performed
+                if self.should_run_cleanup():
+                    logger.info("🧹 Running scheduled data cleanup...")
+                    self.perform_data_cleanup()
                 
                 endpoints = self.get_pending_endpoints()
                 

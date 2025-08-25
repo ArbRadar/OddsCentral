@@ -76,97 +76,49 @@ async function updateStatus() {
       methodElement.className = 'status-value';
     }
     
-    // Update current tab section
+    // Update current tab section - Visual scraping disabled
     const currentTabDiv = document.getElementById('current-tab');
     if (currentTab && isSportsbookTab(currentTab)) {
-      const isEnabled = enabledTabs.has(currentTab.id);
-      const activeTabs = response.activeTabs || [];
-      const isActive = activeTabs.some(t => t.id === currentTab.id);
-      const activeTab = activeTabs.find(t => t.id === currentTab.id);
-      const timeSince = activeTab ? Date.now() - activeTab.lastUpdate : null;
-      const seconds = timeSince ? Math.floor(timeSince / 1000) : null;
-      
       currentTabDiv.innerHTML = `
-        <div class="tab-item ${isActive ? 'active' : ''}">
+        <div class="tab-item">
           <div class="tab-header">
             <div class="tab-title">${getTabDisplayName(currentTab)}</div>
-            <button class="tab-toggle ${isEnabled ? 'active' : ''}" 
-                    data-tab-id="${currentTab.id}" id="current-tab-toggle">
-              ${isEnabled ? 'Stop' : 'Start'}
-            </button>
+            <div style="color: #ef4444; font-size: 12px; font-weight: bold;">VISUAL DISABLED</div>
           </div>
           <div class="tab-url">${currentTab.url}</div>
-          ${isActive && seconds !== null ? `
-            <div class="tab-stats">
-              <span>Last update: ${seconds}s ago</span>
-              <span>Method: ${activeTab.scrapingMethod || 'Visual'}</span>
-              <span>Status: ${activeTab.scrapingMethod === 'API' ? 'API Polling' : 'Scraping'}</span>
-            </div>
-          ` : isEnabled ? `
-            <div class="tab-stats">
-              <span>Status: Starting...</span>
-            </div>
-          ` : ''}
+          <div class="tab-stats">
+            <span style="color: #ef4444;">⛔ Visual scraping disabled</span>
+            <span>✅ Using API scraping via Scrapy</span>
+            <span>📊 Check Analytics for data</span>
+          </div>
         </div>
       `;
-      
-      // Add click handler for current tab toggle
-      document.getElementById('current-tab-toggle').addEventListener('click', handleTabToggle);
     } else {
       currentTabDiv.innerHTML = `
         <div class="empty-state">
-          ${currentTab ? 'Not on a sportsbook page' : 'No active tab'}
+          <div style="color: #ef4444; font-weight: bold;">⛔ Visual Scraping Disabled</div>
+          <div>System uses API scraping via Scrapy only</div>
+          <div style="font-size: 12px; color: #666; margin-top: 8px;">
+            ${currentTab ? 'Not on a sportsbook page' : 'No active tab'}
+          </div>
         </div>
       `;
     }
     
-    // Update active scraping tabs count
-    const activeTabs = response.activeTabs || [];
-    const activeScrapingTabs = activeTabs.filter(tab => enabledTabs.has(tab.id));
-    document.getElementById('active-count').textContent = activeScrapingTabs.length;
+    // Show that visual scraping is disabled - no active tabs tracked
+    document.getElementById('active-count').textContent = '0';
     
-    // Update active tabs list (exclude current tab)
+    // Update active tabs list - show disabled message
     const activeTabsList = document.getElementById('active-tabs-list');
-    const otherActiveTabs = activeScrapingTabs.filter(tab => 
-      !currentTab || tab.id !== currentTab.id
-    );
-    
-    if (otherActiveTabs.length === 0) {
-      activeTabsList.innerHTML = '<div class="empty-state">No other tabs currently scraping</div>';
-    } else {
-      // Get tab details for active tabs
-      const allTabs = await chrome.tabs.query({});
-      const tabsMap = new Map(allTabs.map(tab => [tab.id, tab]));
-      
-      activeTabsList.innerHTML = otherActiveTabs.map(activeTab => {
-        const tab = tabsMap.get(activeTab.id);
-        if (!tab) return ''; // Tab might have been closed
-        
-        const timeSince = Date.now() - activeTab.lastUpdate;
-        const seconds = Math.floor(timeSince / 1000);
-        
-        return `
-          <div class="tab-item active">
-            <div class="tab-header">
-              <div class="tab-title">${getTabDisplayName(tab)}</div>
-              <button class="tab-toggle active" data-tab-id="${tab.id}">
-                Stop
-              </button>
-            </div>
-            <div class="tab-url">${tab.url}</div>
-            <div class="tab-stats">
-              <span>Last update: ${seconds}s ago</span>
-              <span>Status: Scraping</span>
-            </div>
-          </div>
-        `;
-      }).join('');
-      
-      // Add click handlers to stop buttons
-      document.querySelectorAll('#active-tabs-list .tab-toggle').forEach(button => {
-        button.addEventListener('click', handleTabToggle);
-      });
-    }
+    activeTabsList.innerHTML = `
+      <div class="empty-state">
+        <div style="color: #ef4444; font-weight: bold;">⛔ Visual Scraping Disabled</div>
+        <div>No tabs are actively scraping visually</div>
+        <div style="font-size: 12px; color: #666; margin-top: 8px;">
+          System uses API scraping via Scrapy monitor
+        </div>
+      </div>
+    `;
   } catch (error) {
     console.error('Error updating status:', error);
   }

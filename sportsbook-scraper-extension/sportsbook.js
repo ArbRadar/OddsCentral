@@ -5,7 +5,9 @@ class SportsbookController {
       games: [],
       odds: []
     };
-    this.filters = {
+    
+    // Load saved filters or use defaults
+    this.filters = this.loadSavedFilters() || {
       sport: 'all',
       league: 'all',
       bookmaker: 'all',
@@ -24,6 +26,37 @@ class SportsbookController {
     this.init();
   }
 
+  loadSavedFilters() {
+    try {
+      const saved = localStorage.getItem('sportsbook-filters');
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      console.warn('Error loading saved filters:', e);
+      return null;
+    }
+  }
+
+  saveFilters() {
+    try {
+      localStorage.setItem('sportsbook-filters', JSON.stringify(this.filters));
+    } catch (e) {
+      console.warn('Error saving filters:', e);
+    }
+  }
+
+  restoreFilterUI() {
+    try {
+      document.getElementById('sport-filter').value = this.filters.sport;
+      document.getElementById('league-filter').value = this.filters.league;
+      document.getElementById('bookmaker-filter').value = this.filters.bookmaker;
+      document.getElementById('date-filter').value = this.filters.date;
+      document.getElementById('freshness-filter').value = this.filters.freshness;
+      document.getElementById('odds-format').value = this.filters.oddsFormat;
+    } catch (e) {
+      console.warn('Error restoring filter UI:', e);
+    }
+  }
+
   async init() {
     // Set up event listeners
     this.setupEventListeners();
@@ -39,31 +72,37 @@ class SportsbookController {
     // Filter changes
     document.getElementById('sport-filter').addEventListener('change', (e) => {
       this.filters.sport = e.target.value;
+      this.saveFilters();
       this.applyFilters();
     });
 
     document.getElementById('league-filter').addEventListener('change', (e) => {
       this.filters.league = e.target.value;
+      this.saveFilters();
       this.applyFilters();
     });
 
     document.getElementById('bookmaker-filter').addEventListener('change', (e) => {
       this.filters.bookmaker = e.target.value;
+      this.saveFilters();
       this.applyFilters();
     });
 
     document.getElementById('date-filter').addEventListener('change', (e) => {
       this.filters.date = e.target.value;
+      this.saveFilters();
       this.applyFilters();
     });
     
     document.getElementById('freshness-filter').addEventListener('change', (e) => {
       this.filters.freshness = e.target.value;
+      this.saveFilters();
       this.loadData(); // Reload data with new freshness filter
     });
 
     document.getElementById('odds-format').addEventListener('change', (e) => {
       this.filters.oddsFormat = e.target.value;
+      this.saveFilters();
       this.renderGames(); // Re-render to update odds display format
     });
 
@@ -122,6 +161,9 @@ class SportsbookController {
         // Update filter options
         this.updateFilterOptions();
         
+        // Restore saved filter UI state
+        this.restoreFilterUI();
+        
         // Apply filters and render
         this.applyFilters();
         
@@ -154,8 +196,40 @@ class SportsbookController {
       odds: oddsByGame.get(game.game_id) || []
     }));
 
-    // Sort by start time (newest first)
-    this.processedData.sort((a, b) => new Date(b.start_time_parsed || b.start_time) - new Date(a.start_time_parsed || a.start_time));
+    // Sort games: 
+    // 1. Games that have already started or recently finished (within last 3 hours) - sorted by most recent
+    // 2. Future games - sorted by soonest first
+    const now = new Date();
+    const threeHoursAgo = new Date(now - 3 * 60 * 60 * 1000);
+    
+    this.processedData.sort((a, b) => {
+      const timeA = new Date(a.start_time_parsed || a.start_time);
+      const timeB = new Date(b.start_time_parsed || b.start_time);
+      
+      // Check if games are past/ongoing (started before now)
+      const isPastA = timeA <= now;
+      const isPastB = timeB <= now;
+      
+      // Check if games are recent (started within last 3 hours)
+      const isRecentA = timeA > threeHoursAgo;
+      const isRecentB = timeB > threeHoursAgo;
+      
+      // Both are past/ongoing games
+      if (isPastA && isPastB) {
+        // Sort by most recent first (descending)
+        return timeB - timeA;
+      }
+      
+      // Both are future games
+      if (!isPastA && !isPastB) {
+        // Sort by soonest first (ascending)
+        return timeA - timeB;
+      }
+      
+      // One is past/ongoing, one is future
+      // Past/ongoing games come first
+      return isPastA ? -1 : 1;
+    });
   }
 
   updateFilterOptions() {
@@ -179,6 +253,49 @@ class SportsbookController {
       option.value = league;
       option.textContent = league;
       leagueFilter.appendChild(option);
+    });
+
+    // Get unique event dates
+    const eventDates = new Set();
+    this.processedData.forEach(game => {
+      const gameDate = new Date(game.start_time_parsed || game.start_time);
+      if (!isNaN(gameDate.getTime())) {
+        const dateStr = gameDate.toISOString().split('T')[0];
+        eventDates.add(dateStr);
+      }
+    });
+    const dateFilter = document.getElementById('date-filter');
+    dateFilter.innerHTML = '<option value="">All Dates</option>';
+    Array.from(eventDates).sort().forEach(date => {
+      const option = document.createElement('option');
+      option.value = date;
+      const dateObj = new Date(date + 'T00:00:00'); // Ensure proper timezone handling
+      
+      // Get today's date in local timezone for comparison
+      const now = new Date();
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      
+      // Convert comparison dates to YYYY-MM-DD format
+      const todayStr = today.toISOString().split('T')[0];
+      const tomorrowStr = tomorrow.toISOString().split('T')[0];
+      
+      let displayText = dateObj.toLocaleDateString('en-US', { 
+        weekday: 'short', 
+        month: 'short', 
+        day: 'numeric' 
+      });
+      
+      // Add relative labels based on corrected comparison
+      if (date === todayStr) {
+        displayText += ' (Today)';
+      } else if (date === tomorrowStr) {
+        displayText += ' (Tomorrow)';
+      }
+      
+      option.textContent = displayText;
+      dateFilter.appendChild(option);
     });
 
     // Get unique bookmakers
@@ -433,11 +550,19 @@ class SportsbookController {
           This might mean there are no recent games (within the selected time period) 
           or there's a connection issue with the database.
         </p>
-        <button onclick="location.reload()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #3b82f6; color: white; border: none; border-radius: 4px; cursor: pointer;">
+        <button id="refresh-error-btn" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #3b82f6; color: white; border: none; border-radius: 4px; cursor: pointer;">
           Refresh Page
         </button>
       </div>
     `;
+    
+    // Add event listener for refresh button
+    setTimeout(() => {
+      const refreshBtn = document.getElementById('refresh-error-btn');
+      if (refreshBtn) {
+        refreshBtn.addEventListener('click', () => location.reload());
+      }
+    }, 100);
   }
 }
 

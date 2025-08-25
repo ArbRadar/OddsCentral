@@ -2949,6 +2949,24 @@ function monitorNewColumns() {
 }
 
 async function checkAndSendUpdates() {
+  console.warn('⛔ VISUAL SCRAPING DISABLED - Content script should not be running active scraping');
+  console.warn('⛔ This system now uses ONLY API scraping via Scrapy unified monitor');
+  console.warn('⛔ If you see this, visual scraping was incorrectly triggered');
+  
+  // Send message to background to log this should not happen
+  try {
+    await chrome.runtime.sendMessage({
+      type: 'VISUAL_SCRAPING_ATTEMPTED',
+      url: window.location.href,
+      timestamp: Date.now()
+    });
+  } catch (error) {
+    console.error('Could not notify background of visual scraping attempt:', error);
+  }
+  
+  return; // EXIT IMMEDIATELY - NO VISUAL SCRAPING
+  
+  // ========== DISABLED VISUAL SCRAPING CODE BELOW ==========
   // Check if extension context is still valid
   if (extensionInvalidated || !isExtensionContextValid()) {
     console.log('Extension context invalidated - stopping scraper');

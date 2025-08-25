@@ -974,18 +974,19 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     const url = request.url || sender.tab?.url;
     
     if (tabId && url) {
+      console.warn('⛔ CONTENT SCRIPT LOADED - Visual scraping is disabled, content script should only be used for API discovery');
       console.log('📋 Content script loaded on tab:', tabId, url);
-      activeTabs.set(tabId, {
-        url: url,
-        lastUpdate: Date.now(),
-        lastDataReceived: null,
-        consecutiveFailures: 0,
-        totalDataReceived: 0,
-        status: 'loaded'
-      });
+      // Don't add to activeTabs - visual scraping is disabled
     }
     
     return; // No response needed
+  }
+  
+  if (request.type === 'VISUAL_SCRAPING_ATTEMPTED') {
+    console.error('🚨 VISUAL SCRAPING ATTEMPTED - This should not happen!');
+    console.error('🚨 URL:', request.url);
+    console.error('🚨 System configured for API-only scraping via Scrapy');
+    return;
   }
   
   if (request.type === 'SCRAPED_DATA') {

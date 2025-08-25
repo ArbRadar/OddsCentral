@@ -412,13 +412,23 @@ class AnalyticsController {
     for (const game of this.data.games) {
       const gameOdds = this.data.odds.filter(o => o.game_id === game.game_id);
       
-      if (gameOdds.length < 3) continue; // Need at least 3 books for meaningful comparison
+      // CRITICAL: Deduplicate odds by sportsbook (keep latest)
+      const oddsMap = new Map();
+      gameOdds.forEach(odds => {
+        const key = odds.sportsbook;
+        if (!oddsMap.has(key) || new Date(odds.created_at) > new Date(oddsMap.get(key).created_at)) {
+          oddsMap.set(key, odds);
+        }
+      });
+      const deduplicatedOdds = Array.from(oddsMap.values());
+      
+      if (deduplicatedOdds.length < 3) continue; // Need at least 3 books for meaningful comparison
       
       // Filter out stale odds (older than 30 minutes)
       const now = new Date();
       const thirtyMinutesAgo = new Date(now - 30 * 60 * 1000);
-      const recentOdds = gameOdds.filter(o => {
-        const oddsTime = new Date(o.timestamp);
+      const recentOdds = deduplicatedOdds.filter(o => {
+        const oddsTime = new Date(o.timestamp || o.created_at);
         return oddsTime > thirtyMinutesAgo;
       });
       
@@ -627,8 +637,8 @@ class AnalyticsController {
             });
           }
           
-          // Store meaningful EV opportunities (threshold: 1%)
-          if (ev > 1.0) {
+          // Store meaningful EV opportunities (threshold: 0.5%)
+          if (ev > 0.5) {
             opportunities.push({
               game: `${game.away_team} @ ${game.home_team}`,
               gameId: game.game_id,
@@ -653,9 +663,6 @@ class AnalyticsController {
           const ev = ((fairAwayProb * decimalOdds) - 1) * 100;
           
           // Skip excessive logging
-            console.warn(`  Best home: ${bestHomeOdds}, Best away: ${bestAwayOdds}`);
-            console.warn(`  All away odds: ${awayOdds.map(o => `${o.sportsbook}: ${o.odds}`).join(', ')}`);
-          }
           
           // Validation: Reject impossible EV percentages
           if (ev > 50) {
@@ -664,8 +671,8 @@ class AnalyticsController {
             return; // Skip this bet due to data quality issues
           }
           
-          // Store meaningful EV opportunities (threshold: 1%)
-          if (ev > 1.0) {
+          // Store meaningful EV opportunities (threshold: 0.5%)
+          if (ev > 0.5) {
             opportunities.push({
               game: `${game.away_team} @ ${game.home_team}`,
               gameId: game.game_id,
@@ -701,8 +708,8 @@ class AnalyticsController {
             return;
           }
           
-          // Store meaningful EV opportunities (threshold: 1%)
-          if (ev > 1.0) {
+          // Store meaningful EV opportunities (threshold: 0.5%)
+          if (ev > 0.5) {
             opportunities.push({
               game: `${game.away_team} @ ${game.home_team}`,
               gameId: game.game_id,
@@ -729,17 +736,41 @@ class AnalyticsController {
 
   async calculateArbitrageOpportunities() {
     const opportunities = [];
+    const batchSize = 10;
+    const gamesToProcess = this.data.games;
+    let processedCount = 0;
     
-    for (const game of this.data.games) {
+    for (let i = 0; i < gamesToProcess.length; i += batchSize) {
+      const batch = gamesToProcess.slice(i, Math.min(i + batchSize, gamesToProcess.length));
+      
+      for (const game of batch) {
       const gameOdds = this.data.odds.filter(o => o.game_id === game.game_id);
       
-      if (gameOdds.length < 2) continue;
+      // CRITICAL: Deduplicate odds by sportsbook (keep latest)
+      const oddsMap = new Map();
+      gameOdds.forEach(odds => {
+        const key = odds.sportsbook;
+        if (!oddsMap.has(key) || new Date(odds.created_at) > new Date(oddsMap.get(key).created_at)) {
+          oddsMap.set(key, odds);
+        }
+      });
+      const deduplicatedOdds = Array.from(oddsMap.values());
+      
+      if (deduplicatedOdds.length < 2) continue;
+      
+      // DEBUG: Log deduplication results for first few games
+      if (processedCount < 3) {
+        console.log(`🔍 ARBITRAGE DEBUG - Game ${game.game_id}:`);
+        console.log(`  Raw odds: ${gameOdds.length}, Deduplicated: ${deduplicatedOdds.length}`);
+        console.log(`  Sample books: ${deduplicatedOdds.slice(0,3).map(o => o.sportsbook).join(', ')}`);
+      }
+      processedCount++;
       
       // Filter out stale odds (older than 30 minutes)
       const now = new Date();
       const thirtyMinutesAgo = new Date(now - 30 * 60 * 1000);
-      const recentOdds = gameOdds.filter(o => {
-        const oddsTime = new Date(o.timestamp);
+      const recentOdds = deduplicatedOdds.filter(o => {
+        const oddsTime = new Date(o.timestamp || o.created_at);
         return oddsTime > thirtyMinutesAgo;
       });
       
@@ -830,7 +861,6 @@ class AnalyticsController {
               reason: `2-way arbitrage profit of ${profit.toFixed(1)}% is extremely high and requires investigation`,
               calculatedValue: profit,
               timestamp: new Date().toISOString()
-              }
             });
           } else if (profit > 5) {
             console.warn(`SUSPICIOUS HIGH ARBITRAGE: ${profit.toFixed(2)}% for ${game.away_team} @ ${game.home_team}`);
@@ -882,6 +912,15 @@ class AnalyticsController {
             });
           }
           
+          // DEBUG: Log potential arbitrage opportunities
+          if (profit > 0.05) { // Show even tiny profits for debugging
+            console.log(`🎯 POTENTIAL ARBITRAGE: ${profit.toFixed(3)}% profit`);
+            console.log(`  Game: ${game.away_team} @ ${game.home_team}`);
+            console.log(`  Best Home: ${bestHome.sportsbook} +${bestHome.odds} (${(homeImplied*100).toFixed(2)}%)`);
+            console.log(`  Best Away: ${bestAway.sportsbook} ${bestAway.odds} (${(awayImplied*100).toFixed(2)}%)`);
+            console.log(`  Total implied: ${(totalImplied*100).toFixed(2)}%`);
+          }
+          
           if (profit > 0.1 && profit <= 20) { // Only show if profit between 0.1% and 20% to filter calculation errors
             const totalStake = 1000; // Assume $1000 total stake
             const homeStake = totalStake * (homeImplied / totalImplied);
@@ -920,6 +959,7 @@ class AnalyticsController {
           }
         }
       }
+      } // End of inner game loop
       
       // Yield control to UI between batches  
       if (i + batchSize < gamesToProcess.length) {
@@ -1028,8 +1068,8 @@ class AnalyticsController {
               issue: 'High 3-Way Arbitrage',
               reason: `3-way arbitrage profit of ${profit.toFixed(1)}% is unusually high for reputable books`,
               calculatedValue: profit,
-              timestamp: new Date().toISOString()
-                sideB: {
+              timestamp: new Date().toISOString(),
+              sideB: {
                   bet: bestAway.team,
                   sportsbook: bestAway.sportsbook,
                   odds: bestAway.odds,
@@ -1055,7 +1095,6 @@ class AnalyticsController {
                 returnB: returnAway,
                 returnC: returnDraw,
                 guaranteedProfit: guaranteedProfit
-              }
             });
           }
           
@@ -1464,15 +1503,31 @@ class AnalyticsController {
       // Skip algorithmic/reference odds that aren't real bookmakers
       // UNLESS they're configured as fairline source
       const sportsbook = o.sportsbook?.toLowerCase() || '';
-      const isAlgorithmic = sportsbook.includes('algo') || sportsbook.includes('algorithm');
+      const isAlgorithmic = sportsbook.includes('algo') || sportsbook.includes('algorithm') || 
+                          sportsbook.includes('oddsjam algo') || sportsbook === 'oddsjam algo odds';
       
-      if (isAlgorithmic && !useAlgoFairline) {
+      // ALWAYS filter out algorithmic odds for now since they skew calculations
+      if (isAlgorithmic) {
+        console.log(`Filtering out algorithmic odds: ${o.sportsbook}`);
         return;
       }
-      // Identify live vs pre-game by game status
-      // Find the game data to check game_status
+      // Identify live vs pre-game by game status and start time
+      // Find the game data to check game_status or start time
       const game = this.data.games.find(g => g.game_id === o.game_id);
-      const isLive = game ? (game.game_status === 'live' || game.inning_info) : false;
+      let isLive = false;
+      
+      if (game) {
+        // Check game_status first (if available)
+        if (game.game_status === 'live' || game.inning_info) {
+          isLive = true;
+        } else {
+          // Fallback to time-based detection
+          const gameStartTime = new Date(game.start_time_parsed || game.start_time);
+          const now = new Date();
+          // Consider a game live if it has started and is within 4 hours of start time
+          isLive = gameStartTime <= now && (now - gameStartTime) < (4 * 60 * 60 * 1000);
+        }
+      }
       
       // Fix data quality issues based on sportsbook type
       const fixedOdds = this.fixOddsDataQuality(o);

@@ -93,13 +93,13 @@ class OddsSpiderSpider(scrapy.Spider):
             }
             
             response = requests.get(
-                f"{supabase_url}/sportsbook_filters?enabled=eq.true&order=priority,sportsbook",
+                f"{supabase_url}/bookmaker_filters?enabled=eq.true&order=priority,bookmaker_name",
                 headers=headers
             )
             
             if response.ok:
                 enabled_books = response.json()
-                sportsbook_names = [book['sportsbook'] for book in enabled_books]
+                sportsbook_names = [book['bookmaker_name'] for book in enabled_books]
                 self.logger.info(f"Loaded {len(sportsbook_names)} enabled sportsbooks: {sportsbook_names}")
                 return set(sportsbook_names)
             else:
@@ -542,13 +542,16 @@ class OddsSpiderSpider(scrapy.Spider):
                     # Combine odds from both sides
                     all_sportsbooks = set(home_odds_data.keys()) | set(away_odds_data.keys())
                     
+                    # TEMPORARY: Disable sportsbook filtering to get ALL 75+ bookmakers
                     # Filter sportsbooks if filtering is enabled
-                    if self.enabled_sportsbooks:
-                        original_count = len(all_sportsbooks)
-                        all_sportsbooks = all_sportsbooks & self.enabled_sportsbooks
-                        filtered_count = len(all_sportsbooks)
-                        if original_count != filtered_count:
-                            self.logger.info(f"Filtered sportsbooks for {game_id}: {original_count} → {filtered_count}")
+                    # if self.enabled_sportsbooks:
+                    #     original_count = len(all_sportsbooks)
+                    #     all_sportsbooks = all_sportsbooks & self.enabled_sportsbooks
+                    #     filtered_count = len(all_sportsbooks)
+                    #     if original_count != filtered_count:
+                    #         self.logger.info(f"Filtered sportsbooks for {game_id}: {original_count} → {filtered_count}")
+                    
+                    self.logger.info(f"Processing ALL {len(all_sportsbooks)} sportsbooks for {game_id} (filtering disabled)")
                     
                     for sportsbook_name in all_sportsbooks:
                         home_odds_list = home_odds_data.get(sportsbook_name, [])

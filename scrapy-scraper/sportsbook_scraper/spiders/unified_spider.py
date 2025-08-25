@@ -300,8 +300,11 @@ class UnifiedSpider(scrapy.Spider):
                     game_item['game_id'] = game_id
                     game_item['home_team'] = home_team
                     game_item['away_team'] = away_team
-                    game_item['start_time'] = datetime.utcnow().isoformat()
-                    game_item['start_time_parsed'] = datetime.utcnow().isoformat()
+                    
+                    # Parse actual game start time from game_id or API data
+                    actual_start_time = self.parse_game_start_time(game_data, game_id)
+                    game_item['start_time'] = actual_start_time
+                    game_item['start_time_parsed'] = actual_start_time
                     game_item['created_at'] = datetime.utcnow().isoformat()
                     yield game_item
                     
@@ -384,3 +387,60 @@ class UnifiedSpider(scrapy.Spider):
                 except (ValueError, TypeError):
                     pass
         return None
+    
+    def parse_game_start_time(self, game_data, game_id):
+        """Parse actual game start time from API data or game_id"""
+        try:
+            # First, check if API provides actual start time fields
+            if isinstance(game_data, dict):
+                # Look for common time fields in the API response
+                time_fields = ['start_time', 'commence_time', 'game_time', 'event_time', 'scheduled_time']
+                for field in time_fields:
+                    if field in game_data and game_data[field]:
+                        # Try to parse the time
+                        time_str = str(game_data[field])
+                        # Handle Unix timestamp
+                        if time_str.isdigit() and len(time_str) == 10:
+                            return datetime.fromtimestamp(int(time_str)).isoformat()
+                        # Handle ISO format
+                        try:
+                            parsed_time = datetime.fromisoformat(time_str.replace('Z', '+00:00'))
+                            return parsed_time.isoformat()
+                        except:
+                            pass
+            
+            # Fallback: Parse from game_id format: "teamId1-teamId2-YYYY-MM-DD-HH"
+            if '-' in game_id:
+                parts = game_id.split('-')
+                if len(parts) >= 5:
+                    try:
+                        year = int(parts[-3])
+                        month = int(parts[-2])
+                        day = int(parts[-1])
+                        # Default hour to 19 (7 PM) if not specified
+                        hour = 19
+                        
+                        # Check if there's an hour part
+                        if len(parts) >= 6:
+                            try:
+                                hour = int(parts[-1])
+                                day = int(parts[-2])
+                                month = int(parts[-3])
+                                year = int(parts[-4])
+                            except:
+                                pass
+                        
+                        # Create datetime object
+                        game_datetime = datetime(year, month, day, hour, 0, 0)
+                        return game_datetime.isoformat()
+                        
+                    except (ValueError, IndexError) as e:
+                        self.logger.warning(f"Could not parse game_id {game_id} for time: {e}")
+            
+            # Ultimate fallback: use current time
+            self.logger.warning(f"Could not determine start time for {game_id}, using current time")
+            return datetime.utcnow().isoformat()
+            
+        except Exception as e:
+            self.logger.error(f"Error parsing start time for {game_id}: {e}")
+            return datetime.utcnow().isoformat()
