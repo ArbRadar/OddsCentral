@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scraping Diagnostics</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0e1a;
+      color: #e4e4e7;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 10px;
+    }
+    
+    .subtitle {
+      color: #94a3b8;
+      font-size: 16px;
+    }
+    
+    .diagnostic-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .diagnostic-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .status-good { color: #22c55e; }
+    .status-warning { color: #f59e0b; }
+    .status-error { color: #ef4444; }
+    .status-info { color: #3b82f6; }
+    
+    .diagnostic-item {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .diagnostic-label {
+      color: #94a3b8;
+    }
+    
+    .diagnostic-value {
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 14px;
+    }
+    
+    .troubleshooting {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .troubleshooting h3 {
+      color: #f59e0b;
+      margin-bottom: 15px;
+    }
+    
+    .troubleshooting-steps {
+      list-style: none;
+      counter-reset: step-counter;
+    }
+    
+    .troubleshooting-steps li {
+      counter-increment: step-counter;
+      margin-bottom: 10px;
+      padding-left: 30px;
+      position: relative;
+    }
+    
+    .troubleshooting-steps li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #3b82f6;
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    
+    .btn:hover {
+      background: #2563eb;
+    }
+    
+    .btn-secondary {
+      background: #6b7280;
+    }
+    
+    .btn-secondary:hover {
+      background: #4b5563;
+    }
+    
+    .code-block {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 4px;
+      padding: 15px;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 12px;
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+    
+    .endpoint-list {
+      max-height: 200px;
+      overflow-y: auto;
+      background: #0f172a;
+      border-radius: 4px;
+      padding: 10px;
+    }
+    
+    .endpoint-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 5px 0;
+      border-bottom: 1px solid #334155;
+    }
+    
+    .endpoint-item:last-child {
+      border-bottom: none;
+    }
+    
+    .method-badge {
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    
+    .method-GET { background: #22c55e; color: #000; }
+    .method-POST { background: #3b82f6; color: #fff; }
+    .method-PUT { background: #f59e0b; color: #000; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🔍 Scraping Diagnostics</h1>
+      <p class="subtitle">Troubleshoot API endpoint discovery and scraping issues</p>
+    </div>
+    
+    <div class="diagnostic-grid">
+      <div class="diagnostic-card">
+        <div class="card-title">
+          <span>📊</span> Current Status
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">Scraping Method:</span>
+          <span class="diagnostic-value" id="current-method">Loading...</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">Configuration:</span>
+          <span class="diagnostic-value" id="config-method">Loading...</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">API Endpoints:</span>
+          <span class="diagnostic-value" id="total-endpoints">0</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">Odds Endpoints:</span>
+          <span class="diagnostic-value" id="odds-endpoints">0</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">API Scraper:</span>
+          <span class="diagnostic-value" id="api-scraper-status">Not loaded</span>
+        </div>
+      </div>
+      
+      <div class="diagnostic-card">
+        <div class="card-title">
+          <span>🌐</span> Current Site
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">Domain:</span>
+          <span class="diagnostic-value" id="current-domain">Loading...</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">URL:</span>
+          <span class="diagnostic-value" id="current-url" style="word-break: break-all; font-size: 11px;">Loading...</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">API Detection:</span>
+          <span class="diagnostic-value" id="api-detection">Unknown</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">Interceptor:</span>
+          <span class="diagnostic-value" id="interceptor-status">Unknown</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="diagnostic-card">
+      <div class="card-title">
+        <span>📡</span> Discovered Endpoints
+      </div>
+      <div id="endpoints-container">
+        <p style="color: #64748b;">Loading endpoints...</p>
+      </div>
+    </div>
+    
+    <div class="troubleshooting">
+      <h3>⚠️ Troubleshooting API Scraping Issues</h3>
+      <div id="troubleshooting-content">
+        <p style="color: #64748b;">Analyzing issues...</p>
+      </div>
+    </div>
+    
+    <div style="display: flex; gap: 10px; margin-top: 20px;">
+      <button class="btn" id="refresh-btn">🔄 Refresh Diagnostics</button>
+      <button class="btn btn-secondary" id="test-endpoints-btn">🧪 Test Endpoints</button>
+      <button class="btn btn-secondary" id="clear-cache-btn">🗑️ Clear Cache</button>
+    </div>
+    
+    <div class="code-block" id="debug-log">
+      <strong>Debug Log:</strong><br>
+      Diagnostics page loaded...
+    </div>
+  </div>
+  
+  <script src="diagnostics.js"></script>
+</body>
+</html>

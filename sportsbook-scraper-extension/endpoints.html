@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discovered API Endpoints</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0e1a;
+      color: #e4e4e7;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #1e293b;
+    }
+    
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #f1f5f9;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    
+    .btn {
+      padding: 8px 16px;
+      border: 1px solid #334155;
+      background: #1e293b;
+      color: #e4e4e7;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    
+    .btn:hover {
+      background: #334155;
+      border-color: #475569;
+    }
+    
+    .btn-primary {
+      background: #3b82f6;
+      border-color: #3b82f6;
+    }
+    
+    .btn-primary:hover {
+      background: #2563eb;
+      border-color: #2563eb;
+    }
+    
+    .filter-input {
+      padding: 8px 12px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #e4e4e7;
+      border-radius: 6px;
+      width: 300px;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .stat-card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+    }
+    
+    .stat-value {
+      font-size: 32px;
+      font-weight: 600;
+      color: #3b82f6;
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-top: 5px;
+    }
+    
+    .domains-grid {
+      display: grid;
+      gap: 20px;
+    }
+    
+    .domain-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .domain-header {
+      background: #0f172a;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .domain-header:hover {
+      background: #1a2332;
+    }
+    
+    .domain-name {
+      font-size: 18px;
+      font-weight: 500;
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .endpoint-count {
+      background: #3b82f6;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+    
+    .domain-meta {
+      font-size: 12px;
+      color: #64748b;
+    }
+    
+    .endpoints-list {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .domain-card.expanded .endpoints-list {
+      max-height: 2000px;
+    }
+    
+    .endpoint-item {
+      padding: 15px 20px;
+      border-top: 1px solid #334155;
+      display: grid;
+      gap: 10px;
+      transition: background 0.2s;
+    }
+    
+    .endpoint-item:hover {
+      background: #0f172a;
+    }
+    
+    .endpoint-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .method {
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: 'Monaco', 'Consolas', monospace;
+    }
+    
+    .method.GET { background: #22c55e; color: #052e16; }
+    .method.POST { background: #3b82f6; color: #172554; }
+    .method.PUT { background: #f59e0b; color: #451a03; }
+    .method.DELETE { background: #ef4444; color: #450a0a; }
+    
+    .endpoint-path {
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 14px;
+      color: #e4e4e7;
+      word-break: break-all;
+    }
+    
+    .endpoint-details {
+      display: grid;
+      gap: 8px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    
+    .detail-row {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .detail-label {
+      color: #64748b;
+      min-width: 80px;
+    }
+    
+    .detail-value {
+      font-family: 'Monaco', 'Consolas', monospace;
+      color: #94a3b8;
+    }
+    
+    .structure-preview {
+      background: #0f172a;
+      padding: 10px;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+    
+    .query-params {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    
+    .query-param {
+      background: #334155;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 11px;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #64748b;
+    }
+    
+    .empty-state h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #94a3b8;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #64748b;
+    }
+    
+    .export-menu {
+      position: relative;
+    }
+    
+    .export-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 5px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 5px;
+      display: none;
+      min-width: 150px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    .export-dropdown.show {
+      display: block;
+    }
+    
+    .export-option {
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    
+    .export-option:hover {
+      background: #334155;
+    }
+    
+    .chevron {
+      transition: transform 0.3s;
+      display: inline-block;
+    }
+    
+    .domain-card.expanded .chevron {
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🔍 Discovered API Endpoints</h1>
+      <div class="controls">
+        <input type="text" class="filter-input" id="filter" placeholder="Filter endpoints...">
+        <button class="btn" id="refresh-btn">↻ Refresh</button>
+        <button class="btn" id="clear-btn">Clear All</button>
+        <div class="export-menu">
+          <button class="btn btn-primary" id="export-btn">Export</button>
+          <div class="export-dropdown" id="export-dropdown">
+            <div class="export-option" data-format="json">Export as JSON</div>
+            <div class="export-option" data-format="har">Export as HAR</div>
+            <div class="export-option" data-format="postman">Export for Postman</div>
+            <div class="export-option" data-format="curl">Export as cURL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="stats" id="stats">
+      <div class="stat-card">
+        <div class="stat-value" id="total-domains">0</div>
+        <div class="stat-label">Domains</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="total-endpoints">0</div>
+        <div class="stat-label">Total Endpoints</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="unique-paths">0</div>
+        <div class="stat-label">Unique Paths</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="api-calls">0</div>
+        <div class="stat-label">API Calls Captured</div>
+      </div>
+    </div>
+    
+    <div class="domains-grid" id="domains-grid">
+      <div class="loading">Loading endpoints...</div>
+    </div>
+  </div>
+  
+  <script src="endpoints.js"></script>
+</body>
+</html>

@@ -16,7 +16,10 @@ CREATE TABLE IF NOT EXISTS games (
   inning_info VARCHAR(50), -- For live games: '7 Top', '3 Bottom', etc.
   game_url TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW(),
-  updated_at TIMESTAMPTZ DEFAULT NOW()
+  updated_at TIMESTAMPTZ DEFAULT NOW(),
+  name VARCHAR(511), -- "TeamA vs TeamB" format
+  sport_display VARCHAR(100), -- "Baseball", "Football", etc.
+  league_display VARCHAR(100) -- "MLB", "NFL", etc.
 );
 
 -- Create odds table
@@ -26,13 +29,17 @@ CREATE TABLE IF NOT EXISTS odds (
   sportsbook VARCHAR(100) NOT NULL,
   home_odds INTEGER,
   away_odds INTEGER,
+  draw_odds INTEGER, -- For 3-way markets like soccer
   home_odds_percent DECIMAL(5,2),
   away_odds_percent DECIMAL(5,2),
+  draw_odds_percent DECIMAL(5,2), -- For 3-way markets like soccer
   odds_format VARCHAR(20), -- 'american', 'percentage', 'decimal', etc.
   best_home_odds INTEGER, -- Best available odds for home team at time of scraping
   best_away_odds INTEGER, -- Best available odds for away team at time of scraping
+  best_draw_odds INTEGER, -- Best available draw odds for 3-way markets
   avg_home_odds INTEGER, -- Average odds for home team at time of scraping
   avg_away_odds INTEGER, -- Average odds for away team at time of scraping
+  avg_draw_odds INTEGER, -- Average draw odds for 3-way markets
   timestamp TIMESTAMPTZ NOT NULL,
   url TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -46,17 +53,23 @@ CREATE TABLE IF NOT EXISTS odds_history (
   sportsbook VARCHAR(100) NOT NULL,
   home_odds INTEGER,
   away_odds INTEGER,
+  draw_odds INTEGER, -- For 3-way markets like soccer
   home_odds_percent DECIMAL(5,2),
   away_odds_percent DECIMAL(5,2),
+  draw_odds_percent DECIMAL(5,2), -- For 3-way markets like soccer
   previous_home_odds INTEGER,
   previous_away_odds INTEGER,
+  previous_draw_odds INTEGER, -- Previous draw odds for 3-way markets
   previous_home_odds_percent DECIMAL(5,2),
   previous_away_odds_percent DECIMAL(5,2),
+  previous_draw_odds_percent DECIMAL(5,2), -- Previous draw odds percentage
   odds_format VARCHAR(20),
   best_home_odds INTEGER, -- Best available odds for home team at time of scraping
   best_away_odds INTEGER, -- Best available odds for away team at time of scraping
+  best_draw_odds INTEGER, -- Best available draw odds for 3-way markets
   avg_home_odds INTEGER, -- Average odds for home team at time of scraping
   avg_away_odds INTEGER, -- Average odds for away team at time of scraping
+  avg_draw_odds INTEGER, -- Average draw odds for 3-way markets
   timestamp TIMESTAMPTZ NOT NULL,
   url TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW()
@@ -86,32 +99,50 @@ $$ language 'plpgsql';
 CREATE TRIGGER update_games_updated_at BEFORE UPDATE ON games
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
+-- Create PostgREST roles
+CREATE ROLE anon NOLOGIN;
+CREATE ROLE authenticated NOLOGIN;  
+CREATE ROLE service_role NOLOGIN;
+
+-- Grant the roles to postgres so PostgREST can switch to them
+GRANT anon TO postgres;
+GRANT authenticated TO postgres;
+GRANT service_role TO postgres;
+
+-- Grant schema access to PostgREST roles
+GRANT USAGE ON SCHEMA public TO anon, authenticated, service_role;
+GRANT ALL ON ALL TABLES IN SCHEMA public TO anon, authenticated, service_role;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO anon, authenticated, service_role;
+
 -- Enable Row Level Security (RLS)
 ALTER TABLE games ENABLE ROW LEVEL SECURITY;
 ALTER TABLE odds ENABLE ROW LEVEL SECURITY;
 ALTER TABLE odds_history ENABLE ROW LEVEL SECURITY;
 
--- Create policies for anonymous access (for development)
-CREATE POLICY "Enable read access for all users" ON games
-    FOR SELECT USING (true);
+-- Create policies for PostgREST roles
+CREATE POLICY "Enable all for anon" ON games
+    FOR ALL TO anon USING (true) WITH CHECK (true);
 
-CREATE POLICY "Enable insert for all users" ON games
-    FOR INSERT WITH CHECK (true);
+CREATE POLICY "Enable all for authenticated" ON games
+    FOR ALL TO authenticated USING (true) WITH CHECK (true);
 
-CREATE POLICY "Enable update for all users" ON games
-    FOR UPDATE USING (true);
+CREATE POLICY "Enable all for service_role" ON games
+    FOR ALL TO service_role USING (true) WITH CHECK (true);
 
-CREATE POLICY "Enable read access for all users" ON odds
-    FOR SELECT USING (true);
+CREATE POLICY "Enable all for anon" ON odds
+    FOR ALL TO anon USING (true) WITH CHECK (true);
 
-CREATE POLICY "Enable insert for all users" ON odds
-    FOR INSERT WITH CHECK (true);
+CREATE POLICY "Enable all for authenticated" ON odds
+    FOR ALL TO authenticated USING (true) WITH CHECK (true);
 
-CREATE POLICY "Enable update for all users" ON odds
-    FOR UPDATE USING (true);
+CREATE POLICY "Enable all for service_role" ON odds
+    FOR ALL TO service_role USING (true) WITH CHECK (true);
 
-CREATE POLICY "Enable read access for all users" ON odds_history
-    FOR SELECT USING (true);
+CREATE POLICY "Enable all for anon" ON odds_history
+    FOR ALL TO anon USING (true) WITH CHECK (true);
 
-CREATE POLICY "Enable insert for all users" ON odds_history
-    FOR INSERT WITH CHECK (true);
+CREATE POLICY "Enable all for authenticated" ON odds_history
+    FOR ALL TO authenticated USING (true) WITH CHECK (true);
+
+CREATE POLICY "Enable all for service_role" ON odds_history
+    FOR ALL TO service_role USING (true) WITH CHECK (true);

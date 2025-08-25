@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraper Control - OddsCentral</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .status {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        
+        .status.success { background: #d4edda; color: #155724; }
+        .status.error { background: #f8d7da; color: #721c24; }
+        .status.info { background: #d1ecf1; color: #0c5460; }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #555;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            vertical-align: middle;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #28a745;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        .target-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .target-info {
+            flex: 1;
+        }
+        
+        .target-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .target-details {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .config-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .config-item:last-child {
+            border-bottom: none;
+        }
+        
+        .config-value {
+            font-weight: 600;
+            color: #007bff;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        
+        button.primary {
+            background: #007bff;
+            color: white;
+        }
+        
+        button.primary:hover {
+            background: #0056b3;
+        }
+        
+        button.secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        button.secondary:hover {
+            background: #545b62;
+        }
+        
+        .auth-status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .auth-status.valid {
+            background: #28a745;
+            color: white;
+        }
+        
+        .auth-status.expired {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-box {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .refresh-btn {
+            float: right;
+            margin-bottom: 20px;
+        }
+        
+        .loading {
+            text-align: center;
+            color: #666;
+            padding: 40px;
+        }
+        
+        .input-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            min-width: 150px;
+            font-weight: 500;
+        }
+        
+        .input-group input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .input-group select {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 OddsCentral Scraper Control</h1>
+        <p style="color: #666; margin-bottom: 30px;">Manage scraping targets, authentication, and monitor status</p>
+        
+        <div id="status" class="status info" style="display: none;"></div>
+        
+        <button id="refreshBtn" class="primary refresh-btn">🔄 Refresh All</button>
+        <div style="clear: both;"></div>
+        
+        <!-- Statistics Section -->
+        <div class="section">
+            <h2>📊 Current Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-box" style="background: #28a745;">
+                    <div id="totalGames" class="stat-number">-</div>
+                    <div class="stat-label">Total Games</div>
+                </div>
+                <div class="stat-box" style="background: #17a2b8;">
+                    <div id="totalOdds" class="stat-number">-</div>
+                    <div class="stat-label">Total Odds</div>
+                </div>
+                <div class="stat-box" style="background: #ffc107; color: #333;">
+                    <div id="pollInterval" class="stat-number">-</div>
+                    <div class="stat-label">Poll Interval (sec)</div>
+                </div>
+                <div class="stat-box" style="background: #6c757d;">
+                    <div id="lastScraped" class="stat-number">-</div>
+                    <div class="stat-label">Last Scraped</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scraping Targets Section -->
+        <div class="section">
+            <h2>🏈 Scraping Targets</h2>
+            <div id="targetsLoading" class="loading">Loading targets...</div>
+            <div id="targetsList" style="display: none;"></div>
+        </div>
+        
+        <!-- Configuration Section -->
+        <div class="section">
+            <h2>⚙️ Configuration</h2>
+            <div class="card">
+                <h3>Polling Configuration</h3>
+                <div class="input-group">
+                    <label>Poll Interval (seconds):</label>
+                    <input type="number" id="pollIntervalInput" min="5" max="300" value="60">
+                    <button id="updatePollBtn" class="primary">Update</button>
+                </div>
+                <p style="font-size: 14px; color: #666; margin-top: 10px;">
+                    Recommended: 60 seconds. Lower values may trigger rate limiting.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Authentication Section -->
+        <div class="section">
+            <h2>🔐 Authentication Status</h2>
+            <div id="authLoading" class="loading">Loading authentication...</div>
+            <div id="authInfo" style="display: none;">
+                <div class="card">
+                    <h3>OddsJam Authentication</h3>
+                    <div class="config-item">
+                        <span>Status:</span>
+                        <span id="authStatus" class="auth-status">Checking...</span>
+                    </div>
+                    <div class="config-item">
+                        <span>Source:</span>
+                        <span id="authSource" class="config-value">-</span>
+                    </div>
+                    <div class="config-item">
+                        <span>Expires:</span>
+                        <span id="authExpires" class="config-value">-</span>
+                    </div>
+                    <div class="config-item">
+                        <span>Last Updated:</span>
+                        <span id="authUpdated" class="config-value">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add New Target Section -->
+        <div class="section">
+            <h2>➕ Add New Target</h2>
+            <div class="card">
+                <div class="input-group">
+                    <label>Sport:</label>
+                    <select id="newSport">
+                        <option value="baseball">Baseball</option>
+                        <option value="football">Football</option>
+                        <option value="basketball">Basketball</option>
+                        <option value="hockey">Hockey</option>
+                        <option value="soccer">Soccer</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>League:</label>
+                    <select id="newLeague">
+                        <option value="mlb">MLB</option>
+                        <option value="nfl">NFL</option>
+                        <option value="nba">NBA</option>
+                        <option value="nhl">NHL</option>
+                        <option value="ncaaf">NCAAF</option>
+                        <option value="ncaab">NCAAB</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Market:</label>
+                    <select id="newMarket">
+                        <option value="moneyline">Moneyline</option>
+                        <option value="spread">Spread</option>
+                        <option value="total">Total</option>
+                    </select>
+                </div>
+                <button id="addTargetBtn" class="primary">Add Target</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="scraper-control.js"></script>
+</body>
+</html>

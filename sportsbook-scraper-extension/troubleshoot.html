@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Troubleshooting - Flagged Opportunities</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-button {
+      padding: 0.75rem 1.5rem;
+      background: white;
+      color: #dc2626;
+      border: 2px solid #dc2626;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .nav-button:hover {
+      background: #dc2626;
+      color: white;
+    }
+
+    .stats-overview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+    }
+
+    .stat-card h3 {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-card .value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .stat-card .subtitle {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-top: 0.25rem;
+    }
+
+    .rejected { color: #dc2626; }
+    .suspicious { color: #f59e0b; }
+    .extreme { color: #7c3aed; }
+
+    .filter-bar {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .filter-group label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    .filter-select {
+      padding: 0.5rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      background: white;
+    }
+
+    .opportunities-table {
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .opportunities-table th,
+    .opportunities-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .opportunities-table th {
+      background-color: #f8fafc;
+      font-weight: 600;
+      color: #374151;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .opportunities-table tbody tr:hover {
+      background-color: #f8fafc;
+    }
+
+    .flag-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .flag-rejected { background: #fee2e2; color: #991b1b; }
+    .flag-suspicious { background: #fef3c7; color: #92400e; }
+    .flag-extreme { background: #ede9fe; color: #5b21b6; }
+    .flag-data-error { background: #f3f4f6; color: #374151; }
+
+    .odds-display {
+      font-family: monospace;
+      font-size: 0.875rem;
+      background: #f1f5f9;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      margin: 0.25rem 0;
+    }
+
+    .calculation-details {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    .calculation-step {
+      margin: 0.5rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid #e2e8f0;
+    }
+
+    .formula {
+      font-family: monospace;
+      background: #1e293b;
+      color: #10b981;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin: 0.25rem 0;
+    }
+
+    .expandable {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .expandable:hover {
+      background-color: #f1f5f9;
+    }
+
+    .details-row {
+      display: none;
+    }
+
+    .details-row.show {
+      display: table-row;
+    }
+
+    .details-content {
+      padding: 1rem;
+      background: #f8fafc;
+    }
+
+    .odds-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .odds-section {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .odds-section h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 0.5rem;
+    }
+
+    .bookmaker-odds {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.25rem 0;
+      font-size: 0.875rem;
+    }
+
+    .bookmaker-odds:hover {
+      background: #f8fafc;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: #64748b;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem;
+      color: #64748b;
+    }
+
+    .refresh-btn {
+      background: #dc2626;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .refresh-btn:hover {
+      background: #b91c1c;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    @media (max-width: 768px) {
+      .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .filter-group {
+        width: 100%;
+      }
+      
+      .filter-select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🔍 Troubleshooting Center</h1>
+    <p>Analyze flagged and rejected opportunities for data quality issues</p>
+  </div>
+
+  <div class="container">
+    <div class="nav-buttons">
+      <a href="analytics.html" class="nav-button">← Back to Analytics</a>
+      <a href="config.html" class="nav-button">⚙️ Configuration</a>
+    </div>
+
+    <!-- Statistics Overview -->
+    <div class="stats-overview">
+      <div class="stat-card">
+        <h3>Total Flagged</h3>
+        <div class="value" id="total-flagged">0</div>
+        <div class="subtitle">Opportunities requiring review</div>
+      </div>
+      <div class="stat-card">
+        <h3>Rejected +EV</h3>
+        <div class="value rejected" id="rejected-ev">0</div>
+        <div class="subtitle">Impossible EV calculations</div>
+      </div>
+      <div class="stat-card">
+        <h3>Suspicious Arbitrage</h3>
+        <div class="value suspicious" id="suspicious-arb">0</div>
+        <div class="subtitle">High profit arbitrage</div>
+      </div>
+      <div class="stat-card">
+        <h3>Data Errors</h3>
+        <div class="value extreme" id="data-errors">0</div>
+        <div class="subtitle">Classification issues</div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label for="type-filter">Type:</label>
+        <select id="type-filter" class="filter-select">
+          <option value="all">All Types</option>
+          <option value="ev">+EV Opportunities</option>
+          <option value="arb">Arbitrage</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="flag-filter">Flag Type:</label>
+        <select id="flag-filter" class="filter-select">
+          <option value="all">All Flags</option>
+          <option value="rejected">Rejected (>50% EV)</option>
+          <option value="suspicious">Suspicious (15-50% EV)</option>
+          <option value="extreme">Extreme (>10% Arb)</option>
+          <option value="data-error">Data Error</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="sport-filter">Sport:</label>
+        <select id="sport-filter" class="filter-select">
+          <option value="all">All Sports</option>
+        </select>
+      </div>
+      <button class="refresh-btn" id="refresh-btn">Refresh</button>
+    </div>
+
+    <!-- Flagged Opportunities Table -->
+    <div class="section-header">
+      <h2 class="section-title">Flagged Opportunities</h2>
+      <div id="last-updated">Last updated: Never</div>
+    </div>
+
+    <table class="opportunities-table">
+      <thead>
+        <tr>
+          <th>Flag Type</th>
+          <th>Game</th>
+          <th>Type</th>
+          <th>Issue</th>
+          <th>Calculated Value</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody id="flagged-table-body">
+        <tr>
+          <td colspan="6" class="loading">Loading flagged opportunities...</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Detailed Analysis Section -->
+    <div id="detailed-analysis" style="display: none;">
+      <h2 class="section-title">Detailed Analysis</h2>
+      <div id="analysis-content"></div>
+    </div>
+  </div>
+
+  <script src="troubleshoot.js"></script>
+</body>
+</html>

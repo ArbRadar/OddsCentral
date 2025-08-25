@@ -12,6 +12,7 @@ services:
       POSTGRES_DB: postgres
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/99-custom-init.sql
 
   auth:
     container_name: supabase-auth

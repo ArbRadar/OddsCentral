@@ -43,19 +43,59 @@
       padding: 2rem;
     }
 
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-button {
+      padding: 0.75rem 1.5rem;
+      background: white;
+      color: #3b82f6;
+      border: 2px solid #3b82f6;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .nav-button:hover {
+      background: #3b82f6;
+      color: white;
+    }
+
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stats-grid-bottom {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
 
     .stat-card {
       background: white;
-      border-radius: 12px;
-      padding: 1.5rem;
+      border-radius: 8px;
+      padding: 1rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       border: 1px solid #e2e8f0;
+    }
+
+    .stat-card-wide {
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
     }
 
     .stat-card h3 {
@@ -68,10 +108,17 @@
     }
 
     .stat-card .value {
-      font-size: 2rem;
+      font-size: 1.75rem;
       font-weight: 700;
       color: #1e293b;
       margin-bottom: 0.25rem;
+    }
+
+    .refresh-info {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-top: 0.25rem;
+      line-height: 1.3;
     }
 
     .stat-card .change {
@@ -242,6 +289,28 @@
       background: white;
     }
 
+    .filter-select[multiple] {
+      min-height: 60px;
+      max-height: 100px;
+      overflow-y: auto;
+    }
+
+    .bookmaker-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-top: 0.25rem;
+    }
+
+    .bookmaker-tag {
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 0.125rem 0.375rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
     .last-updated {
       font-size: 0.75rem;
       color: #64748b;
@@ -269,6 +338,9 @@
       font-weight: 500;
       color: #64748b;
       transition: all 0.2s;
+      position: relative;
+      z-index: 10;
+      pointer-events: auto;
     }
 
     .tab:first-child {
@@ -315,10 +387,16 @@
   </div>
 
   <div class="container">
+    <div class="nav-buttons">
+      <a href="sportsbook.html" class="nav-button">🎯 Sportsbook Data</a>
+      <a href="config.html" class="nav-button">⚙️ Configuration</a>
+      <a href="troubleshoot.html" class="nav-button">🔍 Troubleshooting</a>
+    </div>
+
     <!-- Summary Stats -->
     <div class="stats-grid">
       <div class="stat-card">
-        <h3>Total Games Tracked</h3>
+        <h3>Total Games</h3>
         <div class="value" id="total-games">-</div>
         <div class="change neutral" id="games-change">Loading...</div>
       </div>
@@ -326,34 +404,62 @@
         <h3>+EV Opportunities</h3>
         <div class="value positive" id="ev-opportunities">-</div>
         <div class="change neutral" id="ev-change">Loading...</div>
+        <div class="refresh-info" id="ev-refresh-info">Never refreshed</div>
       </div>
       <div class="stat-card">
         <h3>Arbitrage Opportunities</h3>
         <div class="value positive" id="arb-opportunities">-</div>
         <div class="change neutral" id="arb-change">Loading...</div>
+        <div class="refresh-info" id="arb-refresh-info">Never refreshed</div>
       </div>
-      <div class="stat-card">
-        <h3>Sportsbooks Tracked</h3>
-        <div class="value" id="sportsbooks-count">-</div>
-        <div class="change neutral" id="sportsbooks-change">Loading...</div>
+    </div>
+    
+    <!-- Sportsbooks & Performance Stats -->
+    <div class="stats-grid-bottom">
+      <div class="stat-card-wide">
+        <div>
+          <h3>Sportsbooks Tracked</h3>
+          <div class="value" id="sportsbooks-count">-</div>
+          <div class="change neutral" id="sportsbooks-change">Loading...</div>
+        </div>
+        <div>
+          <h3>Data Ingestion</h3>
+          <div class="value" id="refresh-rate">-</div>
+          <div class="change neutral" id="refresh-rate-change">Odds data ingestion rate</div>
+          <div class="refresh-info" id="performance-info">Calculating...</div>
+        </div>
       </div>
     </div>
 
     <!-- Tabs Navigation -->
     <div class="tabs">
-      <button class="tab active" onclick="switchTab(event, 'ev-tab')">+EV Opportunities</button>
-      <button class="tab" onclick="switchTab(event, 'arb-tab')">Arbitrage Opportunities</button>
+      <button class="tab active" data-tab="ev-pregame-tab">+EV Pre-Game</button>
+      <button class="tab" data-tab="ev-live-tab">+EV Live</button>
+      <button class="tab" data-tab="arb-tab">Arbitrage Opportunities</button>
+      <button class="tab" data-tab="stats-tab">URL Statistics</button>
     </div>
 
     <!-- Tab Content Container -->
     <div class="tab-section">
-      <!-- +EV Opportunities Tab -->
-      <div id="ev-tab" class="tab-content active">
+      <!-- +EV Pre-Game Opportunities Tab -->
+      <div id="ev-pregame-tab" class="tab-content active">
         <div class="section-header">
-          <h2>+EV Opportunities</h2>
+          <h2>+EV Pre-Game Opportunities</h2>
           <button class="refresh-btn" id="refresh-btn">Refresh</button>
         </div>
         <div class="filter-bar">
+          <div class="filter-group">
+            <label for="data-freshness">Data Freshness:</label>
+            <select id="data-freshness" class="filter-select">
+              <option value="0.017">Last 1 minute</option>
+              <option value="0.083">Last 5 minutes</option>
+              <option value="0.25">Last 15 minutes</option>
+              <option value="0.5">Last 30 minutes</option>
+              <option value="1" selected>Last 1 hour</option>
+              <option value="6">Last 6 hours</option>
+              <option value="24">Last 24 hours</option>
+            </select>
+          </div>
           <div class="filter-group">
             <label for="sport-filter">Sport:</label>
             <select id="sport-filter" class="filter-select">
@@ -361,6 +467,7 @@
               <option value="MLB">MLB</option>
               <option value="NFL">NFL</option>
               <option value="NBA">NBA</option>
+              <option value="SOCCER">Soccer</option>
             </select>
           </div>
           <div class="filter-group">
@@ -372,29 +479,84 @@
               <option value="10">10%+</option>
             </select>
           </div>
+          <div class="filter-group">
+            <label for="ev-bookmakers">Bookmakers:</label>
+            <select id="ev-bookmakers" class="filter-select" multiple>
+              <option value="all" selected>All Bookmakers</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="odds-format">Odds Format:</label>
+            <select id="odds-format" class="filter-select">
+              <option value="american">American (+150/-110)</option>
+              <option value="percentage">Percentage (40.0%)</option>
+              <option value="decimal">Decimal (2.50)</option>
+              <option value="both">Percentage / American</option>
+            </select>
+          </div>
           <div class="last-updated">
             Last updated: <span id="last-updated">Never</span>
           </div>
         </div>
+        <!-- Pre-Game Opportunities -->
         <div class="table-container">
+          <h3 style="margin: 1rem 0 0.5rem 0; color: #374151; font-size: 1.1rem;">📊 Pre-Game Opportunities</h3>
           <table class="opportunities-table">
             <thead>
               <tr>
                 <th>Game</th>
+                <th>Event Date</th>
                 <th>Bet</th>
                 <th>Sportsbook</th>
-                <th>Odds</th>
-                <th>Implied Prob</th>
+                <th>Book Odds</th>
+                <th>Fair Odds</th>
+                <th>Book Prob</th>
                 <th>Fair Prob</th>
                 <th>+EV%</th>
                 <th>Kelly %</th>
               </tr>
             </thead>
-            <tbody id="ev-table-body">
+            <tbody id="ev-pregame-table-body">
               <tr>
-                <td colspan="8" class="loading">
+                <td colspan="10" class="loading">
                   <div class="loading-spinner"></div>
-                  Loading +EV opportunities...
+                  Loading pre-game +EV opportunities...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- +EV Live Opportunities Tab -->
+      <div id="ev-live-tab" class="tab-content">
+        <div class="section-header">
+          <h2>+EV Live Opportunities</h2>
+          <button class="refresh-btn" id="live-refresh-btn">Refresh</button>
+        </div>
+        <!-- Live Opportunities -->
+        <div class="table-container">
+          <h3 style="margin: 1rem 0 0.5rem 0; color: #dc2626; font-size: 1.1rem;">🔴 Live In-Game Opportunities</h3>
+          <table class="opportunities-table">
+            <thead>
+              <tr>
+                <th>Game</th>
+                <th>Game State</th>
+                <th>Bet</th>
+                <th>Sportsbook</th>
+                <th>Book Odds</th>
+                <th>Fair Odds</th>
+                <th>Book Prob</th>
+                <th>Fair Prob</th>
+                <th>+EV%</th>
+                <th>Kelly %</th>
+              </tr>
+            </thead>
+            <tbody id="ev-live-table-body">
+              <tr>
+                <td colspan="10" class="loading">
+                  <div class="loading-spinner"></div>
+                  Loading live +EV opportunities...
                 </td>
               </tr>
             </tbody>
@@ -426,12 +588,19 @@
               <option value="10000">$10,000</option>
             </select>
           </div>
+          <div class="filter-group">
+            <label for="arb-bookmakers">Bookmakers:</label>
+            <select id="arb-bookmakers" class="filter-select" multiple>
+              <option value="all" selected>All Bookmakers</option>
+            </select>
+          </div>
         </div>
         <div class="table-container">
           <table class="opportunities-table">
             <thead>
               <tr>
                 <th>Game</th>
+                <th>Event Date</th>
                 <th>Side A</th>
                 <th>Side B</th>
                 <th>Profit %</th>
@@ -441,9 +610,40 @@
             </thead>
             <tbody id="arb-table-body">
               <tr>
-                <td colspan="6" class="loading">
+                <td colspan="7" class="loading">
                   <div class="loading-spinner"></div>
                   Loading arbitrage opportunities...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- URL Statistics Tab -->
+      <div id="stats-tab" class="tab-content">
+        <div class="section-header">
+          <h2>URL Statistics & Performance</h2>
+          <button class="refresh-btn" id="stats-refresh-btn">Refresh</button>
+        </div>
+        <div class="table-container">
+          <table class="opportunities-table">
+            <thead>
+              <tr>
+                <th>URL</th>
+                <th>Status</th>
+                <th>Total Ingestions</th>
+                <th>Avg Games/Ingestion</th>
+                <th>Avg Odds/Ingestion</th>
+                <th>Last Activity</th>
+                <th>Auto-Reloads</th>
+              </tr>
+            </thead>
+            <tbody id="stats-table-body">
+              <tr>
+                <td colspan="7" class="loading">
+                  <div class="loading-spinner"></div>
+                  Loading URL statistics...
                 </td>
               </tr>
             </tbody>

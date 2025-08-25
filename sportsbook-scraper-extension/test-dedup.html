@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Deduplication</title>
+</head>
+<body>
+    <h1>Testing Data Deduplication</h1>
+    <button id="testBtn">Test GET_ANALYTICS_DATA</button>
+    <div id="results"></div>
+    
+    <script>
+        document.getElementById('testBtn').addEventListener('click', async () => {
+            try {
+                const response = await chrome.runtime.sendMessage({ 
+                    type: 'GET_ANALYTICS_DATA',
+                    hoursBack: 1
+                });
+                
+                if (response && response.success) {
+                    const data = response.data;
+                    
+                    // Count unique game_ids
+                    const uniqueGameIds = new Set(data.games.map(g => g.game_id));
+                    
+                    document.getElementById('results').innerHTML = `
+                        <h2>Results:</h2>
+                        <p><strong>Total games returned:</strong> ${data.games.length}</p>
+                        <p><strong>Unique game_ids:</strong> ${uniqueGameIds.size}</p>
+                        <p><strong>Total odds returned:</strong> ${data.odds.length}</p>
+                        
+                        <h3>Sample Games:</h3>
+                        <pre>${JSON.stringify(data.games.slice(0, 5), null, 2)}</pre>
+                        
+                        <h3>Duplicate Check:</h3>
+                        ${data.games.length > uniqueGameIds.size ? 
+                            '<p style="color: red">❌ DUPLICATES FOUND!</p>' : 
+                            '<p style="color: green">✅ No duplicates - deduplication working!</p>'}
+                    `;
+                } else {
+                    document.getElementById('results').innerHTML = `<p style="color: red">Error: ${response?.error || 'Unknown error'}</p>`;
+                }
+            } catch (error) {
+                document.getElementById('results').innerHTML = `<p style="color: red">Error: ${error.message}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sportsbook Scraper Configuration</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-button {
+      padding: 0.75rem 1.5rem;
+      background: white;
+      color: #3b82f6;
+      border: 2px solid #3b82f6;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .nav-button:hover {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .config-section {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+    }
+
+    .config-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .config-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .config-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .config-group label {
+      display: block;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 0.5rem;
+    }
+
+    .config-group input,
+    .config-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      background: white;
+      transition: border-color 0.2s;
+    }
+
+    .config-group input:focus,
+    .config-group select:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .config-group input[type="checkbox"] {
+      width: auto;
+      margin-right: 0.5rem;
+    }
+
+    .config-group .help-text {
+      font-size: 0.75rem;
+      color: #6b7280;
+      margin-top: 0.25rem;
+    }
+
+    .checkbox-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .save-button {
+      background: #3b82f6;
+      color: white;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .save-button:hover {
+      background: #2563eb;
+    }
+
+    .save-button:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+
+    .success-message,
+    .error-message {
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+      display: none;
+    }
+
+    .success-message {
+      background: #d1fae5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+
+    .error-message {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .secondary-button {
+      background: #f3f4f6;
+      color: #374151;
+      padding: 0.75rem 2rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .secondary-button:hover {
+      background: #e5e7eb;
+    }
+
+    /* League Mappings Styles */
+    .sport-section {
+      margin-bottom: 1.5rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .sport-header {
+      background: #f8fafc;
+      padding: 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .sport-header:hover {
+      background: #f1f5f9;
+    }
+
+    .sport-title {
+      font-weight: 600;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sport-meta {
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    .expand-icon {
+      transition: transform 0.2s;
+    }
+
+    .sport-section.collapsed .expand-icon {
+      transform: rotate(-90deg);
+    }
+
+    .sport-content {
+      padding: 1rem;
+      display: none;
+    }
+
+    .sport-section:not(.collapsed) .sport-content {
+      display: block;
+    }
+
+    .leagues-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .league-tag {
+      background: #f3f4f6;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      padding: 0.5rem;
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .league-tag .remove-league {
+      background: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      font-size: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .league-tag .remove-league:hover {
+      background: #dc2626;
+    }
+
+    .add-league-form {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .add-league-form input {
+      flex: 1;
+      padding: 0.5rem;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      font-size: 0.875rem;
+    }
+
+    .add-league-form button {
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+
+    .add-league-form button:hover {
+      background: #059669;
+    }
+
+    .add-sport-form {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .add-sport-form h3 {
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-row input,
+    .form-row select {
+      flex: 1;
+      padding: 0.5rem;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      font-size: 0.875rem;
+    }
+
+    /* Configuration Tabs */
+    .config-tabs {
+      display: flex;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 2rem;
+    }
+
+    .config-tab {
+      padding: 1rem 2rem;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #64748b;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .config-tab:hover {
+      color: #3b82f6;
+      background: #f8fafc;
+    }
+
+    .config-tab.active {
+      color: #3b82f6;
+      border-bottom-color: #3b82f6;
+      background: #f8fafc;
+    }
+
+    .config-tab-content {
+      display: none;
+    }
+
+    .config-tab-content.active {
+      display: block;
+    }
+
+    .tab-section {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🤖 Automated Scraper Configuration</h1>
+    <p>Configure scraper behavior and analytics settings</p>
+    <div style="background: #e8f5e9; padding: 12px; border-radius: 6px; margin: 12px 0; border-left: 4px solid #4caf50;">
+      <strong>🎉 Automation Active!</strong> Endpoints are now automatically synced to the database for headless scraping.
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="nav-buttons">
+      <a href="analytics.html" class="nav-button">📊 Analytics</a>
+      <a href="sportsbook.html" class="nav-button">🎯 Sportsbook Data</a>
+    </div>
+
+    <div id="success-message" class="success-message">Configuration saved successfully!</div>
+    <div id="error-message" class="error-message">Error saving configuration</div>
+
+    <!-- Configuration Tabs -->
+    <div class="config-tabs">
+      <button class="config-tab active" data-tab="basic">📊 Basic Settings</button>
+      <button class="config-tab" data-tab="analytics">🎯 Analytics</button>
+      <button class="config-tab" data-tab="leagues">🏆 League Mappings</button>
+      <button class="config-tab" data-tab="scraping">🔧 Scraping Strategy</button>
+      <button class="config-tab" data-tab="data">💾 Data Management</button>
+    </div>
+
+    <!-- Basic Settings Tab -->
+    <div class="config-tab-content active" id="basic-tab">
+      <!-- Refresh Settings -->
+      <div class="config-section">
+      <h2>Refresh Settings</h2>
+      <div class="config-group">
+        <label for="short-refresh">Short Refresh Interval (seconds)</label>
+        <input type="number" id="short-refresh" min="1" max="60" value="5">
+        <div class="help-text">How often to check for new odds on the current page (1-60 seconds)</div>
+      </div>
+      <div class="config-group">
+        <label for="full-refresh">Full Refresh Interval (minutes)</label>
+        <input type="number" id="full-refresh" min="1" max="60" value="5">
+        <div class="help-text">How often to perform a complete page reload (1-60 minutes)</div>
+      </div>
+      <div class="config-group">
+        <label for="odds-window">Odds Window (minutes)</label>
+        <input type="number" id="odds-window" min="5" max="120" value="30">
+        <div class="help-text">Keep odds data for this duration (5-120 minutes)</div>
+      </div>
+    </div>
+
+    <!-- Game Matching Settings -->
+    <div class="config-section">
+      <h2>Game Matching</h2>
+      <div class="config-group">
+        <label for="game-window">Game Time Window (hours)</label>
+        <input type="number" id="game-window" min="1" max="24" value="8">
+        <div class="help-text">Consider games as the same if start time differs by less than this (1-24 hours)</div>
+      </div>
+      <div class="config-group">
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="match-teams" checked>
+          <label for="match-teams">Match by team names</label>
+        </div>
+        <div class="help-text">Require same home and away teams</div>
+      </div>
+      <div class="config-group">
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="match-sport" checked>
+          <label for="match-sport">Match by sport and league</label>
+        </div>
+        <div class="help-text">Require same sport and league</div>
+      </div>
+    </div>
+
+      </div>
+    </div>
+
+    <!-- Analytics Settings Tab -->
+    <div class="config-tab-content" id="analytics-tab">
+      <div class="config-section">
+        <h2>Analytics Settings</h2>
+        <div class="config-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="enable-outlier" checked>
+            <label for="enable-outlier">Enable outlier filtering</label>
+          </div>
+          <div class="help-text">Remove statistical outliers from EV calculations</div>
+        </div>
+        <div class="config-group">
+          <label for="outlier-method">Outlier Detection Method</label>
+          <select id="outlier-method">
+            <option value="iqr">IQR (Interquartile Range)</option>
+            <option value="zscore">Z-Score</option>
+            <option value="conservative">Conservative (3×IQR + 50% median)</option>
+          </select>
+          <div class="help-text">Algorithm for detecting outlier odds</div>
+        </div>
+        <div class="config-group">
+          <label for="min-books">Minimum Books for Outlier Detection</label>
+          <input type="number" id="min-books" min="3" max="10" value="5">
+          <div class="help-text">Minimum number of sportsbooks required before applying outlier filtering</div>
+        </div>
+        <div class="config-group">
+          <label for="ev-threshold">Minimum +EV Threshold (%)</label>
+          <input type="number" id="ev-threshold" min="0" max="10" step="0.1" value="0.5">
+          <div class="help-text">Only show opportunities above this EV percentage</div>
+        </div>
+        <div class="config-group">
+          <label for="ev-calculation">EV Calculation Method</label>
+          <select id="ev-calculation">
+            <option value="worst-odds">Worst Odds Baseline</option>
+            <option value="average-odds">Average Odds Baseline</option>
+            <option value="sharp-books">Sharp Books Only</option>
+          </select>
+          <div class="help-text">Method for calculating fair probabilities</div>
+        </div>
+        <div class="config-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="use-algo-fairline">
+            <label for="use-algo-fairline">Use OddsJam Algo Odds as fairline reference</label>
+          </div>
+          <div class="help-text">When available, use OddsJam Algo Odds as the fairline instead of calculated fair odds</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- League Mappings Tab -->
+    <div class="config-tab-content" id="leagues-tab">
+      <div class="config-section">
+        <h2>League Mappings</h2>
+        <div class="config-group">
+          <div class="help-text" style="margin-bottom: 1rem;">Configure which leagues belong to which sports. This affects how games are classified and how many outcomes are expected.</div>
+          <div id="league-mappings-container">
+            <!-- League mappings will be populated by JavaScript -->
+          </div>
+        </div>
+        <div class="config-group">
+          <div class="button-group" style="margin-top: 1rem;">
+            <button type="button" class="secondary-button" id="reset-mappings">Reset to Defaults</button>
+            <button type="button" class="secondary-button" id="export-mappings">Export Mappings</button>
+            <button type="button" class="secondary-button" id="import-mappings">Import Mappings</button>
+          </div>
+          <input type="file" id="import-file" accept=".json" style="display: none;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Scraping Strategy Tab -->
+    <div class="config-tab-content" id="scraping-tab">
+      <!-- Scraping Method Selection -->
+      <div class="config-section">
+        <h2>Scraping Method</h2>
+        <div class="config-group">
+          <label for="scraping-method">Primary Scraping Method</label>
+          <select id="scraping-method">
+            <option value="visual">Visual DOM Scraping (Default)</option>
+            <option value="api">API-Based Scraping</option>
+            <option value="hybrid">Hybrid (API + Visual Fallback)</option>
+          </select>
+          <div class="help-text">Choose how the extension collects odds data</div>
+        </div>
+        
+        <div class="config-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="enable-api-detection" checked>
+            <label for="enable-api-detection">Enable API endpoint detection</label>
+          </div>
+          <div class="help-text">Automatically discover and capture API endpoints while browsing</div>
+        </div>
+        
+        <div class="config-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="use-multi-tabs" checked>
+            <label for="use-multi-tabs">Use multiple tabs for large sportsbooks</label>
+          </div>
+          <div class="help-text">Automatically open additional tabs to capture all content (visual mode only)</div>
+        </div>
+        
+        <div class="config-group">
+          <label for="api-refresh-interval">API Refresh Interval (seconds)</label>
+          <input type="number" id="api-refresh-interval" min="5" max="300" value="30">
+          <div class="help-text">How often to poll API endpoints when using API-based scraping</div>
+        </div>
+      </div>
+      
+      <div class="config-section">
+        <h2>Team Classification Rules</h2>
+        <div class="config-group">
+          <div class="help-text" style="margin-bottom: 1rem;">Configure how teams and odds are identified and organized from scraped data.</div>
+        </div>
+        
+        <div class="config-group">
+          <label for="draw-keywords">Draw Keywords (comma-separated)</label>
+          <input type="text" id="draw-keywords" placeholder="draw, tie, x, empate">
+          <div class="help-text">Keywords that identify draw outcomes in 3-way markets</div>
+        </div>
+        
+        <div class="config-group">
+          <label for="team-organization">Team Organization Strategy</label>
+          <select id="team-organization">
+            <option value="auto">Auto-detect based on sport</option>
+            <option value="home-away-draw">Home - Away - Draw</option>
+            <option value="home-draw-away">Home - Draw - Away</option>
+            <option value="away-draw-home">Away - Draw - Home</option>
+          </select>
+          <div class="help-text">How to organize team positions in 3-way markets</div>
+        </div>
+        
+        <div class="config-group">
+          <label for="odds-column-detection">Odds Column Detection</label>
+          <select id="odds-column-detection">
+            <option value="position-based">Position-based (column order)</option>
+            <option value="header-based">Header-based (column titles)</option>
+            <option value="content-based">Content-based (odds values)</option>
+            <option value="hybrid">Hybrid (multiple methods)</option>
+          </select>
+          <div class="help-text">Method for identifying which columns contain odds</div>
+        </div>
+        
+        <div class="config-group">
+          <label for="outlier-odds-threshold">Outlier Odds Threshold</label>
+          <input type="number" id="outlier-odds-threshold" min="5000" max="50000" value="10000" step="1000">
+          <div class="help-text">Odds values above this threshold are considered outliers (American format)</div>
+        </div>
+        
+        <div class="config-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="auto-fix-draw-position" checked>
+            <label for="auto-fix-draw-position">Auto-fix draw position</label>
+          </div>
+          <div class="help-text">Automatically reorganize teams when draw is detected in wrong position</div>
+        </div>
+        
+        <div class="config-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="validate-team-names" checked>
+            <label for="validate-team-names">Validate team names</label>
+          </div>
+          <div class="help-text">Check for common team name issues (duplicates, draw as team, etc.)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Management Tab -->
+    <div class="config-tab-content" id="data-tab">
+    <div class="config-section">
+      <h2>Data Management</h2>
+      <div class="config-group">
+        <label for="retention-period">Data Retention Period (days)</label>
+        <input type="number" id="retention-period" min="1" max="30" value="7">
+        <div class="help-text">Automatically delete odds data older than this</div>
+      </div>
+      <div class="config-group">
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="auto-cleanup" checked>
+          <label for="auto-cleanup">Enable automatic cleanup</label>
+        </div>
+        <div class="help-text">Automatically remove old data based on retention period</div>
+      </div>
+    </div>
+    </div>
+
+    <div class="button-group">
+      <button class="save-button" id="save-config">Save Configuration</button>
+      <button class="secondary-button" id="reset-defaults">Reset to Defaults</button>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+</body>
+</html>

@@ -192,10 +192,20 @@
     button.analytics:hover {
       background: linear-gradient(135deg, #059669 0%, #047857 100%);
     }
+    
+    button.endpoints {
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+      grid-column: 1 / -1;
+      margin-bottom: 8px;
+    }
+    
+    button.endpoints:hover {
+      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    }
   </style>
 </head>
 <body>
-  <h1>Sportsbook Scraper Control</h1>
+  <h1>🤖 Automated Sportsbook Scraper</h1>
   
   <div class="status">
     <div class="status-item">
@@ -203,8 +213,24 @@
       <span class="status-value" id="supabase-status">Checking...</span>
     </div>
     <div class="status-item">
+      <span class="status-label">Scraping Method:</span>
+      <span class="status-value" id="scraping-method">Visual DOM</span>
+    </div>
+    <div class="status-item">
       <span class="status-label">Active Scraping Tabs:</span>
       <span class="status-value" id="active-count">0</span>
+    </div>
+    <div class="status-item">
+      <span class="status-label">API Endpoints:</span>
+      <span class="status-value" id="api-endpoints">0</span>
+    </div>
+    <div class="status-item">
+      <span class="status-label">Automation:</span>
+      <span class="status-value active">Auto-sync Enabled</span>
+    </div>
+    <div class="status-item">
+      <span class="status-label">API Capture:</span>
+      <span class="status-value" id="api-capture-status">Sportsbook Only</span>
     </div>
     <div class="status-item">
       <span class="status-label">Total Games:</span>
@@ -219,17 +245,26 @@
     </div>
   </div>
   
-  <div class="tabs-section">
-    <div class="tabs-header">Active Scraping Tabs</div>
-    <div id="active-tabs-list">
-      <div class="empty-state">No tabs currently scraping</div>
-    </div>
-  </div>
-  
   <div class="controls">
-    <button id="analytics-btn" class="analytics">View Analytics</button>
-    <button id="refresh-btn">Refresh</button>
-    <button id="stop-all-btn" class="secondary">Stop All</button>
+    <button id="scraper-control-btn" class="analytics">🎯 Scraper Control</button>
+    
+    <!-- Scrapy/API Scraping Section -->
+    <div style="grid-column: 1 / -1; font-size: 12px; font-weight: bold; color: #666; margin-top: 12px; margin-bottom: 4px;">SCRAPY (API SCRAPING)</div>
+    <button id="analytics-btn" class="endpoints">📊 View Analytics</button>
+    <button id="automation-dashboard-btn" class="endpoints">🤖 Automation Dashboard</button>
+    
+    <!-- Visual Scraping Section -->
+    <div style="grid-column: 1 / -1; font-size: 12px; font-weight: bold; color: #666; margin-top: 12px; margin-bottom: 4px;">VISUAL SCRAPING (LEGACY)</div>
+    <button id="url-manager-btn" class="secondary">🗂️ URL Manager</button>
+    <button id="endpoints-btn" class="secondary">🔍 API Endpoints</button>
+    <button id="diagnostics-btn" class="secondary">🔍 Diagnostics</button>
+    <button id="sportsbook-btn" class="secondary">📋 Sportsbook Data</button>
+    
+    <!-- General Controls -->
+    <div style="grid-column: 1 / -1; font-size: 12px; font-weight: bold; color: #666; margin-top: 12px; margin-bottom: 4px;">GENERAL</div>
+    <button id="verify-dedup-btn" class="secondary">🔧 Verify Deduplication</button>
+    <button id="api-capture-toggle-btn" class="secondary">🔍 Toggle API Capture</button>
+    <button id="refresh-btn">🔄 Refresh</button>
   </div>
   
   <script src="popup.js"></script>

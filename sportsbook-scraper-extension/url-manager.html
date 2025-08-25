@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>URL Manager - Batch Scraping</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    
+    .header p {
+      margin: 0.5rem 0 0 0;
+      opacity: 0.9;
+    }
+    
+    .controls {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .control-group {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    
+    button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.875rem;
+    }
+    
+    button.primary {
+      background: #3b82f6;
+      color: white;
+    }
+    
+    button.primary:hover {
+      background: #2563eb;
+    }
+    
+    button.secondary {
+      background: #e5e7eb;
+      color: #374151;
+    }
+    
+    button.secondary:hover {
+      background: #d1d5db;
+    }
+    
+    button.success {
+      background: #10b981;
+      color: white;
+    }
+    
+    button.success:hover {
+      background: #059669;
+    }
+    
+    button.danger {
+      background: #ef4444;
+      color: white;
+    }
+    
+    button.danger:hover {
+      background: #dc2626;
+    }
+    
+    .current-url {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      display: none;
+    }
+    
+    .current-url.show {
+      display: block;
+    }
+    
+    .url-list {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    
+    .url-list-header {
+      background: #f8fafc;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .url-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .url-table th,
+    .url-table td {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .url-table th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: #374151;
+      font-size: 0.875rem;
+    }
+    
+    .url-table tr:hover {
+      background: #f8fafc;
+    }
+    
+    .url-cell {
+      max-width: 300px;
+      word-break: break-word;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 0.75rem;
+      color: #6366f1;
+    }
+    
+    .domain-cell {
+      font-weight: 600;
+      color: #374151;
+    }
+    
+    .status-badge {
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    
+    .status-active {
+      background: #d1fae5;
+      color: #065f46;
+    }
+    
+    .status-inactive {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    
+    .checkbox-cell {
+      width: 40px;
+      text-align: center;
+    }
+    
+    .actions-cell {
+      width: 120px;
+    }
+    
+    .action-btn {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      margin-right: 0.25rem;
+    }
+    
+    .stats {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+    
+    .batch-controls {
+      background: #f0f9ff;
+      border: 1px solid #0284c7;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      display: none;
+    }
+    
+    .batch-controls.show {
+      display: block;
+    }
+    
+    input[type="text"], select {
+      padding: 0.5rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 0.875rem;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 3rem;
+      color: #6b7280;
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #374151;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🗂️ URL Manager</h1>
+    <p>Store, organize, and batch scrape sportsbook URLs</p>
+  </div>
+
+  <div class="current-url" id="current-url">
+    <strong>Current Page:</strong>
+    <div id="current-url-text">No sportsbook detected</div>
+    <button class="primary" id="save-current-btn" style="margin-top: 0.5rem;">Save Current URL</button>
+  </div>
+
+  <div class="controls">
+    <div class="control-group">
+      <button class="primary" id="select-all-btn">Select All</button>
+      <button class="secondary" id="select-none-btn">Select None</button>
+      <button class="secondary" id="select-active-btn">Select Active</button>
+    </div>
+    <div class="control-group">
+      <button class="success" id="batch-scrape-btn">Scrape Selected</button>
+      <button class="danger" id="delete-selected-btn">Delete Selected</button>
+    </div>
+    <div class="control-group">
+      <button class="secondary" id="refresh-btn">Refresh</button>
+    </div>
+  </div>
+
+  <div class="batch-controls" id="batch-controls">
+    <h3>Batch Scraping Job</h3>
+    <div class="form-group">
+      <label for="job-name">Job Name:</label>
+      <input type="text" id="job-name" placeholder="e.g., MLB Monday Scraping">
+    </div>
+    <div class="control-group">
+      <button class="success" id="start-batch-btn">Start Batch Job</button>
+      <button class="secondary" id="cancel-batch-btn">Cancel</button>
+    </div>
+  </div>
+
+  <div class="url-list">
+    <div class="url-list-header">
+      <h2>Stored URLs</h2>
+      <div class="stats">
+        <span id="total-urls">0 URLs</span>
+        <span id="selected-count">0 selected</span>
+      </div>
+    </div>
+    
+    <table class="url-table" id="url-table">
+      <thead>
+        <tr>
+          <th class="checkbox-cell">
+            <input type="checkbox" id="select-all-checkbox">
+          </th>
+          <th>Domain</th>
+          <th>URL</th>
+          <th>Sport/League</th>
+          <th>Status</th>
+          <th>Endpoints</th>
+          <th>Last Scraped</th>
+          <th>Success Rate</th>
+          <th class="actions-cell">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="url-table-body">
+        <tr>
+          <td colspan="9" class="empty-state">
+            Loading URLs...
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="url-manager.js"></script>
+</body>
+</html>

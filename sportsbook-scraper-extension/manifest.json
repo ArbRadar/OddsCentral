@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Sportsbook Data Scraper",
-  "version": "1.0.0",
+  "name": "Sportsbook Data Scraper v2",
+  "version": "1.1.0",
   "description": "Scrapes sportsbook odds data and stores in Supabase",
   "permissions": [
     "tabs",
@@ -22,9 +22,11 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["https://*/*", "http://*/*"],
+      "exclude_matches": [],
       "js": ["content.js"],
-      "run_at": "document_idle"
+      "run_at": "document_end",
+      "all_frames": false
     }
   ],
   "action": {
@@ -42,7 +44,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["analytics.html", "analytics.js"],
+      "resources": ["scraper-control.html", "analytics.html", "analytics.js", "config.html", "config.js", "sportsbook.html", "sportsbook.js", "api-interceptor.js", "scraping-strategies.js", "endpoints.html", "endpoints.js", "api-scraper.js", "api-scraper-init.js", "scraping-status-indicator.js", "diagnostics.html", "diagnostics.js", "url-manager.html", "url-manager.js", "scraping-dashboard.html", "scraping-dashboard.js"],
       "matches": ["<all_urls>"]
     }
   ]

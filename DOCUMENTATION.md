@@ -6,6 +6,13 @@ OddsCentral is a comprehensive sports betting analytics platform consisting of a
 
 ## Recent Updates & Bug Fixes
 
+### Version 1.2 (August 2024)
+- **🔍 Troubleshooting Dashboard**: New dedicated page for analyzing flagged and rejected opportunities
+- **⚙️ Configurable Scraping Rules**: Team classification and odds detection now fully configurable
+- **📑 Tabbed Configuration Interface**: Split configuration into organized tabs for better usability
+- **🎯 Enhanced Calculation Transparency**: Detailed breakdowns showing exactly why opportunities were flagged
+- **📊 Improved Analytics**: Better tracking of data quality issues and classification errors
+
 ### Version 1.1 (August 2024)
 - **🐛 Fixed Critical EV Calculation Bug**: Corrected American odds comparison logic that was causing inflated +EV percentages
 - **🐛 Fixed Arbitrage Calculation Bug**: Same odds comparison fix applied to arbitrage detection
@@ -124,12 +131,22 @@ EV = ((fairProb × decimalOdds) - 1) × 100
 - EV range filtering (0.5% to 50%) to eliminate calculation errors
 - Suspicious high EV warnings (>15%)
 - Minimum sportsbook requirements (3+ books for meaningful analysis)
+- **Flagged Opportunities Tracking**: Automatic detection and storage of problematic calculations:
+  - **Rejected**: Opportunities with EV >50% or arbitrage >50% (clearly erroneous)
+  - **Suspicious**: Opportunities with EV >15% or arbitrage >15% (require investigation)
+  - **Data Errors**: Team classification or odds detection failures
 
 #### config.js - Configuration Management
 - **Database Settings**: Supabase connection parameters
 - **Sport Configurations**: Terminology mappings for different sports
 - **Layout Configurations**: CSS selectors for various website structures
 - **Scraping Parameters**: Update intervals and retry logic
+- **Team Classification Rules**: Configurable rules for identifying home, away, and draw teams:
+  - **Draw Keywords**: Customizable list of terms that identify draw outcomes
+  - **Team Organization**: Strategy for organizing teams in 3-way markets
+  - **Odds Column Detection**: Method for identifying which columns contain odds
+  - **Outlier Thresholds**: Configurable limits for detecting suspicious odds values
+  - **Validation Options**: Toggle automatic team name validation and draw position fixing
 
 ### 2. Database Layer (supabase-local/)
 
@@ -174,6 +191,23 @@ EV = ((fairProb × decimalOdds) - 1) × 100
 - **Interactive Tables**: Sortable columns with hover effects
 - **Responsive Design**: Clean, modern interface with loading states
 - **Data Validation**: Visual warnings for suspicious calculations
+
+#### troubleshoot.html - Diagnostic Interface
+- **Flagged Opportunities**: Comprehensive listing of rejected and suspicious calculations
+- **Detailed Breakdowns**: Expandable rows showing complete calculation details
+- **Classification Issues**: Tracking and analysis of team/odds detection problems
+- **Sport Detection**: Monitoring of market type identification and organization
+- **Data Quality Metrics**: Statistics on flagged opportunities by type and reason
+
+#### config.html - Configuration Management
+- **Tabbed Interface**: Organized configuration across five main categories:
+  - **Basic Settings**: Refresh intervals and game matching parameters
+  - **Analytics**: EV calculation methods and outlier detection settings
+  - **League Mappings**: Sport and league classification management
+  - **Scraping Rules**: Team classification and odds detection configuration
+  - **Data Management**: Data retention and cleanup settings
+- **Real-time Validation**: Immediate feedback on configuration changes
+- **Import/Export**: Backup and restore configuration settings
 
 #### Popup Interface (popup.js/popup.html)
 - Extension status monitoring
@@ -314,6 +348,8 @@ Identifies opportunities where:
 - **✅ Inflated EV Calculations**: Resolved 70%+ EV calculations from improper odds handling
 - **✅ Arbitrage Miscalculations**: Fixed 1000%+ profit calculations from same odds comparison bug
 - **✅ UI Navigation**: Added tabbed interface to reduce scrolling
+- **✅ Team Classification Issues**: Added configurable rules for better team and draw detection
+- **✅ Calculation Transparency**: Implemented troubleshooting dashboard to identify root causes
 
 ## Development Roadmap
 
@@ -397,6 +433,19 @@ Identifies opportunities where:
 - **Check**: Lower filter thresholds (Min EV: 0%, Min Profit: 0%)
 - **Verify**: Multiple sportsbooks are being scraped (need 3+ for analysis)
 
+#### Troubleshooting Flagged Opportunities
+- **Access**: Navigate to troubleshoot.html via the analytics navigation
+- **Analysis**: Click any row to expand detailed calculation breakdowns
+- **Common Issues**:
+  - **Team Misclassification**: Check Scraping Rules configuration for draw keywords
+  - **Odds Detection Problems**: Verify odds column detection method in configuration
+  - **Market Type Confusion**: Review league mappings for correct sport classification
+
+#### Configuration Issues
+- **Tab Navigation**: Use the tabbed interface to organize settings by category
+- **Validation Errors**: Check console for specific validation failure messages
+- **Import/Export**: Use export/import features to backup working configurations
+
 ### Console Debugging
 
 #### Expected Console Messages
@@ -423,5 +472,5 @@ Extension context invalidated, stopping scraper
 ---
 
 *Last Updated: August 2024*
-*Version: 1.0*
+*Version: 1.2*
 *Author: Created from scratch for sports betting analytics*

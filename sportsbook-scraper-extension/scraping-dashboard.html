@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Scraping Dashboard</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+    
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .card h2 {
+      margin: 0 0 15px 0;
+      font-size: 18px;
+      color: #555;
+    }
+    
+    .stat-value {
+      font-size: 36px;
+      font-weight: bold;
+      color: #3b82f6;
+      margin: 10px 0;
+    }
+    
+    .stat-label {
+      color: #999;
+      font-size: 14px;
+    }
+    
+    .status-indicator {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    
+    .status-indicator.active {
+      background-color: #10b981;
+      animation: pulse 2s infinite;
+    }
+    
+    .status-indicator.inactive {
+      background-color: #ef4444;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+    
+    .endpoints-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    
+    .endpoints-table th,
+    .endpoints-table td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .endpoints-table th {
+      background-color: #f9fafb;
+      font-weight: 600;
+      color: #374151;
+    }
+    
+    .endpoints-table tr:hover {
+      background-color: #f9fafb;
+    }
+    
+    .endpoint-path {
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 12px;
+      color: #6366f1;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    .status-badge.success {
+      background-color: #d1fae5;
+      color: #065f46;
+    }
+    
+    .status-badge.failed {
+      background-color: #fee2e2;
+      color: #991b1b;
+    }
+    
+    .status-badge.pending {
+      background-color: #e0e7ff;
+      color: #3730a3;
+    }
+    
+    .status-badge.active {
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+    
+    .control-panel {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .control-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    button.primary {
+      background-color: #3b82f6;
+      color: white;
+    }
+    
+    button.primary:hover {
+      background-color: #2563eb;
+    }
+    
+    button.secondary {
+      background-color: #e5e7eb;
+      color: #374151;
+    }
+    
+    button.secondary:hover {
+      background-color: #d1d5db;
+    }
+    
+    button.danger {
+      background-color: #ef4444;
+      color: white;
+    }
+    
+    button.danger:hover {
+      background-color: #dc2626;
+    }
+    
+    .job-history {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .timestamp {
+      color: #9ca3af;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🤖 Automated Scraping Dashboard</h1>
+    
+    <div class="control-panel">
+      <h2>Scraping Control</h2>
+      <div class="control-buttons">
+        <button class="primary" id="toggle-scraping-btn">
+          <span id="scraping-toggle-text">Start Scraping</span>
+        </button>
+        <button class="secondary" id="refresh-dashboard-btn">Refresh</button>
+        <button class="secondary" id="view-config-btn">Configuration</button>
+        <button class="danger" id="clear-failed-btn">Clear Failed</button>
+      </div>
+      
+      <div class="scraping-method-controls" style="margin-top: 20px;">
+        <h3>Scraping Method Controls</h3>
+        <div class="control-buttons">
+          <button class="primary" id="toggle-scrapy-btn">
+            <span id="scrapy-toggle-text">Enable Scrapy</span>
+          </button>
+          <button class="secondary" id="toggle-visual-btn">
+            <span id="visual-toggle-text">Disable Visual</span>  
+          </button>
+          <select id="default-method-select" style="padding: 8px; margin-left: 10px;">
+            <option value="scrapy">Scrapy (Recommended)</option>
+            <option value="visual">Visual DOM</option>
+            <option value="hybrid">Hybrid</option>
+          </select>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+    <div class="dashboard-grid">
+      <div class="card">
+        <h2>Monitor Status</h2>
+        <div>
+          <span class="status-indicator" id="monitor-status"></span>
+          <span id="monitor-status-text">Checking...</span>
+        </div>
+        <div class="stat-value" id="active-workers">0</div>
+        <div class="stat-label">Active Workers</div>
+      </div>
+      
+      <div class="card">
+        <h2>Discovered Endpoints</h2>
+        <div class="stat-value" id="total-endpoints">0</div>
+        <div class="stat-label">Total Endpoints</div>
+        <div style="margin-top: 10px;">
+          <small>
+            <span style="color: #10b981;">✓ <span id="success-endpoints">0</span> Success</span> |
+            <span style="color: #ef4444;">✗ <span id="failed-endpoints">0</span> Failed</span> |
+            <span style="color: #3b82f6;">⏳ <span id="pending-endpoints">0</span> Pending</span>
+          </small>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h2>Scraping Stats (24h)</h2>
+        <div class="stat-value" id="jobs-completed">0</div>
+        <div class="stat-label">Jobs Completed</div>
+        <div style="margin-top: 10px;">
+          <small>
+            <span id="games-scraped">0</span> Games |
+            <span id="odds-scraped">0</span> Odds
+          </small>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h2>Next Scrape</h2>
+        <div class="stat-value" id="next-scrape-time">--:--</div>
+        <div class="stat-label">Minutes Until Next Run</div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>Recent Jobs</h2>
+      <div class="job-history" id="job-history">
+        <div class="job-item">
+          <span>Loading job history...</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>Active Endpoints</h2>
+      <table class="endpoints-table">
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>Endpoint</th>
+            <th>Status</th>
+            <th>Last Scraped</th>
+            <th>Success Rate</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="endpoints-tbody">
+          <tr>
+            <td colspan="6" style="text-align: center; color: #999;">Loading endpoints...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <script src="scraping-dashboard.js"></script>
+</body>
+</html>

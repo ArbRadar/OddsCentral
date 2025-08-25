@@ -1,0 +1,15 @@
+[
+  {
+    "domain": "oddsjam.com",
+    "method": "GET",
+    "path": "/mlb/screen/moneyline",
+    "headers": {
+      "User-Agent": "Mozilla/5.0",
+      "Accept": "application/json"
+    },
+    "url_id": 3,
+    "sport": "MLB",
+    "league": "MLB",
+    "scrape_source": "url_manager"
+  }
+]

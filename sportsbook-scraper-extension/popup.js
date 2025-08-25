@@ -61,6 +61,21 @@ async function updateStatus() {
     // Update games count
     document.getElementById('games-count').textContent = response.gamesCount || 0;
     
+    // Update scraping method and API endpoints count
+    document.getElementById('scraping-method').textContent = response.scrapingMethod || 'Visual DOM';
+    document.getElementById('api-endpoints').textContent = response.apiEndpoints || 0;
+    
+    // Set status colors
+    const methodElement = document.getElementById('scraping-method');
+    if (response.scrapingMethod === 'API') {
+      methodElement.className = 'status-value active';
+    } else if (response.scrapingMethod === 'Hybrid') {
+      methodElement.className = 'status-value';
+      methodElement.style.color = '#f59e0b';
+    } else {
+      methodElement.className = 'status-value';
+    }
+    
     // Update current tab section
     const currentTabDiv = document.getElementById('current-tab');
     if (currentTab && isSportsbookTab(currentTab)) {
@@ -84,7 +99,8 @@ async function updateStatus() {
           ${isActive && seconds !== null ? `
             <div class="tab-stats">
               <span>Last update: ${seconds}s ago</span>
-              <span>Status: Scraping</span>
+              <span>Method: ${activeTab.scrapingMethod || 'Visual'}</span>
+              <span>Status: ${activeTab.scrapingMethod === 'API' ? 'API Polling' : 'Scraping'}</span>
             </div>
           ` : isEnabled ? `
             <div class="tab-stats">
@@ -174,6 +190,34 @@ async function handleTabToggle(event) {
   } else {
     // Start scraping
     enabledTabs.add(tabId);
+    
+    // Check if multi-tab mode is enabled (could be from config)
+    const useMultiTab = true; // For now, always use multi-tab for better coverage
+    
+    if (useMultiTab && button.id === 'current-tab-toggle') {
+      // Get current tab's URL
+      const tab = await chrome.tabs.get(tabId);
+      const url = tab.url;
+      
+      // Open 1 additional tab for coordinated scraping (25% zoom means fewer tabs needed)
+      console.log('Opening additional tab for coordinated scraping...');
+      try {
+        const response = await chrome.runtime.sendMessage({
+          type: 'OPEN_COORDINATED_TABS',
+          url: url,
+          count: 1 // Only need 1 additional tab at 25% zoom
+        });
+        
+        if (response?.success) {
+          console.log(`Opened ${response.tabsOpened} additional tabs`);
+          // Add new tabs to enabledTabs
+          response.tabIds.forEach(newTabId => enabledTabs.add(newTabId));
+        }
+      } catch (err) {
+        console.error('Error opening coordinated tabs:', err);
+      }
+    }
+    
     try {
       await chrome.tabs.sendMessage(tabId, { type: 'START_SCRAPING' });
       console.log(`Started scraping on tab ${tabId}`);
@@ -264,19 +308,150 @@ async function handleAnalytics() {
   }
 }
 
+// Handle endpoints button
+async function handleEndpoints() {
+  try {
+    // Get the endpoints.html file URL
+    const endpointsUrl = chrome.runtime.getURL('endpoints.html');
+    
+    // Open in new tab
+    await chrome.tabs.create({ url: endpointsUrl });
+    
+    // Close popup
+    window.close();
+  } catch (error) {
+    console.error('Error opening endpoints:', error);
+  }
+}
+
+// Handle diagnostics button
+async function handleDiagnostics() {
+  try {
+    // Get the diagnostics.html file URL
+    const diagnosticsUrl = chrome.runtime.getURL('diagnostics.html');
+    
+    // Open in new tab
+    await chrome.tabs.create({ url: diagnosticsUrl });
+    
+    // Close popup
+    window.close();
+  } catch (error) {
+    console.error('Error opening diagnostics:', error);
+  }
+}
+
+// Handle URL manager button
+function handleURLManager() {
+  try {
+    console.log('🗂️ Opening URL manager...');
+    chrome.tabs.create({ url: chrome.runtime.getURL('url-manager.html') });
+  } catch (error) {
+    console.error('❌ URL manager error:', error);
+    alert('Error opening URL manager: ' + error.message);
+  }
+}
+
+// Handle automation dashboard button
+function handleScrapingDashboard() {
+  try {
+    console.log('🤖 Opening automation dashboard...');
+    chrome.tabs.create({ url: chrome.runtime.getURL('scraping-dashboard.html') });
+  } catch (error) {
+    console.error('❌ Dashboard error:', error);
+    alert('Error opening dashboard: ' + error.message);
+  }
+}
+
 // Initialize popup
 document.addEventListener('DOMContentLoaded', async () => {
   await loadEnabledTabs();
   await updateStatus();
   
   // Set up button handlers
+  document.getElementById('scraper-control-btn').addEventListener('click', handleScraperControl);
   document.getElementById('analytics-btn').addEventListener('click', handleAnalytics);
+  document.getElementById('url-manager-btn').addEventListener('click', handleURLManager);
+  document.getElementById('endpoints-btn').addEventListener('click', handleEndpoints);
+  document.getElementById('diagnostics-btn').addEventListener('click', handleDiagnostics);
+  document.getElementById('sportsbook-btn').addEventListener('click', handleSportsbook);
+  document.getElementById('automation-dashboard-btn').addEventListener('click', handleAutomationDashboard);
+  document.getElementById('verify-dedup-btn').addEventListener('click', handleVerifyDedup);
+  document.getElementById('api-capture-toggle-btn').addEventListener('click', handleAPICaptureToggle);
   document.getElementById('refresh-btn').addEventListener('click', updateStatus);
-  document.getElementById('stop-all-btn').addEventListener('click', handleStopAll);
 });
+
+// Button handlers
+async function handleScraperControl() {
+  try {
+    const url = chrome.runtime.getURL('scraper-control.html');
+    await chrome.tabs.create({ url });
+  } catch (error) {
+    console.error('Error opening scraper control:', error);
+  }
+}
+
+async function handleSportsbook() {
+  try {
+    const url = chrome.runtime.getURL('sportsbook.html');
+    await chrome.tabs.create({ url });
+  } catch (error) {
+    console.error('Error opening sportsbook:', error);
+  }
+}
+
+async function handleVerifyDedup() {
+  try {
+    const url = chrome.runtime.getURL('verify-dedup.html');
+    await chrome.tabs.create({ url });
+  } catch (error) {
+    console.error('Error opening verify deduplication:', error);
+  }
+}
+
+async function handleAutomationDashboard() {
+  try {
+    const url = chrome.runtime.getURL('analytics.html');
+    await chrome.tabs.create({ url });
+  } catch (error) {
+    console.error('Error opening automation dashboard:', error);
+  }
+}
 
 // Save enabled tabs whenever they change
 setInterval(saveEnabledTabs, 1000);
+
+async function handleAPICaptureToggle() {
+  try {
+    // Get current API capture mode
+    const { apiCaptureMode = 'sportsbook_only' } = await chrome.storage.local.get('apiCaptureMode');
+    
+    // Cycle through modes: sportsbook_only -> manual_only -> off -> sportsbook_only
+    const modes = {
+      'sportsbook_only': { next: 'manual_only', display: 'Manual Only', color: '#f59e0b' },
+      'manual_only': { next: 'off', display: 'Disabled', color: '#ef4444' },
+      'off': { next: 'sportsbook_only', display: 'Sportsbook Only', color: '#10b981' }
+    };
+    
+    const newMode = modes[apiCaptureMode].next;
+    await chrome.storage.local.set({ apiCaptureMode: newMode });
+    
+    // Update status display
+    const statusElement = document.getElementById('api-capture-status');
+    const modeInfo = modes[newMode] || { display: 'Sportsbook Only', color: '#10b981' };
+    statusElement.textContent = modeInfo.display;
+    statusElement.style.color = modeInfo.color;
+    
+    // Notify background script of the change
+    await chrome.runtime.sendMessage({ 
+      type: 'API_CAPTURE_MODE_CHANGED', 
+      mode: newMode 
+    });
+    
+    console.log(`API capture mode changed to: ${newMode}`);
+  } catch (error) {
+    console.error('Error toggling API capture mode:', error);
+  }
+}
 
 // Auto-refresh every 2 seconds
 setInterval(updateStatus, 2000);
