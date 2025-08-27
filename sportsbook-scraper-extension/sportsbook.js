@@ -22,6 +22,7 @@ class SportsbookController {
       totalPages: 0
     };
     this.filteredData = [];
+    this.matchingData = {}; // Store matching status for games
     
     this.init();
   }
@@ -158,6 +159,9 @@ class SportsbookController {
         // Combine games with their odds
         this.processData();
         
+        // Load matching status for all games
+        await this.loadMatchingStatus();
+        
         // Update filter options
         this.updateFilterOptions();
         
@@ -230,6 +234,61 @@ class SportsbookController {
       // Past/ongoing games come first
       return isPastA ? -1 : 1;
     });
+  }
+
+  async loadMatchingStatus() {
+    try {
+      // Get all game IDs
+      const gameIds = this.processedData.map(game => game.game_id);
+      
+      if (gameIds.length === 0) {
+        return;
+      }
+
+      // Get matching status from API
+      const matchingData = await matchingAPI.getMatchingStatus(gameIds);
+      this.matchingData = matchingData;
+      
+      console.log('Matching status loaded for', Object.keys(matchingData).length, 'games');
+      
+      // For games ready for creation, also check Omenizer
+      const readyGames = Object.entries(matchingData)
+        .filter(([_, status]) => status.status === 'ready_for_creation')
+        .map(([gameId, _]) => ({ game_id: gameId }));
+      
+      if (readyGames.length > 0) {
+        try {
+          const response = await fetch('http://localhost:5555/api/omenizer-events', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ games: readyGames })
+          });
+          
+          if (response.ok) {
+            const omenizerData = await response.json();
+            
+            // Merge Omenizer data into matching data
+            for (const [gameId, omenizerInfo] of Object.entries(omenizerData.omenizer_data || {})) {
+              if (this.matchingData[gameId]) {
+                this.matchingData[gameId].omenizer = omenizerInfo;
+                
+                // Update status if event already exists in Omenizer
+                if (omenizerInfo.exists) {
+                  this.matchingData[gameId].status = 'exists_in_omenizer';
+                  this.matchingData[gameId].omenizer_event_id = omenizerInfo.event_id;
+                }
+              }
+            }
+          }
+        } catch (e) {
+          console.warn('Could not check Omenizer events:', e);
+        }
+      }
+      
+    } catch (error) {
+      console.warn('Error loading matching status:', error);
+      // Don't fail completely if matching API is unavailable
+    }
   }
 
   updateFilterOptions() {
@@ -395,6 +454,10 @@ class SportsbookController {
     const hasOdds = filteredOdds.length > 0;
     const gameCardId = `game-${game.game_id || game.id}`;
     
+    // Get matching status for this game
+    const matchingStatus = this.matchingData[game.game_id] || {};
+    const statusDisplay = matchingAPI.getStatusDisplay(matchingStatus.status || 'not_processed');
+    
     return `
       <div class="game-card ${hasOdds ? 'has-odds' : 'no-odds'}">
         <div class="game-header clickable" data-game-id="${gameCardId}">
@@ -402,6 +465,9 @@ class SportsbookController {
             <span class="expand-icon" id="icon-${gameCardId}">▶</span>
             ${game.name || `${game.home_team} vs ${game.away_team}`}
             ${isLive ? '<span class="live-indicator">🔴 LIVE</span>' : ''}
+            <span class="matching-status ${statusDisplay.className}" title="${statusDisplay.description}">
+              ${statusDisplay.badge}
+            </span>
           </div>
           <div class="game-info">
             <span><strong>Sport:</strong> ${game.sport_display || game.sport}</span>
@@ -410,6 +476,7 @@ class SportsbookController {
             ${game.game_status ? `<span><strong>Status:</strong> ${game.game_status}</span>` : ''}
             <span><strong>Odds:</strong> ${filteredOdds.length} bookmaker${filteredOdds.length === 1 ? '' : 's'}</span>
           </div>
+          ${this.renderMatchingInfo(matchingStatus)}
         </div>
         
         <div class="game-content collapsed" id="content-${gameCardId}">
@@ -430,6 +497,63 @@ class SportsbookController {
             </table>
           ` : '<p style="padding: 1rem; color: #6b7280; font-style: italic;">No odds data available</p>'}
         </div>
+      </div>
+    `;
+  }
+
+  renderMatchingInfo(matchingStatus) {
+    if (!matchingStatus || Object.keys(matchingStatus).length === 0) {
+      return '';
+    }
+
+    const parts = [];
+    
+    // Show translated teams if available
+    if (matchingStatus.translated_teams) {
+      parts.push(`<span class="omenizer-teams">Omenizer: ${matchingStatus.translated_teams}</span>`);
+    }
+    
+    // Show Omenizer event ID if exists
+    if (matchingStatus.omenizer_event_id) {
+      parts.push(`<span>Event ID: ${matchingStatus.omenizer_event_id}</span>`);
+    }
+    
+    // Show missing elements if any
+    if (matchingStatus.missing_elements && matchingStatus.missing_elements.length > 0) {
+      parts.push(`<span style="color: #dc2626;">Missing: ${matchingStatus.missing_elements.join(', ')}</span>`);
+    }
+
+    // Show message if available
+    if (matchingStatus.message && !matchingStatus.translated_teams) {
+      parts.push(`<span>${matchingStatus.message}</span>`);
+    }
+
+    if (parts.length === 0) {
+      return '';
+    }
+
+    // Create collapsible details for additional info
+    const detailsContent = [];
+    
+    if (matchingStatus.translated_sport) {
+      detailsContent.push(`Sport: ${matchingStatus.translated_sport}`);
+    }
+    if (matchingStatus.translated_league) {
+      detailsContent.push(`League: ${matchingStatus.translated_league}`);
+    }
+    if (matchingStatus.omenizer && matchingStatus.omenizer.checked_at) {
+      detailsContent.push(`Checked: ${new Date(matchingStatus.omenizer.checked_at).toLocaleString()}`);
+    }
+
+    return `
+      <div class="omenizer-info">
+        ${parts.join(' • ')}
+        ${detailsContent.length > 0 ? `
+          <details class="matching-details">
+            <summary>Translation Details</summary>
+            <div>${detailsContent.map(item => `<div>${item}</div>`).join('')}</div>
+          </details>
+        ` : ''}
       </div>
     `;
   }

@@ -544,27 +544,28 @@ async function getAnalyticsData(hoursBack = 24) {
     
     // Get ONLY the latest games per game_id to avoid duplicates
     console.log('Fetching latest games data (deduplicating by game_id)');
-    const gamesQuery = `
-      select distinct on (game_id) *
-      from games 
-      where created_at >= '${cutoffTime.toISOString()}'
-      order by game_id, created_at desc
-    `;
     
-    const gamesResponse = await fetch(`${supabaseClient.url}/rpc/execute_sql`, {
-      method: 'POST',
-      headers: {
-        ...supabaseClient.headers,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ query: gamesQuery })
-    });
-
     let games;
-    if (!gamesResponse.ok) {
-      console.warn('RPC query failed, falling back to basic games fetch');
-      // Fallback to basic fetch and deduplicate in JavaScript
-      const fallbackResponse = await fetch(`${supabaseClient.url}/games?select=*&created_at=gte.${cutoffTime.toISOString()}&order=created_at.desc`, {
+    
+    // First get game_ids from odds within the time period
+    const oddsGameIdsResponse = await fetch(`${supabaseClient.url}/odds?select=game_id&created_at=gte.${cutoffTime.toISOString()}`, {
+      headers: supabaseClient.headers
+    });
+    
+    if (!oddsGameIdsResponse.ok) {
+      throw new Error(`Failed to fetch game IDs from odds: ${oddsGameIdsResponse.status}`);
+    }
+    
+    const oddsRecords = await oddsGameIdsResponse.json();
+    const uniqueGameIds = [...new Set(oddsRecords.map(record => record.game_id))];
+    
+    if (uniqueGameIds.length === 0) {
+      console.log('No games found with odds in the specified time period');
+      games = [];
+    } else {
+      // Fetch games for these IDs
+      const gameIdFilter = uniqueGameIds.map(id => `"${id}"`).join(',');
+      const fallbackResponse = await fetch(`${supabaseClient.url}/games?select=*&game_id=in.(${gameIdFilter})&order=created_at.desc`, {
         headers: supabaseClient.headers
       });
       
@@ -606,9 +607,6 @@ async function getAnalyticsData(hoursBack = 24) {
           console.log('Top duplicated games:', topDuplicates.map(([id, count]) => `${id}: ${count}x`).join(', '));
         }
       }
-    } else {
-      games = await gamesResponse.json();
-      console.log(`Retrieved ${games.length} deduplicated games from last ${hoursBack} hours`);
     }
     
     // Map database fields to expected frontend fields  
@@ -968,6 +966,17 @@ async function processScrapedData(data, tabId, url) {
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   console.log('Background script received message:', request.type);
   
+  // Debug: log all message types we're looking for
+  if (request.type === 'TEST_API_CONNECTION') {
+    console.log('🎯 TEST_API_CONNECTION case reached!');
+  }
+  if (request.type === 'SEND_ODDS_TO_API') {
+    console.log('🎯 SEND_ODDS_TO_API case reached!');
+  }
+  if (request.type === 'GET_API_SENDER_STATS') {
+    console.log('🎯 GET_API_SENDER_STATS case reached!');
+  }
+  
   if (request.type === 'CONTENT_SCRIPT_LOADED') {
     // Register tab when content script loads
     const tabId = sender.tab?.id;
@@ -1061,8 +1070,36 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     
     // Process the data
     processScrapedData(request.data, tabId, url)
-      .then(() => {
+      .then(async (processedGameIds) => {
         console.log('Data processing completed successfully');
+        
+        // Auto-send to API after successful data processing (if enabled)
+        try {
+          const config = await chrome.storage.local.get(['apiAutoSendEnabled']);
+          if (config.apiAutoSendEnabled !== false) { // Default to enabled
+            console.log('🚀 Auto-sending processed data to API...');
+            
+            // Use service-worker compatible sender
+            if (!globalThis.backgroundSender) {
+              await import('./api-sender-background.js');
+              globalThis.backgroundSender = new globalThis.BackgroundAPISender();
+            }
+            const sender = globalThis.backgroundSender;
+            
+            // Send recently processed games if we have their IDs
+            if (processedGameIds && processedGameIds.length > 0) {
+              await sender.sendByGameIds(processedGameIds);
+              console.log(`✅ Auto-sent ${processedGameIds.length} games to API`);
+            } else {
+              // Fallback: send recent data
+              const result = await sender.sendAll(10);
+              console.log(`✅ Auto-sent batch to API: ${result.successful} successful, ${result.failed} failed`);
+            }
+          }
+        } catch (apiError) {
+          console.warn('⚠️ Auto API send failed (non-critical):', apiError.message);
+        }
+        
         sendResponse({ success: true });
       })
       .catch(error => {
@@ -1629,6 +1666,141 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       console.error('Error checking URL status:', error);
       sendResponse({ active: false, error: error.message });
     });
+    
+    return true;
+  }
+  
+  // API Sender Integration
+  if (request.type === 'SEND_ODDS_TO_API') {
+    (async () => {
+      try {
+        // Use service-worker compatible sender
+        if (!globalThis.backgroundSender) {
+          // Import the background API sender
+          await import('./api-sender-background.js');
+          globalThis.backgroundSender = new globalThis.BackgroundAPISender();
+        }
+        
+        const sender = globalThis.backgroundSender;
+        
+        let result;
+        if (request.gameIds && request.gameIds.length > 0) {
+          // Send specific games
+          result = await sender.sendByGameIds(request.gameIds);
+        } else {
+          // Send all recent data
+          result = await sender.sendAll(request.limit || 50);
+        }
+        
+        sendResponse({
+          success: true,
+          result: result,
+          stats: sender.getStats()
+        });
+      } catch (error) {
+        console.error('Error sending odds to API:', error);
+        sendResponse({
+          success: false,
+          error: error.message
+        });
+      }
+    })();
+    
+    return true; // Keep message channel open for async response
+  }
+  
+  if (request.type === 'TEST_API_CONNECTION') {
+    console.log('📨 Received TEST_API_CONNECTION request');
+    
+    // Handle async response properly
+    (async () => {
+      try {
+        console.log('🧪 Testing API connection directly...');
+        
+        const testRecord = {
+          source_id: '17a7de9a-c23b-49eb-9816-93ebc3bba1c5',
+          event_source: '17a7de9a-c23b-49eb-9816-93ebc3bba1c5',
+          name: 'Background Script Test vs Test Opponent',
+          home_team: 'Background Test Home',
+          away_team: 'Background Test Away',
+          event_datetime: new Date().toISOString(),
+          league: 'Background Test League',
+          sport: 'Background Test Sport',
+          status: 'background_test',
+          markets: null
+        };
+        
+        console.log('📤 Sending request to API...');
+        const response = await fetch('https://arb-general-api-1.onrender.com/raw-bets/upsert', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer 8044652f46c0ed50756a3a22d72f0c7b582b8b'
+          },
+          body: JSON.stringify(testRecord)
+        });
+
+        console.log('📥 API response status:', response.status);
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.log('❌ API error response:', errorText);
+          throw new Error(`API Error ${response.status}: ${errorText}`);
+        }
+
+        const result = await response.json();
+        console.log('✅ API connection test successful:', result);
+        
+        const successResponse = {
+          success: true,
+          result: result
+        };
+        
+        console.log('📤 Sending success response:', successResponse);
+        sendResponse(successResponse);
+        
+      } catch (error) {
+        console.error('❌ API connection test failed:', error);
+        
+        const errorResponse = {
+          success: false,
+          error: error.message
+        };
+        
+        console.log('📤 Sending error response:', errorResponse);
+        sendResponse(errorResponse);
+      }
+    })().catch(error => {
+      console.error('❌ Async handler error:', error);
+      sendResponse({
+        success: false,
+        error: error.message
+      });
+    });
+    
+    return true; // Keep message port open for async response
+  }
+  
+  if (request.type === 'GET_API_SENDER_STATS') {
+    (async () => {
+      try {
+        // Use service-worker compatible sender
+        if (!globalThis.backgroundSender) {
+          await import('./api-sender-background.js');
+          globalThis.backgroundSender = new globalThis.BackgroundAPISender();
+        }
+        
+        sendResponse({
+          success: true,
+          stats: globalThis.backgroundSender.getStats()
+        });
+      } catch (error) {
+        sendResponse({
+          success: false,
+          error: error.message
+        });
+      }
+    })();
     
     return true;
   }

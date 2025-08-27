@@ -77,9 +77,10 @@ class SupabasePipeline:
             'created_at': adapter['created_at']
         }
         
-        # Insert into Supabase
-        spider.logger.info(f"🔍 Posting game to: {self.supabase_url}/games")
-        spider.logger.info(f"🔍 Game data: {game_data}")
+        # Try to insert game, handle duplicates gracefully
+        spider.logger.info(f"🔍 Inserting game to: {self.supabase_url}/games")
+        spider.logger.debug(f"🔍 Game data: {game_data}")
+        
         response = requests.post(
             f"{self.supabase_url}/games",
             headers=self.headers,
@@ -91,9 +92,13 @@ class SupabasePipeline:
             self.processed_games.add(game_id)
             spider.logger.info(f"✅ Game inserted: {game_id}")
         elif response.status_code == 409:
-            # Conflict - game already exists
+            # Conflict - game already exists (expected with unique constraint)
             self.processed_games.add(game_id)
-            spider.logger.debug(f"Game already exists: {game_id}")
+            spider.logger.debug(f"📝 Game already exists: {game_id}")
+        elif 'duplicate key value violates unique constraint' in response.text.lower():
+            # PostgreSQL unique constraint violation 
+            self.processed_games.add(game_id)
+            spider.logger.debug(f"📝 Game already exists (unique constraint): {game_id}")
         else:
             self.stats['errors'] += 1
             spider.logger.error(f"❌ Failed to insert game {game_id}: {response.status_code} - {response.text}")

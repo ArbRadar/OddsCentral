@@ -320,6 +320,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await updateStatus();
   
   // Set up button handlers
+  document.getElementById('main-dashboard-btn').addEventListener('click', handleMainDashboard);
   document.getElementById('scraper-control-btn').addEventListener('click', handleScraperControl);
   document.getElementById('analytics-btn').addEventListener('click', handleAnalytics);
   document.getElementById('url-manager-btn').addEventListener('click', handleURLManager);
@@ -333,6 +334,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // Button handlers
+async function handleMainDashboard() {
+  try {
+    const url = chrome.runtime.getURL('dashboard.html');
+    await chrome.tabs.create({ url });
+    window.close();
+  } catch (error) {
+    console.error('Error opening main dashboard:', error);
+  }
+}
+
 async function handleScraperControl() {
   try {
     const url = chrome.runtime.getURL('scraper-control.html');

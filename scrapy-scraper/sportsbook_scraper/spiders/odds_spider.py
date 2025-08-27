@@ -22,8 +22,8 @@ class OddsSpiderSpider(scrapy.Spider):
             {'sport': 'football', 'league': 'nfl'}, 
             {'sport': 'basketball', 'league': 'nba'},
             {'sport': 'hockey', 'league': 'nhl'},
-            {'sport': 'football', 'league': 'ncaaf'},
-            {'sport': 'basketball', 'league': 'ncaab'},
+            {'sport': 'college-football', 'league': 'ncaaf'},
+            {'sport': 'college-basketball', 'league': 'ncaab'},
             {'sport': 'soccer', 'league': 'mls'},
             {'sport': 'soccer', 'league': 'epl'},
             {'sport': 'tennis', 'league': 'atp'},
@@ -308,8 +308,11 @@ class OddsSpiderSpider(scrapy.Spider):
         if 'games' in data:
             for game_data in data['games']:
                 game_item = GameItem()
-                game_item['sport'] = 'BASEBALL'
-                game_item['league'] = 'MLB'
+                # Get sport/league from response meta or default
+                sport = response.meta.get('sport', 'baseball').upper()
+                league = response.meta.get('league', 'mlb').upper()
+                game_item['sport'] = sport
+                game_item['league'] = league
                 game_item['home_team'] = game_data.get('home_team', '')
                 game_item['away_team'] = game_data.get('away_team', '')
                 game_item['start_time'] = game_data.get('start_time', '')
@@ -416,8 +419,11 @@ class OddsSpiderSpider(scrapy.Spider):
                         
                         # Extract basic game info (adapt to actual structure)
                         game_item = GameItem()
-                        game_item['sport'] = 'BASEBALL'
-                        game_item['league'] = 'MLB'
+                        # Get sport/league from response meta or default
+                        sport = response.meta.get('sport', 'baseball').upper()
+                        league = response.meta.get('league', 'mlb').upper()
+                        game_item['sport'] = sport
+                        game_item['league'] = league
                         game_item['home_team'] = str(game_data.get('home', game_data.get('homeTeam', 'Unknown')))
                         game_item['away_team'] = str(game_data.get('away', game_data.get('awayTeam', 'Unknown')))
                         game_item['start_time'] = str(game_data.get('startTime', game_data.get('time', '')))

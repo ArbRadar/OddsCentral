@@ -1,0 +1,409 @@
+{
+  "sports": [
+    "BASEBALL",
+    "FOOTBALL",
+    "MLB",
+    "TENNIS"
+  ],
+  "leagues": [
+    [
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "NCAAF",
+      "FOOTBALL"
+    ],
+    [
+      "NFL",
+      "FOOTBALL"
+    ],
+    [
+      "MLB",
+      "MLB"
+    ],
+    [
+      "ATP",
+      "TENNIS"
+    ]
+  ],
+  "countries": [],
+  "teams": [
+    [
+      "Arizona Diamondbacks",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Atlanta Braves",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Baltimore Orioles",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Boston Red Sox",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Buffalo Bills",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Chicago Blackhawks",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Chicago Cubs",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Chicago White Sox",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Cincinnati Reds",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Cleveland Guardians",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Colorado Rockies",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Cristian Perez",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Darion Abbey",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "David Goffin",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Detroit Tigers",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Donte Johnson",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Florida Panthers",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Fresno State",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Houston Astros",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Jacksonville Jaguars",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Kansas",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Kansas City Royals",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Los Angeles Angels",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Los Angeles Dodgers",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Manoel Sousa",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Mercer",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Miami Dolphins",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Miami Marlins",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Milwaukee Brewers",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Minnesota Twins",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "New York Mets",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "New York Rangers",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "New York Yankees",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Oakland Athletics",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Philadelphia Phillies",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Pittsburgh Penguins",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Pittsburgh Pirates",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Quentin Halys",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "San Diego Padres",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "San Francisco Giants",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Seattle Mariners",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "St. Louis Cardinals",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Tampa Bay Buccaneers",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Tampa Bay Rays",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Texas Rangers",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Toronto Blue Jays",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "UC Davis",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Valentin Royer",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Washington Nationals",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Yunchaokete Bu",
+      "MLB",
+      "BASEBALL"
+    ],
+    [
+      "Boise State",
+      "NCAAF",
+      "FOOTBALL"
+    ],
+    [
+      "Bowling Green",
+      "NCAAF",
+      "FOOTBALL"
+    ],
+    [
+      "Lafayette",
+      "NCAAF",
+      "FOOTBALL"
+    ],
+    [
+      "South Florida",
+      "NCAAF",
+      "FOOTBALL"
+    ],
+    [
+      "Dallas Cowboys",
+      "NFL",
+      "FOOTBALL"
+    ],
+    [
+      "Kansas City Chiefs",
+      "NFL",
+      "FOOTBALL"
+    ],
+    [
+      "Los Angeles Chargers",
+      "NFL",
+      "FOOTBALL"
+    ],
+    [
+      "Philadelphia Eagles",
+      "NFL",
+      "FOOTBALL"
+    ],
+    [
+      "Colorado Rockies",
+      "MLB",
+      "MLB"
+    ],
+    [
+      "Pittsburgh Pirates",
+      "MLB",
+      "MLB"
+    ],
+    [
+      "St. Louis Cardinals",
+      "MLB",
+      "MLB"
+    ],
+    [
+      "Tampa Bay Rays",
+      "MLB",
+      "MLB"
+    ],
+    [
+      "Arthur Rinderknech",
+      "ATP",
+      "TENNIS"
+    ],
+    [
+      "Ben Shelton",
+      "ATP",
+      "TENNIS"
+    ],
+    [
+      "Ignacio Buse",
+      "ATP",
+      "TENNIS"
+    ],
+    [
+      "Roberto Carballes Baena",
+      "ATP",
+      "TENNIS"
+    ]
+  ],
+  "bookmakers": [
+    "22bet",
+    "4Cx",
+    "BC.GAME",
+    "Bally Bet",
+    "BetAnything",
+    "BetDEX",
+    "BetMGM",
+    "BetOnline",
+    "BetRivers",
+    "Betfair Exchange",
+    "Betfair Exchange (Australia)",
+    "Betfred",
+    "Betnacional",
+    "Betway",
+    "BookMaker",
+    "Bovada",
+    "Caesars",
+    "Circa Sports",
+    "Circa Vegas",
+    "Coolbet",
+    "Crab Sports",
+    "Dafabet",
+    "DraftKings",
+    "ESPN BET",
+    "FanDuel",
+    "Fanatics",
+    "GGBet",
+    "Galera.bet",
+    "Midnite",
+    "Novig",
+    "OddsJam Algo Odds",
+    "Onyx Odds",
+    "Pinnacle",
+    "Pinny",
+    "Polymarket",
+    "Prime Sports",
+    "Rizk",
+    "Sporttrade",
+    "Sportzino",
+    "Superbet",
+    "Underdog Sportsbook",
+    "Unibet",
+    "bet105",
+    "bet365"
+  ]
+}

@@ -6,20 +6,23 @@ OddsCentral is a comprehensive sports betting analytics platform consisting of a
 
 ## Recent Updates & Bug Fixes
 
-### Version 1.2 (August 2024)
+### Version 1.3 (August 2025)
+- **🔧 Fixed Analytics Page Hang**: Resolved ReferenceError: processedCount is not defined that was causing analytics to freeze at "Processing 28 games..."
+- **💾 Filter State Persistence**: Sportsbook page now maintains filter settings across 60-second auto-refreshes using localStorage
+- **📅 Fixed Date Display Bug**: Event Date filter now shows correct "Today/Tomorrow" labels with proper timezone handling
+- **🎯 Enhanced EV Detection**: Lowered threshold from 1.0% to 0.5% to capture more meaningful opportunities
+- **🧹 Data Deduplication**: Added comprehensive deduplication logic to handle ~10x duplicate records per sportsbook
+- **🔴 Improved Live Detection**: Enhanced live vs pre-game categorization using start times and game status
+- **⚡ Optimized Data Processing**: Added batch processing to prevent UI freezing during calculations
+- **🚫 Filtered Algorithmic Odds**: Removed OddsJam Algo Odds that were skewing fairline calculations
+- **📋 Better Date Filter UX**: Changed Event Date from input field to dropdown with relative labels
+
+### Version 1.2 (August 2024) 
 - **🔍 Troubleshooting Dashboard**: New dedicated page for analyzing flagged and rejected opportunities
 - **⚙️ Configurable Scraping Rules**: Team classification and odds detection now fully configurable
 - **📑 Tabbed Configuration Interface**: Split configuration into organized tabs for better usability
 - **🎯 Enhanced Calculation Transparency**: Detailed breakdowns showing exactly why opportunities were flagged
 - **📊 Improved Analytics**: Better tracking of data quality issues and classification errors
-
-### Version 1.1 (August 2024)
-- **🐛 Fixed Critical EV Calculation Bug**: Corrected American odds comparison logic that was causing inflated +EV percentages
-- **🐛 Fixed Arbitrage Calculation Bug**: Same odds comparison fix applied to arbitrage detection
-- **⚠️ Added 3-Way Market Detection**: Soccer games with draw options are now properly identified and skipped until full 3-way support is implemented
-- **🎨 Enhanced User Interface**: Added tabbed navigation for +EV and Arbitrage opportunities
-- **📊 Improved Validation**: Added suspicious high EV/arbitrage warnings and profit caps
-- **🔍 Enhanced Debugging**: Detailed console logging for troubleshooting calculations
 
 ## Architecture
 
@@ -128,12 +131,14 @@ EV = ((fairProb × decimalOdds) - 1) × 100
 ```
 
 **Quality Controls:**
-- EV range filtering (0.5% to 50%) to eliminate calculation errors
+- EV range filtering (0.5% to 50%) to eliminate calculation errors  
+- Data deduplication to handle duplicate records (~10x per sportsbook)
+- Algorithmic odds filtering to prevent fairline skewing
 - Suspicious high EV warnings (>15%)
 - Minimum sportsbook requirements (3+ books for meaningful analysis)
 - **Flagged Opportunities Tracking**: Automatic detection and storage of problematic calculations:
   - **Rejected**: Opportunities with EV >50% or arbitrage >50% (clearly erroneous)
-  - **Suspicious**: Opportunities with EV >15% or arbitrage >15% (require investigation)
+  - **Suspicious**: Opportunities with EV >15% or arbitrage >15% (require investigation)  
   - **Data Errors**: Team classification or odds detection failures
 
 #### config.js - Configuration Management
@@ -184,6 +189,14 @@ EV = ((fairProb × decimalOdds) - 1) × 100
 
 ### 3. Analytics Interface
 
+#### sportsbook.html - Data Browser Interface  
+- **Filter Persistence**: Maintains filter state across 60-second auto-refreshes using localStorage
+- **Smart Date Filtering**: Event Date dropdown with correct "Today/Tomorrow" timezone handling
+- **Game Organization**: Past/live games shown first (by recency), then future games (by proximity)
+- **Multi-Filter Support**: Sport, league, bookmaker, date, and freshness filtering
+- **Expandable Game Cards**: Click to view detailed odds from all bookmakers
+- **Responsive Design**: Clean interface with loading states and error handling
+
 #### analytics.html - User Interface
 - **Tabbed Navigation**: Separate tabs for +EV and Arbitrage opportunities
 - **Real-time Updates**: Auto-refresh every 30 seconds
@@ -191,6 +204,7 @@ EV = ((fairProb × decimalOdds) - 1) × 100
 - **Interactive Tables**: Sortable columns with hover effects
 - **Responsive Design**: Clean, modern interface with loading states
 - **Data Validation**: Visual warnings for suspicious calculations
+- **Batch Processing**: Prevents UI freezing during large dataset calculations
 
 #### troubleshoot.html - Diagnostic Interface
 - **Flagged Opportunities**: Comprehensive listing of rejected and suspicious calculations
@@ -344,12 +358,15 @@ Identifies opportunities where:
 - **Manual Extension Installation**: Requires developer mode in Chrome
 
 ### Recently Fixed Issues
+- **✅ Analytics Page Freezing**: Fixed ReferenceError: processedCount undefined that caused processing to hang
+- **✅ Filter State Reset**: Implemented localStorage persistence for sportsbook page filters 
+- **✅ Wrong Date Labels**: Fixed timezone handling for Today/Tomorrow date display
+- **✅ Low EV Detection**: Improved threshold and deduplication to find more opportunities
+- **✅ Duplicate Data Handling**: Added comprehensive deduplication (10x records per sportsbook)
+- **✅ Live Game Detection**: Enhanced categorization using start times and game status
+- **✅ Algorithmic Odds Skewing**: Filtered out OddsJam Algo Odds that distorted fairlines
 - **✅ American Odds Comparison**: Fixed `Math.max()` usage that incorrectly compared negative odds
-- **✅ Inflated EV Calculations**: Resolved 70%+ EV calculations from improper odds handling
-- **✅ Arbitrage Miscalculations**: Fixed 1000%+ profit calculations from same odds comparison bug
-- **✅ UI Navigation**: Added tabbed interface to reduce scrolling
-- **✅ Team Classification Issues**: Added configurable rules for better team and draw detection
-- **✅ Calculation Transparency**: Implemented troubleshooting dashboard to identify root causes
+- **✅ UI Navigation**: Added tabbed interface and improved date filter UX
 
 ## Development Roadmap
 
@@ -413,6 +430,26 @@ Identifies opportunities where:
 
 ### Common Issues
 
+#### Analytics Page Hangs on "Processing X games..."
+- **Cause**: JavaScript error in arbitrage calculation function
+- **Solution**: Fixed in v1.3 with proper variable declaration
+- **Status**: Resolved - processedCount variable now properly scoped
+
+#### Filters Reset After Page Refresh  
+- **Cause**: Sportsbook page auto-refreshes every 60 seconds, losing filter state
+- **Solution**: Fixed in v1.3 with localStorage persistence
+- **Status**: Resolved - all filters now persist across refreshes
+
+#### Wrong Today/Tomorrow Date Labels
+- **Cause**: Timezone handling issue in date comparison logic
+- **Solution**: Fixed in v1.3 with proper local timezone handling
+- **Status**: Resolved - dates now show correct relative labels
+
+#### Very Low EV Opportunities (only 1-2%)
+- **Cause**: Duplicate data and algorithmic odds skewing calculations  
+- **Solution**: Fixed in v1.3 with deduplication and algorithmic odds filtering
+- **Status**: Resolved - should now find higher EV opportunities
+
 #### High EV/Arbitrage Percentages (>20%)
 - **Cause**: Usually indicates 3-way market data or calculation errors
 - **Solution**: Check console for "Skipping 3-way market" messages
@@ -471,6 +508,6 @@ Extension context invalidated, stopping scraper
 
 ---
 
-*Last Updated: August 2024*
-*Version: 1.2*
+*Last Updated: August 2025*
+*Version: 1.3*
 *Author: Created from scratch for sports betting analytics*

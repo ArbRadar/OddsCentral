@@ -1,0 +1,308 @@
+{
+  "omenizer": {
+    "sports_count": 2,
+    "leagues_count": 98,
+    "countries_count": 30,
+    "teams_count": 1686,
+    "sports": [
+      "Soccer",
+      "Basketball"
+    ],
+    "sample_leagues": [
+      [
+        "England Non League Div One Southern SW",
+        "Soccer"
+      ],
+      [
+        "Germany Liga 3",
+        "Soccer"
+      ],
+      [
+        "English National League North",
+        "Soccer"
+      ],
+      [
+        "UEFA European Under-21 Championship",
+        "Soccer"
+      ],
+      [
+        "English Southern Premier League Central Division One",
+        "Soccer"
+      ],
+      [
+        "English League Championship",
+        "Soccer"
+      ],
+      [
+        "French LNB Pro B",
+        "Basketball"
+      ],
+      [
+        "English Womens Super League",
+        "Soccer"
+      ],
+      [
+        "Dutch Eerste Divisie",
+        "Soccer"
+      ],
+      [
+        "England Non League Div One Isthmian North",
+        "Soccer"
+      ],
+      [
+        "Portuguese Primeira Liga",
+        "Soccer"
+      ],
+      [
+        "Italian Serie B",
+        "Soccer"
+      ],
+      [
+        "English Womens Super League 2",
+        "Soccer"
+      ],
+      [
+        "French Championnat National",
+        "Soccer"
+      ],
+      [
+        "French National 2 Group B",
+        "Soccer"
+      ],
+      [
+        "Saudi-Arabian Pro League",
+        "Soccer"
+      ],
+      [
+        "English National League",
+        "Soccer"
+      ],
+      [
+        "Spanish La Liga",
+        "Soccer"
+      ],
+      [
+        "San-Marino Campionato",
+        "Soccer"
+      ],
+      [
+        "French Ligue 1",
+        "Soccer"
+      ]
+    ],
+    "countries": [
+      "Turkey",
+      "Slovenia",
+      "Bosnia and Herzegovina",
+      "Albania",
+      "Malaysia",
+      "Singapore",
+      "United States",
+      "Brunei",
+      "Zambia",
+      "Andorra",
+      "Russia",
+      "Ukraine",
+      "Portugal",
+      "Poland",
+      "Switzerland",
+      "Italy",
+      "Germany",
+      "France",
+      "Taiwan",
+      "Saudi Arabia",
+      "Austria",
+      "Nigeria",
+      "Azerbaijan",
+      "Slovakia",
+      "Spain",
+      "South Africa",
+      "Luxembourg",
+      "Hungary",
+      "Indonesia",
+      "San Marino"
+    ]
+  },
+  "oddsjam": {
+    "sports_count": 4,
+    "leagues_count": 5,
+    "teams_count": 66,
+    "bookmakers_count": 44,
+    "sports": [
+      "BASEBALL",
+      "FOOTBALL",
+      "MLB",
+      "TENNIS"
+    ],
+    "leagues": [
+      [
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "NCAAF",
+        "FOOTBALL"
+      ],
+      [
+        "NFL",
+        "FOOTBALL"
+      ],
+      [
+        "MLB",
+        "MLB"
+      ],
+      [
+        "ATP",
+        "TENNIS"
+      ]
+    ],
+    "sample_teams": [
+      [
+        "Arizona Diamondbacks",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Atlanta Braves",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Baltimore Orioles",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Boston Red Sox",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Buffalo Bills",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Chicago Blackhawks",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Chicago Cubs",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Chicago White Sox",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Cincinnati Reds",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Cleveland Guardians",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Colorado Rockies",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Cristian Perez",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Darion Abbey",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "David Goffin",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Detroit Tigers",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Donte Johnson",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Florida Panthers",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Fresno State",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Houston Astros",
+        "MLB",
+        "BASEBALL"
+      ],
+      [
+        "Jacksonville Jaguars",
+        "MLB",
+        "BASEBALL"
+      ]
+    ],
+    "bookmakers": [
+      "22bet",
+      "4Cx",
+      "BC.GAME",
+      "Bally Bet",
+      "BetAnything",
+      "BetDEX",
+      "BetMGM",
+      "BetOnline",
+      "BetRivers",
+      "Betfair Exchange",
+      "Betfair Exchange (Australia)",
+      "Betfred",
+      "Betnacional",
+      "Betway",
+      "BookMaker",
+      "Bovada",
+      "Caesars",
+      "Circa Sports",
+      "Circa Vegas",
+      "Coolbet",
+      "Crab Sports",
+      "Dafabet",
+      "DraftKings",
+      "ESPN BET",
+      "FanDuel",
+      "Fanatics",
+      "GGBet",
+      "Galera.bet",
+      "Midnite",
+      "Novig",
+      "OddsJam Algo Odds",
+      "Onyx Odds",
+      "Pinnacle",
+      "Pinny",
+      "Polymarket",
+      "Prime Sports",
+      "Rizk",
+      "Sporttrade",
+      "Sportzino",
+      "Superbet",
+      "Underdog Sportsbook",
+      "Unibet",
+      "bet105",
+      "bet365"
+    ]
+  }
+}

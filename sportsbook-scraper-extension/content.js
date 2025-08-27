@@ -2,6 +2,15 @@
 (function() {
   'use strict';
   
+  // DISABLE VISUAL SCRAPING - Using API-only scraping via Scrapy
+  const VISUAL_SCRAPING_ENABLED = false;
+  
+  // Early exit if visual scraping is disabled
+  if (!VISUAL_SCRAPING_ENABLED) {
+    console.log('Visual scraping is disabled - using API-only scraping');
+    return;
+  }
+  
   // Check if this is a sportsbook domain we should scrape
   const SPORTSBOOK_DOMAINS = [
     'oddsjam.com',

@@ -20,15 +20,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [
-    {
-      "matches": ["https://*/*", "http://*/*"],
-      "exclude_matches": [],
-      "js": ["content.js"],
-      "run_at": "document_end",
-      "all_frames": false
-    }
-  ],
+  "content_scripts": [],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -44,7 +36,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["scraper-control.html", "analytics.html", "analytics.js", "config.html", "config.js", "sportsbook.html", "sportsbook.js", "api-interceptor.js", "scraping-strategies.js", "endpoints.html", "endpoints.js", "api-scraper.js", "api-scraper-init.js", "scraping-status-indicator.js", "diagnostics.html", "diagnostics.js", "url-manager.html", "url-manager.js", "scraping-dashboard.html", "scraping-dashboard.js"],
+      "resources": ["dashboard.html", "scraper-control.html", "analytics.html", "analytics.js", "config.html", "config.js", "sportsbook.html", "sportsbook.js", "matching-api.js", "api-interceptor.js", "scraping-strategies.js", "endpoints.html", "endpoints.js", "api-scraper.js", "api-scraper-init.js", "scraping-status-indicator.js", "diagnostics.html", "diagnostics.js", "url-manager.html", "url-manager.js", "scraping-dashboard.html", "scraping-dashboard.js"],
       "matches": ["<all_urls>"]
     }
   ]

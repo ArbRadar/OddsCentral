@@ -324,6 +324,76 @@
       background: #059669;
       color: white;
     }
+
+    .matching-status {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-left: 0.5rem;
+    }
+
+    .matching-status.ready {
+      background: #d1fae5;
+      color: #065f46;
+      border: 1px solid #10b981;
+    }
+
+    .matching-status.pending {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #f59e0b;
+    }
+
+    .matching-status.exists {
+      background: #e0e7ff;
+      color: #3730a3;
+      border: 1px solid #6366f1;
+    }
+
+    .matching-status.new {
+      background: #f3f4f6;
+      color: #374151;
+      border: 1px solid #9ca3af;
+    }
+
+    .matching-status.error {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #dc2626;
+    }
+
+    .omenizer-info {
+      font-size: 0.75rem;
+      color: #6b7280;
+      margin-top: 0.25rem;
+      font-style: italic;
+    }
+
+    .omenizer-teams {
+      color: #059669;
+      font-weight: 500;
+    }
+
+    .matching-details {
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      background: #f8fafc;
+      border-radius: 4px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .matching-details summary {
+      cursor: pointer;
+      font-weight: 500;
+      color: #374151;
+      font-size: 0.875rem;
+    }
+
+    .matching-details[open] summary {
+      margin-bottom: 0.5rem;
+    }
   </style>
 </head>
 <body>
@@ -369,9 +439,9 @@
           </select>
         </div>
         <div class="filter-item">
-          <label for="freshness-filter">Game Freshness</label>
+          <label for="freshness-filter">Odds Freshness</label>
           <select id="freshness-filter">
-            <option value="all">All Games</option>
+            <option value="all">All Odds</option>
             <option value="1hour">Last 1 Hour</option>
             <option value="6hours">Last 6 Hours</option>
             <option value="12hours">Last 12 Hours</option>
@@ -405,6 +475,7 @@
     </div>
   </div>
 
+  <script src="matching-api.js"></script>
   <script src="sportsbook.js"></script>
 </body>
 </html>

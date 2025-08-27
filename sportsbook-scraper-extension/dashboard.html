@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OddsCentral Dashboard - System Overview</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+    }
+
+    .section h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .section h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #374151;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .item-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .badge.web {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .badge.extension {
+      background: #e0e7ff;
+      color: #3730a3;
+    }
+
+    .badge.python {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .badge.api {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .badge.database {
+      background: #ede9fe;
+      color: #5b21b6;
+    }
+
+    .description {
+      color: #6b7280;
+      margin-bottom: 1rem;
+    }
+
+    .link-button {
+      display: inline-block;
+      background: #059669;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s;
+      margin-right: 1rem;
+    }
+
+    .link-button:hover {
+      background: #047857;
+    }
+
+    .command {
+      background: #1e293b;
+      color: #f1f5f9;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', Consolas, Monaco, monospace;
+      font-size: 0.875rem;
+      margin: 0.5rem 0;
+      overflow-x: auto;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .status-dot.active {
+      background: #10b981;
+    }
+
+    .status-dot.inactive {
+      background: #6b7280;
+    }
+
+    .status-dot.pending {
+      background: #f59e0b;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .quick-link {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      color: #1e293b;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .quick-link:hover {
+      border-color: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-box {
+      background: #eff6ff;
+      border: 1px solid #3b82f6;
+      border-radius: 6px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .info-box p {
+      color: #1e40af;
+      font-size: 0.875rem;
+    }
+
+    .warning-box {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      border-radius: 6px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .warning-box p {
+      color: #92400e;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🎯 OddsCentral Dashboard</h1>
+    <p>Complete System Overview & Documentation</p>
+  </div>
+
+  <div class="container">
+    <!-- Quick Links -->
+    <div class="quick-links">
+      <a href="sportsbook.html" class="quick-link">📊 Sportsbook Data</a>
+      <a href="analytics.html" class="quick-link">💰 Analytics</a>
+      <a href="config.html" class="quick-link">⚙️ Configuration</a>
+      <a href="endpoints.html" class="quick-link">🔌 API Endpoints</a>
+      <a href="diagnostics.html" class="quick-link">🔍 Diagnostics</a>
+      <a href="troubleshoot.html" class="quick-link">🛠️ Troubleshoot</a>
+    </div>
+
+    <!-- Chrome Extension Pages -->
+    <section class="section">
+      <h2>🧩 Chrome Extension Pages</h2>
+      <p style="margin-bottom: 1rem; color: #6b7280;">Web interfaces accessible through the extension</p>
+      
+      <div class="grid">
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">Sportsbook Data Viewer</h3>
+            <span class="badge web">Web Page</span>
+          </div>
+          <p class="description">View scraped odds data with Omenizer matching status</p>
+          <a href="sportsbook.html" class="link-button">Open Sportsbook</a>
+          <div class="status">
+            <span class="status-dot active"></span>
+            <span>Shows matching status badges & Omenizer event IDs</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">Analytics Dashboard</h3>
+            <span class="badge web">Web Page</span>
+          </div>
+          <p class="description">EV calculations, arbitrage opportunities, and betting analytics</p>
+          <a href="analytics.html" class="link-button">Open Analytics</a>
+          <div class="status">
+            <span class="status-dot active"></span>
+            <span>Real-time EV detection with 0.5% threshold</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">Configuration Manager</h3>
+            <span class="badge web">Web Page</span>
+          </div>
+          <p class="description">Manage enabled sportsbooks and scraping settings</p>
+          <a href="config.html" class="link-button">Open Config</a>
+          <a href="config-filters.html" class="link-button">Bookmaker Filters</a>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">API Endpoints Manager</h3>
+            <span class="badge web">Web Page</span>
+          </div>
+          <p class="description">View and manage discovered OddsJam API endpoints</p>
+          <a href="endpoints.html" class="link-button">Open Endpoints</a>
+          <div class="status">
+            <span class="status-dot active"></span>
+            <span>Auto-discovers API patterns</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">System Diagnostics</h3>
+            <span class="badge web">Web Page</span>
+          </div>
+          <p class="description">Check database connections, API status, and system health</p>
+          <a href="diagnostics.html" class="link-button">Open Diagnostics</a>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">Troubleshooting Guide</h3>
+            <span class="badge web">Web Page</span>
+          </div>
+          <p class="description">Common issues and solutions for the scraping system</p>
+          <a href="troubleshoot.html" class="link-button">Open Guide</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Python Scripts & Backend -->
+    <section class="section">
+      <h2>🐍 Python Scripts & Backend Systems</h2>
+      <p style="margin-bottom: 1rem; color: #6b7280;">Core processing and automation scripts</p>
+
+      <div class="item">
+        <div class="item-header">
+          <h3 class="item-title">Matching Engine</h3>
+          <span class="badge python">Python Script</span>
+        </div>
+        <p class="description">Matches OddsJam games to Omenizer nomenclature with 93.6% success rate</p>
+        <div class="command">cd /Users/joelsalazar/OddsCentral && python matching_engine.py</div>
+        <div class="info-box">
+          <p><strong>Options:</strong> --limit 100 (process first 100 games), --show-ready (list ready events), --quiet (minimal output)</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <h3 class="item-title">Matching API Server</h3>
+          <span class="badge api">API Server</span>
+        </div>
+        <p class="description">Provides matching status to sportsbook interface (port 5555)</p>
+        <div class="command">cd /Users/joelsalazar/OddsCentral/sportsbook-scraper-extension && python matching-server.py</div>
+        <div class="status">
+          <span class="status-dot active"></span>
+          <span>Required for matching status badges in Sportsbook page</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <h3 class="item-title">Scrapy Monitor</h3>
+          <span class="badge python">Python Script</span>
+        </div>
+        <p class="description">Automated scraper that fetches odds from OddsJam every minute</p>
+        <div class="command">cd /Users/joelsalazar/OddsCentral && python scrapy_monitor.py</div>
+        <div class="warning-box">
+          <p><strong>Note:</strong> Only scrapes MLB currently. Runs continuously until stopped with Ctrl+C</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <h3 class="item-title">Database Import Tool</h3>
+          <span class="badge python">Python Script</span>
+        </div>
+        <p class="description">Imports CSV reference data into database for matching</p>
+        <div class="command">cd /Users/joelsalazar/OddsCentral && python import_csv_to_database.py</div>
+        <div class="status">
+          <span class="status-dot inactive"></span>
+          <span>One-time setup - already completed</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <h3 class="item-title">Performance Comparison</h3>
+          <span class="badge python">Python Script</span>
+        </div>
+        <p class="description">Benchmarks CSV vs database matching performance</p>
+        <div class="command">cd /Users/joelsalazar/OddsCentral && python performance_comparison.py</div>
+        <div class="info-box">
+          <p>Shows database is 6x faster than CSV approach</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Database & Infrastructure -->
+    <section class="section">
+      <h2>🗄️ Database & Infrastructure</h2>
+      <p style="margin-bottom: 1rem; color: #6b7280;">Core data storage and services</p>
+
+      <div class="item">
+        <div class="item-header">
+          <h3 class="item-title">Supabase Local</h3>
+          <span class="badge database">Database</span>
+        </div>
+        <p class="description">PostgreSQL database running on port 54320</p>
+        <div class="command">cd /Users/joelsalazar/OddsCentral/supabase-local && docker-compose up -d</div>
+        <div class="info-box">
+          <p><strong>Access:</strong> localhost:54320 | <strong>User:</strong> postgres | <strong>Password:</strong> postgres</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <h3 class="item-title">Database Tables</h3>
+          <span class="badge database">Schema</span>
+        </div>
+        <p class="description">Key tables in the system</p>
+        <ul style="margin-left: 1.5rem; color: #6b7280;">
+          <li><strong>games</strong> - Unique games with UNIQUE constraint on game_id</li>
+          <li><strong>odds</strong> - Bookmaker odds for each game</li>
+          <li><strong>flagged_events</strong> - Games processed by matching engine</li>
+          <li><strong>*_reference</strong> - Omenizer reference data (sports, teams, leagues)</li>
+          <li><strong>*_mapping</strong> - Translation mappings between systems</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Chrome Extension Components -->
+    <section class="section">
+      <h2>🔧 Chrome Extension Components</h2>
+      <p style="margin-bottom: 1rem; color: #6b7280;">Core extension files and their purposes</p>
+
+      <div class="grid">
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">Background Script</h3>
+            <span class="badge extension">Extension</span>
+          </div>
+          <p class="description">Manages data storage, API interception, and scraping coordination</p>
+          <div class="status">
+            <span class="status-dot active"></span>
+            <span>background.js - Always running</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">Content Script</h3>
+            <span class="badge extension">Extension</span>
+          </div>
+          <p class="description">Injects scraping indicator and captures page data</p>
+          <div class="status">
+            <span class="status-dot active"></span>
+            <span>content.js - Active on OddsJam pages</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">API Interceptor</h3>
+            <span class="badge extension">Extension</span>
+          </div>
+          <p class="description">Captures OddsJam API responses for endpoint discovery</p>
+          <div class="status">
+            <span class="status-dot active"></span>
+            <span>api-interceptor.js - Network monitoring</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">Extension Popup</h3>
+            <span class="badge extension">Extension</span>
+          </div>
+          <p class="description">Quick access menu with links to all dashboards</p>
+          <div class="status">
+            <span class="status-dot active"></span>
+            <span>popup.html - Click extension icon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Reference -->
+    <section class="section">
+      <h2>📋 Quick Reference</h2>
+      
+      <h3>🚀 Daily Workflow</h3>
+      <ol style="margin-left: 1.5rem; color: #6b7280; line-height: 2;">
+        <li>Start Supabase database (if not running)</li>
+        <li>Run <code style="background: #e2e8f0; padding: 0.25rem 0.5rem; border-radius: 4px;">python matching-server.py</code> for matching status</li>
+        <li>Run <code style="background: #e2e8f0; padding: 0.25rem 0.5rem; border-radius: 4px;">python scrapy_monitor.py</code> for continuous scraping</li>
+        <li>Open Sportsbook page to view games with matching status</li>
+        <li>Run <code style="background: #e2e8f0; padding: 0.25rem 0.5rem; border-radius: 4px;">python matching_engine.py</code> to process new games</li>
+      </ol>
+
+      <h3>🔍 Key Features</h3>
+      <ul style="margin-left: 1.5rem; color: #6b7280; line-height: 2;">
+        <li><strong>Matching Engine:</strong> 93.6% automatic success rate</li>
+        <li><strong>Database Optimization:</strong> 6x faster than CSV approach</li>
+        <li><strong>Duplicate Prevention:</strong> UNIQUE constraint prevents duplicate games</li>
+        <li><strong>EV Detection:</strong> 0.5% threshold for opportunity detection</li>
+        <li><strong>Sport/League Normalization:</strong> Consistent uppercase format</li>
+      </ul>
+
+      <h3>📊 Current Status</h3>
+      <div class="info-box">
+        <p><strong>Active Sports:</strong> MLB (Baseball)</p>
+        <p><strong>Games Today/Tomorrow:</strong> ~15 games per day</p>
+        <p><strong>Bookmakers Enabled:</strong> DraftKings, FanDuel, BetMGM, bet365, etc.</p>
+        <p><strong>Matching Success:</strong> 21,888 out of 23,385 games ready (93.6%)</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Add timestamp
+    const timestamp = document.createElement('div');
+    timestamp.style.textAlign = 'center';
+    timestamp.style.padding = '2rem';
+    timestamp.style.color = '#6b7280';
+    timestamp.innerHTML = `Last updated: ${new Date().toLocaleString()}`;
+    document.querySelector('.container').appendChild(timestamp);
+  </script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Sender Test Panel</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #1d1d1f;
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 28px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e5e5e7;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        
+        .section h2 {
+            margin-top: 0;
+            color: #424245;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        button {
+            background: #007aff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: background-color 0.2s;
+        }
+        
+        button:hover {
+            background: #0056cc;
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        button.success {
+            background: #28a745;
+        }
+        
+        button.danger {
+            background: #dc3545;
+        }
+        
+        input, select {
+            padding: 8px 12px;
+            border: 1px solid #d2d2d7;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        
+        .status {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-weight: 500;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        
+        .status.info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e5e5e7;
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            margin: 0 0 5px 0;
+            font-size: 24px;
+            color: #007aff;
+        }
+        
+        .stat-card p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 15px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .toggle input[type="checkbox"] {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 API Sender Test Panel</h1>
+        
+        <div class="section">
+            <h2>Connection Test</h2>
+            <p>Test the connection to the external API endpoint.</p>
+            <button id="test-connection">Test Connection</button>
+            <div id="connection-status"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Send Data</h2>
+            <p>Send odds data to the external API endpoint.</p>
+            
+            <div class="controls">
+                <label>Limit:</label>
+                <input type="number" id="send-limit" value="10" min="1" max="100">
+                <button id="send-all">Send Recent Data</button>
+                <button id="send-specific">Send Specific Games</button>
+            </div>
+            
+            <div class="controls" id="specific-controls" style="display: none;">
+                <label>Game IDs (comma separated):</label>
+                <input type="text" id="game-ids" placeholder="game_id_1, game_id_2, ...">
+            </div>
+            
+            <div id="send-status"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Auto-Send Configuration</h2>
+            <div class="toggle">
+                <input type="checkbox" id="auto-send-toggle" checked>
+                <label for="auto-send-toggle">Automatically send data to API after processing</label>
+            </div>
+            <p style="font-size: 13px; color: #666; margin: 10px 0 0 0;">
+                When enabled, processed odds data will be automatically sent to the API after scraping.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>Statistics</h2>
+            <button id="refresh-stats">Refresh Stats</button>
+            <div id="stats-display"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Activity Log</h2>
+            <button id="clear-log">Clear Log</button>
+            <div id="log" class="log"></div>
+        </div>
+    </div>
+    
+    <script src="api-sender-test.js"></script>
+</body>
+</html>

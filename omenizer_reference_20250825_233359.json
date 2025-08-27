@@ -1,0 +1,8864 @@
+{
+  "sports": [
+    "Soccer",
+    "Basketball"
+  ],
+  "leagues": [
+    [
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "UEFA European Under-21 Championship",
+      "Soccer"
+    ],
+    [
+      "English Southern Premier League Central Division One",
+      "Soccer"
+    ],
+    [
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "English Womens Super League",
+      "Soccer"
+    ],
+    [
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "English Womens Super League 2",
+      "Soccer"
+    ],
+    [
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Albanian Superliga",
+      "Soccer"
+    ],
+    [
+      "Croatian First Football League",
+      "Soccer"
+    ],
+    [
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Andorran 1a Divisi\u00f3",
+      "Soccer"
+    ],
+    [
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Scottish League 1",
+      "Soccer"
+    ],
+    [
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Singapore Premier League",
+      "Soccer"
+    ],
+    [
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "Taiwan Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Hungarian NB I",
+      "Soccer"
+    ],
+    [
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "France Premi\u00e8re Ligue",
+      "Soccer"
+    ],
+    [
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Bosnian Premier Liga",
+      "Soccer"
+    ],
+    [
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Slovenian 1. SNL",
+      "Soccer"
+    ],
+    [
+      "Scottish Championship",
+      "Soccer"
+    ],
+    [
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Scottish League 2",
+      "Soccer"
+    ],
+    [
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Azerbaijani Premier League",
+      "Soccer"
+    ],
+    [
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "USL Super League",
+      "Soccer"
+    ],
+    [
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Italian Serie C Girone C",
+      "Soccer"
+    ]
+  ],
+  "countries": [
+    "Turkey",
+    "Slovenia",
+    "Bosnia and Herzegovina",
+    "Albania",
+    "Malaysia",
+    "Singapore",
+    "United States",
+    "Brunei",
+    "Zambia",
+    "Andorra",
+    "Russia",
+    "Ukraine",
+    "Portugal",
+    "Poland",
+    "Switzerland",
+    "Italy",
+    "Germany",
+    "France",
+    "Taiwan",
+    "Saudi Arabia",
+    "Austria",
+    "Nigeria",
+    "Azerbaijan",
+    "Slovakia",
+    "Spain",
+    "South Africa",
+    "Luxembourg",
+    "Hungary",
+    "Indonesia",
+    "San Marino"
+  ],
+  "teams": [
+    [
+      "Bologna",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Jong Ajax",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Atl\u00e9tico Madrid Femenino",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Stourbridge",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "BFC Preussen",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Peterborough Sports",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Rayo Vallecano",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Eintracht Braunschweig",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Stellenbosch",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "Paris FC Women",
+      "France Premi\u00e8re Ligue",
+      "Soccer"
+    ],
+    [
+      "Kr\u0161ko",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Rangers International",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Leeds United",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Osnabr\u00fcck",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "AFC Fylde",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Akron Tolyatti",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Blois",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Dartford",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Eichst\u00e4tt",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Blackpool",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Sturm Graz II",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "Boreham Wood",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Ordino",
+      "Andorran 1a Divisi\u00f3",
+      "Soccer"
+    ],
+    [
+      "Borussia Dortmund II",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Faversham Town",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Vllaznia Shkod\u00ebr",
+      "Albanian Superliga",
+      "Soccer"
+    ],
+    [
+      "Port Vale",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Gloggnitz",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "FC Barcelona Basquet",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "ADO '20",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Hamburg",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Donaufeld Wien",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Kudrivka",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Werder Bremen",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Morpeth Town",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Prescot Cables",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "AFC Whyteleafe",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Cultural Leonesa",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Atl\u00e9tico Madrid",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Zamora",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Schwaz",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Kwara United",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Alvechurch",
+      "English Southern Premier League Central Division One",
+      "Soccer"
+    ],
+    [
+      "Vitesse",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Benfica",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "DPMM",
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "Nantes Women",
+      "France Premi\u00e8re Ligue",
+      "Soccer"
+    ],
+    [
+      "Motor Lublin",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Eintracht Frankfurt",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "PSBS Biak",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Podillya Khmelnytskyi",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Hostert",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "Barau",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Navalcarnero",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "AC Taipei",
+      "Taiwan Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Pogo\u0144 Szczecin",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Concarneau",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Junge Wikinger Ried",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Noordwijk",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Nkana",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Trapani",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Ch\u00e2lons-Reims",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Venezia",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Sportfreunde Siegen",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Wuppertaler",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Helmond Sport",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Rochdale",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Malut United",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Yeclano Deportivo",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Triglav Kranj",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "AMSB",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Unionistas de Salamanca",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Pallacanestro Trieste",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Twente",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Rudar Prijedor",
+      "Bosnian Premier Liga",
+      "Soccer"
+    ],
+    [
+      "N\u00eemes Olympique",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "Excelsior '31",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Astoria Walldorf",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "CB 1939 Canarias",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "P\u0159\u00edbram",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "TWL Elektra",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Hermine Nantes Basket",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Charlton Athletic",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "VVSB",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Lugo",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Castell\u00f3n",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Le Havre Women",
+      "France Premi\u00e8re Ligue",
+      "Soccer"
+    ],
+    [
+      "Southend United",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Real Zaragoza",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Hannover",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Arminia Bielefeld",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Wehen Wiesbaden",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Eldense",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "AC Milan",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Borneo Samarinda",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "SKU Amstetten",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "Birmingham City",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Libertas",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Yate Town",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "St Etienne",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Mamer 32",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "Pro Patria",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Blau-Wei\u00df Lohne",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Zvolen",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "Almere City",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Tatran Liptovsk\u00fd Mikul\u00e1\u0161",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "Ajka",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Wisla Plock",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Oberwart",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Olimpija Ljubljana",
+      "Slovenian 1. SNL",
+      "Soccer"
+    ],
+    [
+      "Kisv\u00e1rda",
+      "Hungarian NB I",
+      "Soccer"
+    ],
+    [
+      "Lausanne-Sport II",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Mez\u0151k\u00f6vesd",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Airdrieonians",
+      "Scottish Championship",
+      "Soccer"
+    ],
+    [
+      "Chambly Oise",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Celta Fortuna",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Yeni Mersin \u0130dmanyurdu",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Shrewsbury Town",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Margate",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Al-Fateh",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Austria Klagenfurt",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "Enyimba",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Fr\u00e9jus Saint-Rapha\u00ebl",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "East Fife",
+      "Scottish League 1",
+      "Soccer"
+    ],
+    [
+      "Picerno",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "S\u00e1mano",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Solihull Moors",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Langreo",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Cray Valley Paper Mills",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Egnatia",
+      "Albanian Superliga",
+      "Soccer"
+    ],
+    [
+      "Erzurumspor",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Portsmouth",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "UDI'19",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Cailungo",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Budapest Honv\u00e9d",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Favoritner AC",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Bournemouth",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Lens F\u00e9minin",
+      "France Premi\u00e8re Ligue",
+      "Soccer"
+    ],
+    [
+      "Br\u00fchl",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Boston United",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Wealdstone",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Sevilla Women",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Atl\u00e9tico Sanluque\u00f1o",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Takeley",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "RKAV Volendam",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Chester",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Furiani-Agliani",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Velden",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "VVV-Venlo",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "68 Aksaray Belediyespor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Rousset",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "Basingstoke Town",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Hoogeveen",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "\u00dast\u00ed nad Labem",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "N\u00e1xara",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Viktoriya Sumy",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Dumbarton",
+      "Scottish League 2",
+      "Soccer"
+    ],
+    [
+      "Nottingham Forest WFC",
+      "English Womens Super League 2",
+      "Soccer"
+    ],
+    [
+      "Bristol City",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Gubbio",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Schwaben Augsburg",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Modena",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Band\u0131rmaspor",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Lumezzane",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Tirana",
+      "Albanian Superliga",
+      "Soccer"
+    ],
+    [
+      "Ey\u00fcpspor",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "ALM \u00c9vreux Basket",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Amorebieta",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Inter Bratislava",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "Chippenham Town",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Crowborough Athletic",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "S\u00fcdtirol",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Alia\u011fa",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Cracovia",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Dynamo \u010cesk\u00e9 Bud\u011bjovice",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Monaco",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "N\u00fcrnberg II",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Rizespor",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Marine",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Wiedenbr\u00fcck",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Bilje",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Vasas",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Greuther F\u00fcrth",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Xerez",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Benevento",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "ASWH",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "The Spartans",
+      "Scottish League 2",
+      "Soccer"
+    ],
+    [
+      "Sochaux",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Poitiers Basket 86",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Wolverhampton Wanderers",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Hayes and Yeading United",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Obolon Kyiv",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Salernitana",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Osasuna",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "VSG Altglienicke",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Knockbreda",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "L\u00fcbeck",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "VfL Wolfsburg Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Ayr United",
+      "Scottish Championship",
+      "Soccer"
+    ],
+    [
+      "Sassuolo",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Ny\u00edregyh\u00e1za",
+      "Hungarian NB I",
+      "Soccer"
+    ],
+    [
+      "Barnet",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Forfar Athletic",
+      "Scottish League 2",
+      "Soccer"
+    ],
+    [
+      "Ch\u00e2teauroux",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Avranches",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "East Kilbride",
+      "Scottish League 2",
+      "Soccer"
+    ],
+    [
+      "Viktoria K\u00f6ln",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Kettering Town",
+      "English Southern Premier League Central Division One",
+      "Soccer"
+    ],
+    [
+      "Rak\u00f3w Cz\u0119stochowa",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Al-Shabab",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "\u017deljezni\u010dar Sarajevo",
+      "Bosnian Premier Liga",
+      "Soccer"
+    ],
+    [
+      "FC N\u00fcrnberg",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "TOGB",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Verl",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Fortuna Sittard",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Vora",
+      "Albanian Superliga",
+      "Soccer"
+    ],
+    [
+      "Hanworth Villa",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Montpellier Women",
+      "France Premi\u00e8re Ligue",
+      "Soccer"
+    ],
+    [
+      "Blauw Geel '38",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Exeter City",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Athletic Bilbao",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Beltinci",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Wacker Burghausen",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Braga",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "ZFC Meuselwitz",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Sar\u0131yer",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Dynamo Kyiv",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Hougang United",
+      "Singapore Premier League",
+      "Soccer"
+    ],
+    [
+      "Meerssen",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Pa\u00e7os de Ferreira",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Zag\u0142\u0119bie Lubin",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Inter Milan",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "FC Porto",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Celta Vigo",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Scunthorpe United",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "First Vienna",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "Jong PSV",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Inter Milan U23",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "UNA",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Horsham",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Turan Tovuz",
+      "Azerbaijani Premier League",
+      "Soccer"
+    ],
+    [
+      "Pallacanestro Trapani",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Waldhof Mannheim",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Maldon and Tiptree",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Pallacanestro Reggiana",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Al-Fayha",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Eastbourne Town",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Manchester United WFC",
+      "English Womens Super League",
+      "Soccer"
+    ],
+    [
+      "Redbridge",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Mardin 1969",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Fulham",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Luton Town",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Rodange",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "Chantilly",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Olot",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Felgueiras",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Al-Ahli",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Vy\u0161kov",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Posu\u0161je",
+      "Bosnian Premier Liga",
+      "Soccer"
+    ],
+    [
+      "Zwickau",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Dulwich Hamlet",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Tranmere Rovers",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "DVS '33 Ermelo",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Quick Boys",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Wroxham",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Paderborn",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Trabzonspor",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Hankofen-Hailing",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Tilbury",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Estrela Amadora",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Tondela",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Laval",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Zira",
+      "Azerbaijani Premier League",
+      "Soccer"
+    ],
+    [
+      "Crystal Palace FC Women",
+      "English Womens Super League 2",
+      "Soccer"
+    ],
+    [
+      "GKS Tychy",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "London City Lionesses",
+      "English Womens Super League",
+      "Soccer"
+    ],
+    [
+      "Ebro",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "UD Logro\u00f1\u00e9s",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Bristol Rovers",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Stenhousemuir",
+      "Scottish League 1",
+      "Soccer"
+    ],
+    [
+      "Tiverton Town",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Al-Ittihad",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Gernika",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Young Lions",
+      "Singapore Premier League",
+      "Soccer"
+    ],
+    [
+      "Baskonia",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "Metalist 1925 Kharkiv",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Real Oviedo",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Eilenburg",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Saint-Priest",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "Kriens",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Real Betis",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Drochtersen/Assel",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Universo Treviso Basket",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Chatham Town",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Gloucester City",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Altona 93",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Stoke City",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Salford City",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Leicester City",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Betis Deportivo",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Radomiak Radom",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Faroe Islands U21",
+      "UEFA European Under-21 Championship",
+      "Soccer"
+    ],
+    [
+      "Antequera",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Wis\u0142a Krak\u00f3w",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Uxbridge",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Casertana",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Lille",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Spennymoor Town",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Barockstadt Fulda-Lehnerz",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "FC Dordrecht",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Epitsentr Kamianets-Podilsky",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Borussia M\u00f6nchengladbach II",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Semen Padang",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Lazio",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Pontevedra",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Ospitaletto",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Borussia M\u00f6nchengladbach",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Cavese",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Forest Green Rovers",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Palermo",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Rot-Wei\u00df Erfurt",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Alliance Sport Alsace",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Spezia",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Valencia Basket",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "Schalke 04",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Girona B",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Juventus Next Gen",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Grasse",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "Alfreton Town",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Karpaty Lviv",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "UD Ourense",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Vicenza",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Inverness Caledonian Thistle",
+      "Scottish League 1",
+      "Soccer"
+    ],
+    [
+      "Rot-Weiss Essen",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Oldham Athletic",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "K\u00e4erj\u00e9ng 97",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "Sampdoria",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Ming Chuan University",
+      "Taiwan Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Stevenage",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Brooklyn FC Women",
+      "USL Super League",
+      "Soccer"
+    ],
+    [
+      "Lyon",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Wacker Innsbruck",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Halesowen Town",
+      "English Southern Premier League Central Division One",
+      "Soccer"
+    ],
+    [
+      "Slovan Ljubljana",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Persijap Jepara",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Ravenna",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Quintanar del Rey",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Hertha",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Chemie Leipzig",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "G\u00fctersloh",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "1899 Hoffenheim Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "\u0130neg\u00f6lspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Real Valladolid Promesas",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "FC 93",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "FC Augsburg",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Feirense",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Deportivo de La Coru\u00f1a",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Paks",
+      "Hungarian NB I",
+      "Soccer"
+    ],
+    [
+      "Kolos Kovalivka",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Newry City AFC",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "Esenler Erokspor",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Marseille",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Bedford Town",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Felixstowe and Walton United",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Newcastle United",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "FC Heidenheim",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Canvey Island",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Fundaci\u00f3n CB Granada",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "Katsina United",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "ROHDA Raalte",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Mar\u00edtimo",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Amazulu",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "Slovan Bratislava B",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "SGV Freiberg",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Magesi",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "Polokwane City",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "South Shields",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Brightlingsea Regent",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Padova",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "FC Volendam",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Alemannia Aachen",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Ruch Chorz\u00f3w",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Racing Union Luxembourg",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "Kuching City",
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "Red Star",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Tabor Se\u017eana",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Renate",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Gleisdorf 09",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Prost\u011bjov",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Mainz",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Espanyol B",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Rubin Kazan",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Pendikspor",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Curzon Ashton",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Cheltenham Town",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Strabane Athletic",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "PSIM Yogyakarta",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Bayern Munich",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Chelsea Women",
+      "English Womens Super League",
+      "Soccer"
+    ],
+    [
+      "Cheshunt",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Osasuna B",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Al-Okhdood",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Wrexham",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "C\u00e1diz",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Angers",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "SV Spakenburg",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Bromsgrove Sporting",
+      "English Southern Premier League Central Division One",
+      "Soccer"
+    ],
+    [
+      "Stamford",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Granada Femenino",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Tamworth",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Arzignano Valchiampo",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Manchester City",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Royston Town",
+      "English Southern Premier League Central Division One",
+      "Soccer"
+    ],
+    [
+      "Poole Town",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Real Sociedad",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Mansfield Town",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Dolomiti Bellunesi",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Feh\u00e9rv\u00e1r",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Mantova",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Bradford City",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Workington",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Concord Rangers",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Manisa",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Vyso\u010dina Jihlava",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "TS Galaxy",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "Dinamo Zagreb",
+      "Croatian First Football League",
+      "Soccer"
+    ],
+    [
+      "Ponferradina",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Havelse",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Burgess Hill Town",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Kaizer Chiefs",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "I\u011fd\u0131r",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "GKS Katowice",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Granada",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Auxerre",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Duisburg",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Parma",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Atl\u00e9tico Astorga",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Amed",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Konkola Blades",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Leobendorf",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Sestao River",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Tre Penne",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "St Ives Town",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Liverpool",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Barrow",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "H\u00e9rcules",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Szeged-Csan\u00e1d",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Orihuela",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Haguenau",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Sch\u00f6ningen",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Hessen Kassel",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Polonia Warsaw",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Persija Jakarta",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Ankara Ke\u00e7i\u00f6reng\u00fcc\u00fc",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Lafnitz",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Colchester United",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "SC Freiburg Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Menemen",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Lusit\u00e2nia Lourosa",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Sporting de Gij\u00f3n",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Slaven Belupo Koprivnica",
+      "Croatian First Football League",
+      "Soccer"
+    ],
+    [
+      "Union Gurten",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Hy\u00e8res",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "Lugano II",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Erzgebirge Aue",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Cannes",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "Ipswich Women",
+      "English Womens Super League 2",
+      "Soccer"
+    ],
+    [
+      "PSV Eindhoven",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Velbert",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "St Pauli II",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Farense",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Austria Salzburg",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "Wolfsberger AC II",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Meppen",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Brighton and Hove Albion",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Billericay Town",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "SD Logro\u00f1\u00e9s",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Sekhukhune United",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "CD Extremadura",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "\u017dilina B",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "Mamelodi Sundowns",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "Almer\u00eda",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Fortuna K\u00f6ln",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Tatung",
+      "Taiwan Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Fleury",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Bath City",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Augsburg II",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "B\u00e0squet Girona",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "Beauvais Oise",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Lewes",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Pescara",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Kelty Hearts",
+      "Scottish League 1",
+      "Soccer"
+    ],
+    [
+      "Weiz",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Chesham United",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Worcester City",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Needham Market",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Bowers and Pitsea",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Leix\u00f5es",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Terengganu",
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "Carolina Ascent",
+      "USL Super League",
+      "Soccer"
+    ],
+    [
+      "Hellas Verona",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Werder Bremen II",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Strasbourg Women",
+      "France Premi\u00e8re Ligue",
+      "Soccer"
+    ],
+    [
+      "Le Mans",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "UE Santa Coloma",
+      "Andorran 1a Divisi\u00f3",
+      "Soccer"
+    ],
+    [
+      "Union Dietach",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Eibar Women",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Chertsey Town",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Mondorf-les-Bains",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "Aviron Bayonnais",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "AFC Wimbledon",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Wasquehal",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Pau FC",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Newcastle Women",
+      "English Womens Super League 2",
+      "Soccer"
+    ],
+    [
+      "Maidenhead United",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Rumilly-Valli\u00e8res",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "Mu\u015fspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Bendel Insurance",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Ph\u00f6nix L\u00fcbeck",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Doncaster Rovers",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Stuttgarter Kickers",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Arbroath",
+      "Scottish Championship",
+      "Soccer"
+    ],
+    [
+      "Antalyaspor",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Galatasaray",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Magdeburg II",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "CB Breogan",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "Kastamonuspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Mura",
+      "Slovenian 1. SNL",
+      "Soccer"
+    ],
+    [
+      "Moldova U21",
+      "UEFA European Under-21 Championship",
+      "Soccer"
+    ],
+    [
+      "Oxford United",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Dinamo Basket Sassari",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Valenciennes",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Bocholt",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Paradiso",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Sparta Prague B",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Binfield",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "NAC Breda",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Mirand\u00e9s",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Green Eagles",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Salamanca UDS",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Audace Cerignola",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Andratx",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Stratford Town",
+      "English Southern Premier League Central Division One",
+      "Soccer"
+    ],
+    [
+      "G\u00f3rnik Zabrze",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Tainan City",
+      "Taiwan Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Littlehampton Town",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Ankara Demirspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Bedfont Sports",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Rimini",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Mied\u017a Legnica",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "AFC Croydon Athletic",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Swift Hesperange",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "Banbridge Town",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "Wiener SC",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Elversberg",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Montpellier",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Carpi",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Bra",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Napoli Basket",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Barcelona Femen\u00ed",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Arka Gdynia",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Tenerife",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Beckenham Town",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Le Puy Foot 43",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Rostov",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Bayer Leverkusen",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Young Violets Austria Wien",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "Harborough Town",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Darmstadt",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Casarano",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Borussia Dortmund",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Wycombe Wanderers",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Sparta Nijkerk",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Hohenems",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Excelsior",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Birmingham City WFC",
+      "English Womens Super League 2",
+      "Soccer"
+    ],
+    [
+      "HSC Hannover",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Yeni Malatyaspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Lusitanos Saint-Maur",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "Crewe Alexandra",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "AFC Totton",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Deportivo Arag\u00f3n",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Folgore",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Rushall Olympic",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Penya Encarnada d'Andorra",
+      "Andorran 1a Divisi\u00f3",
+      "Soccer"
+    ],
+    [
+      "Deutschlandsberger",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Union Mauer",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Newport County",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Guidonia Montecelio",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Malacitano",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Dravinja",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "CE Europa",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Hebburn Town",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Hatayspor",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Chorley",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Arsenal",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Jeunesse Esch",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "Toulouse",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Livorno",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Raynes Park Vale",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Reichenau",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Heybridge Swifts",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Jong AZ",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "NAPSA Stars",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Mutondo Stars",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Alfaro",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Sochi",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Kalsdorf",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Debrecen",
+      "Hungarian NB I",
+      "Soccer"
+    ],
+    [
+      "Woking",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Oxford Sunnyside",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "Chemnitzer",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Wimborne Town",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Hungerford Town",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Witham Town",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Wals-Gr\u00fcnau",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Ibiza Islas Pitiusas",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Potters Bar Town",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Sonnenhof Gro\u00dfaspach",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Fortuna D\u00fcsseldorf II",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Kreuzlingen",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Elche Ilicitano",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Evesham United",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "TEC",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Hamburg Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Dewa United Banten",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Eibar B",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Tottenham Women",
+      "English Womens Super League",
+      "Soccer"
+    ],
+    [
+      "GOES",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Coagh United",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "Denain Voltaire Basket",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Charlton Athletic WFC",
+      "English Womens Super League 2",
+      "Soccer"
+    ],
+    [
+      "Hansa Rostock",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Cr\u00e9teil-Lusitanos",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "Bylis",
+      "Albanian Superliga",
+      "Soccer"
+    ],
+    [
+      "Bayreuth",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Lustenau",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Racing de Santander",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Watford",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Atalanta U23",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Monza",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Retz",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Koninklijke HFC",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Whitehawk",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Marchfeld Donauauen",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "La Fiorita",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Flamurtari Vlor\u00eb",
+      "Albanian Superliga",
+      "Soccer"
+    ],
+    [
+      "Andorra U21",
+      "UEFA European Under-21 Championship",
+      "Soccer"
+    ],
+    [
+      "Rayo Cantabria",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Estonia U21",
+      "UEFA European Under-21 Championship",
+      "Soccer"
+    ],
+    [
+      "Pallacanestro Varese",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Stal Mielec",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Opava",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Kaiserslautern",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Fatih Karag\u00fcmr\u00fck",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Alloa Athletic",
+      "Scottish League 1",
+      "Soccer"
+    ],
+    [
+      "Sporting B",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Manchester City WFC",
+      "English Womens Super League",
+      "Soccer"
+    ],
+    [
+      "Annecy",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "VCD Athletic",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Kingstonian",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Forl\u00ec",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "1461 Trabzon",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Qaraba\u011f",
+      "Azerbaijani Premier League",
+      "Soccer"
+    ],
+    [
+      "Virtus Verona",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Plymouth Parkway",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Farnborough",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Carlisle United",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Aldershot Town",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Weymouth",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "ADA Blois",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Basconia",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Atl\u00e9tico Baleares",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "AVS",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Excelsior Maassluis",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Leamington",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Deportivo Alav\u00e9s B",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Bilbao Basket",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "UJAP Quimper 29",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Pova\u017esk\u00e1 Bystrica",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "Rouen",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Novara",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "SteDoCo",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Kabwe Warriors",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Brentwood Town",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Rijnsburgse Boys",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Chelsea",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Potenza",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Genoa",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Alcorc\u00f3n",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Gorica",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Eemdijk",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "USV Hercules",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Stourbridge",
+      "English Southern Premier League Central Division One",
+      "Soccer"
+    ],
+    [
+      "Quorn",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Chrudim",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Jong Almere City",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Lleida Esportiu",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "\u0130skenderunspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Salisbury",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Getafe",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Quevilly-Rouen M\u00e9tropole",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Gateshead",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "FC Schweinfurt",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Orenburg",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Q\u0259b\u0259l\u0259",
+      "Azerbaijani Premier League",
+      "Soccer"
+    ],
+    [
+      "Eintracht Trier",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Ansbach 09",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Norwich City",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Wolfsburg",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Montrose",
+      "Scottish League 1",
+      "Soccer"
+    ],
+    [
+      "Rijnvogels",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "AFC",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Babelsberg 03",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Alverca",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Piast Gliwice",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Como",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Hampton and Richmond Borough",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Hertha II",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Slough Town",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Madrid CFF",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Z\u00fcrich II",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Foggia",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Dorchester Town",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Damac",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Blackburn Rovers",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Dynamo Mal\u017eenice",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "Bavois",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "NK Vara\u017edin",
+      "Croatian First Football League",
+      "Soccer"
+    ],
+    [
+      "Swindon Town",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Catanzaro",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Isparta 32 Spor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Nchanga Rangers",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Bodrum",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Sittingbourne",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Caen",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Ourense CF",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Arenas Club",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Torquay United",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Voitsberg",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Huddersfield Town",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Rouen",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Bury Town",
+      "English Southern Premier League Central Division One",
+      "Soccer"
+    ],
+    [
+      "FSC Mariupol",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Sumqay\u0131t",
+      "Azerbaijani Premier League",
+      "Soccer"
+    ],
+    [
+      "NK Lokomotiva",
+      "Croatian First Football League",
+      "Soccer"
+    ],
+    [
+      "Kuchl",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Andr\u00e9zieux-Bouth\u00e9on",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "West Bromwich Albion",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "GOAL FC",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "Torreense",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Dornbirn",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Pergolettese",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Fareham Town",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Koper",
+      "Slovenian 1. SNL",
+      "Soccer"
+    ],
+    [
+      "Budafoki MTE",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Cosenza",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Olympique Saumur",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "Ejea",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Kettering Town",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "UNA Strassen",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "GVVV",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Red Arrows",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Montlouis",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "Lauterach",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Entente Feignies Aulnoye",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Ashford United",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Cs\u00e1kv\u00e1r",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Havant and Waterlooville",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Kayserispor",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Cardiff City",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Trento",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Stockton Town",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Donau Wien",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Stal Rzesz\u00f3w",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Koz\u00e1rmisleny",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Lisburn Distillery",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "Hassocks",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "\u015eamax\u0131",
+      "Azerbaijani Premier League",
+      "Soccer"
+    ],
+    [
+      "Imigresen",
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "For\u00e7a Lleida CE",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "Istres",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "Dagenham and Redbridge",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Alcal\u00e1",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Sabah FC",
+      "Azerbaijani Premier League",
+      "Soccer"
+    ],
+    [
+      "Freiburg II",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Kazincbarcika",
+      "Hungarian NB I",
+      "Soccer"
+    ],
+    [
+      "Hertha Wels",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "Elbasani",
+      "Albanian Superliga",
+      "Soccer"
+    ],
+    [
+      "Vilzing",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "UCSA Tarasivka",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Jong Utrecht",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Crystal Palace",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Hang Yuan",
+      "Taiwan Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Latina",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "IJsselmeervogels",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Avellino",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Socu\u00e9llamos",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Sevilla",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Al-Hazem",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Green Buffaloes",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Uni\u00e3o de Leiria",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Freiburg",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Westfield Surrey",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Siracusa",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Chelmsford City",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Cesena",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Herne Bay",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Arezzo",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "AlbinoLeffe",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "HHC Hardenberg",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Bravo",
+      "Slovenian 1. SNL",
+      "Soccer"
+    ],
+    [
+      "Vanspor FK",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Barnsley",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Buchbach",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Sabadell",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "USL Dunkerque",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Clyde",
+      "Scottish League 2",
+      "Soccer"
+    ],
+    [
+      "AFC Telford United",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Odra Opole",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Partizani Tirana",
+      "Albanian Superliga",
+      "Soccer"
+    ],
+    [
+      "Oldenburg",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Kitzb\u00fchel",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Hoffenheim II",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Coruxo",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Bayern Munich II",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "AZ Alkmaar",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Probiy Horodenka",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Horndean",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "ZESCO United",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Star\u00e1 \u013dubov\u0148a Redfox",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "\u00c7orum",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Grays",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "\u0130mi\u015fli",
+      "Azerbaijani Premier League",
+      "Soccer"
+    ],
+    [
+      "Penafiel",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Stockport County",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Saint-Colomban Locmin\u00e9",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "West Ham United",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Hanwell Town",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Balestier Khalsa",
+      "Singapore Premier League",
+      "Soccer"
+    ],
+    [
+      "Schwarz-Wei\u00df Bregenz",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "Hartlepool United",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Schaffhausen",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Southampton",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Dom\u017eale",
+      "Slovenian 1. SNL",
+      "Soccer"
+    ],
+    [
+      "Arema",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Lech Pozna\u0144",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Remo Stars",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Nantes",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Merstham",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Ban\u00edk Lehota pod Vt\u00e1\u010dnikom",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "Barcelona",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Utebo",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Cham",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Inter Club d'Escaldes",
+      "Andorran 1a Divisi\u00f3",
+      "Soccer"
+    ],
+    [
+      "SSV Jeddeloh",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Persis Solo",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Wieczysta Krak\u00f3w",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "CSKA Moscow",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "NEC Nijmegen",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Raith Rovers",
+      "Scottish Championship",
+      "Soccer"
+    ],
+    [
+      "Cittadella",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Santa Clara",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Sant Andreu",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "St Johnstone",
+      "Scottish Championship",
+      "Soccer"
+    ],
+    [
+      "24 Erzincanspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Krasnodar",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Valencia",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Clermont Foot",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Vorskla Poltava",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Konyaspor",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Limonest Saint-Didier",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "Real Avil\u00e9s",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Greenock Morton",
+      "Scottish Championship",
+      "Soccer"
+    ],
+    [
+      "Las Palmas Atl\u00e9tico",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Deportivo Alav\u00e9s",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Sabah",
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "Luzern II",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Real \u00c1vila",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Rot-Wei\u00df Oberhausen",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Grimsby Town",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Siwelele",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "Groningen",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Roda JC",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "FC Homburg",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Derby County",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Carroi",
+      "Andorran 1a Divisi\u00f3",
+      "Soccer"
+    ],
+    [
+      "Mu\u011flaspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Ramsgate",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Espanyol Femen\u00ed",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Taichung Rock",
+      "Taiwan Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Polissya Zhytomyr",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Union Berlin Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Real Sociedad B",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Borgo",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Jahn Regensburg",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Carshalton Athletic",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Atl\u00e9tico Malague\u00f1o",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Aubstadt",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Torino",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Lion City Sailors",
+      "Singapore Premier League",
+      "Soccer"
+    ],
+    [
+      "Soroks\u00e1r",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Borac Banja Luka",
+      "Bosnian Premier Liga",
+      "Soccer"
+    ],
+    [
+      "Mines United",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Les Herbiers",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "Nasarawa United",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Estepona",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Atl\u00e9tico Madrile\u00f1o",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Pro Vercelli",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Alhama",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Chorale Roanne Basket",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Taunton Town",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Estoril Praia",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Zalaegerszeg",
+      "Hungarian NB I",
+      "Soccer"
+    ],
+    [
+      "Berganti\u00f1os",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Ascot United",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Everton FC Women",
+      "English Womens Super League",
+      "Soccer"
+    ],
+    [
+      "G\u00f3rnik \u0141\u0119czna",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Dunfermline Athletic",
+      "Scottish Championship",
+      "Soccer"
+    ],
+    [
+      "Fiorentino",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Dynamo Moscow",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Paris Saint Germain Women",
+      "France Premi\u00e8re Ligue",
+      "Soccer"
+    ],
+    [
+      "Rio Ave",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Guerino Vanoli Basket",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Lexington SC Women",
+      "USL Super League",
+      "Soccer"
+    ],
+    [
+      "South Park",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "F91 Dudelange",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "Leatherhead",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Everton",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Osijek",
+      "Croatian First Football League",
+      "Soccer"
+    ],
+    [
+      "Znicz Pruszk\u00f3w",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Dynamo Makhachkala",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "VFC La Roche-sur-Yon",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "Weiche Flensburg 08",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Real Bedford",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Leiston",
+      "English Southern Premier League Central Division One",
+      "Soccer"
+    ],
+    [
+      "Arouca",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Halesowen Town",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Al-Nassr",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Gimn\u00e1stica Segoviana",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Vele\u017e Mostar",
+      "Bosnian Premier Liga",
+      "Soccer"
+    ],
+    [
+      "Sheppey United",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Basket Zaragoza",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "Beasain",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Frosinone",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "CB Murcia",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "Udine",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Staphorst",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Almer\u00eda B",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "LNZ Cherkasy",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Esperan\u00e7a d'Andorra",
+      "Andorran 1a Divisi\u00f3",
+      "Soccer"
+    ],
+    [
+      "Holstein Kiel",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Bamber Bridge",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "CB San Pablo Burgos",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "Greuther F\u00fcrth II",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Antibes Sharks",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "TOP Oss",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Barcelona Atl\u00e8tic",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Persebaya Surabaya",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Burton Albion",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Sporting CP",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Waltham Abbey",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "CB Gran Canaria",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "\u0130stanbulspor",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Sholing",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Walsall",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Ilirija",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Widzew \u0141\u00f3d\u017a",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Dukla Bansk\u00e1 Bystrica",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "FSV Frankfurt",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Legan\u00e9s",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Reus FC Reddis",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Crawley Town",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Pallacanestro Brescia",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Voltigeurs de Ch\u00e2teaubriant",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "\u00c9lan B\u00e9arnais",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Moneyfields",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "SC Telstar",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Jagiellonia Bia\u0142ystok",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "AFC Sudbury",
+      "English Southern Premier League Central Division One",
+      "Soccer"
+    ],
+    [
+      "Erbaaspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Elgin City",
+      "Scottish League 2",
+      "Soccer"
+    ],
+    [
+      "Sl\u00e1via TU Ko\u0161ice",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "Angoul\u00eame Charente",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "FC R\u00e0nger's",
+      "Andorran 1a Divisi\u00f3",
+      "Soccer"
+    ],
+    [
+      "Bristol City WFC",
+      "English Womens Super League 2",
+      "Soccer"
+    ],
+    [
+      "Floridsdorfer AC",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "Arnavutk\u00f6y Belediyespor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "HNK Gorica",
+      "Croatian First Football League",
+      "Soccer"
+    ],
+    [
+      "Tampa Bay Sun",
+      "USL Super League",
+      "Soccer"
+    ],
+    [
+      "B\u00e9k\u00e9scsaba",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Redditch United",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Catania",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Domagnano",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Bochum II",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "P\u00fachov",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "\u00c1guilas",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Xerez Deportivo",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Unterhaching",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "VV Katwijk",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "K\u00f6ln II",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "FC Den Bosch",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Preston North End",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Leek Town",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Ipswich Town",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Alvechurch",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Porreres",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Real Uni\u00f3n",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Colonia Moscard\u00f3",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Primorje",
+      "Slovenian 1. SNL",
+      "Soccer"
+    ],
+    [
+      "Bochum",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Newmarket Town",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Murata",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Ternana",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Dijon",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "FC Eindhoven",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Kazakhstan U21",
+      "UEFA European Under-21 Championship",
+      "Soccer"
+    ],
+    [
+      "Bromsgrove Sporting",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Preu\u00dfen M\u00fcnster",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Al-Hilal",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "King's Lynn Town",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Warri Wolves",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Jeunesse Canach",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "T\u00e1borsko",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Artis Brno",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Mallorca",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Persita Tangerang",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Carl Zeiss Jena Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Sandhausen",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Sparta Rotterdam",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Lens",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Persib Bandung",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Pohronie",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "Orbit College",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "Lincoln City",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Troyes",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Kansanshi Dynamos",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Tampines Rovers",
+      "Singapore Premier League",
+      "Soccer"
+    ],
+    [
+      "Basel II",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Plateau United",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Cambridge City",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "MTK Budapest",
+      "Hungarian NB I",
+      "Soccer"
+    ],
+    [
+      "Jersey Bulls",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Recreativo de Huelva",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Real Madrid Femenino",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "K\u0131rklarelispor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Annan Athletic",
+      "Scottish League 2",
+      "Soccer"
+    ],
+    [
+      "Sivasspor",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Dynamo Dresden",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Liverpool FC Women",
+      "English Womens Super League",
+      "Soccer"
+    ],
+    [
+      "Ilkeston Town",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Victoria Rosport",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "Bishops Stortford",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Dergview",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "Giugliano",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Hashtag United",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Legia Warsaw",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Lancaster City",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Eibar",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Berliner FC Dynamo",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Inhulets Petrove",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Rapid Wien II",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "AFC Portchester",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Zanaco",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Lecce",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "ASK\u00d6 Oedt",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "FC Porto B",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Mainz II",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Deportivo Fabril",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Stranraer",
+      "Scottish League 2",
+      "Soccer"
+    ],
+    [
+      "LASK Amateure O\u00d6",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Egham Town",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Virtus Pallacanestro Bologna",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Paris FC",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Queen's Park",
+      "Scottish Championship",
+      "Soccer"
+    ],
+    [
+      "San Sebasti\u00e1n de los Reyes",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Whitby Town",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Ballymacash Rangers",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "HSC '21",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Talavera de la Reina",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Bayelsa United",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Rudar Velenje",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Sheffield Wednesday",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Orl\u00e9ans",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Real Valladolid",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Tenerife B",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Chaves",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Cove Rangers",
+      "Scottish League 1",
+      "Soccer"
+    ],
+    [
+      "Ross County",
+      "Scottish Championship",
+      "Soccer"
+    ],
+    [
+      "De Treffers",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Trento",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Burgos Promesas",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Brest",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Numancia",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Di\u00f3sgy\u0151r",
+      "Hungarian NB I",
+      "Soccer"
+    ],
+    [
+      "Nice",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Richards Bay",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "Bursaspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "PDRM",
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "Penang",
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "Neusiedl am See",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Persik Kediri",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Parndorf",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Monopoli",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Triestina",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Virtus Entella",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Kidderminster Harriers",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Fenerbah\u00e7e",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Albirex Niigata S",
+      "Singapore Premier League",
+      "Soccer"
+    ],
+    [
+      "Portimonense",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Cray Wanderers",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Sporting JAX Women",
+      "USL Super League",
+      "Soccer"
+    ],
+    [
+      "\u00c9pinal",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Lokomotive Leipzig",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "FC Emmen",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Bourges Foot 18",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Rayo Majadahonda",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Chesterfield",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "St Pauli",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Cremonese",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Nancy Lorraine",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Stanway Rovers",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Intercity",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Stade Rochelais Basket",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Dollingstown",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "Pisa",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Power Dynamos",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Burnley",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Juventus",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Truro City",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Biel-Bienne",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Rayo Vallecano B",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Hamburg II",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Polonia Bytom",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Spokane Zephyr",
+      "USL Super League",
+      "Soccer"
+    ],
+    [
+      "Deportiva Minera",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Virtus",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Teruel",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Serik Belediyespor",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Al-Taawoun",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Ascoli",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Samsunspor",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "AFC Sudbury",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Willem II",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Morecambe",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Fethiyespor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Marumo Gallants",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "Karlsruhe",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Dieppe",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Cacere\u00f1o",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Nafta",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Levante",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Gen\u00e7lerbirli\u011fi",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Tenerife Femenino",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Southall",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Bromley",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Aston Villa",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Stratford Town",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "DOVO",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Kryvbas Kryvyi Rih",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Al-Khaleej",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Sarriana",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Fiorentina",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Girona",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Chauray",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "Bolton Wanderers",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Aveley",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Albacete",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Al-Najma Unaizah",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "1860 Munich",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Wallern",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Sambenedettese",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Bordeaux",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "Banbury United",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Real Bedford",
+      "English Southern Premier League Central Division One",
+      "Soccer"
+    ],
+    [
+      "Sakaryaspor",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Deportivo de La Coru\u00f1a Women",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Milton Keynes Dons",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Kufstein",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Kickers Offenbach",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Imst",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Batman Petrolspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "BC Andorra",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "Valencia Mestalla",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Oxford City",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Zrinjski Mostar",
+      "Bosnian Premier Liga",
+      "Soccer"
+    ],
+    [
+      "Karacabey Belediyespor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Boulogne",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Krylia Sovetov Samara",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Lecco",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Kas\u0131mpa\u015fa",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Geylang International",
+      "Singapore Premier League",
+      "Soccer"
+    ],
+    [
+      "Cartagena",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Zorya Luhansk",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Portstewart",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "RB Leipzig",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Hornchurch",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Boluspor",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Pusk\u00e1s Akad\u00e9mia FC",
+      "Hungarian NB I",
+      "Soccer"
+    ],
+    [
+      "Vis Pesaro",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Queens Park Rangers",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Kecskem\u00e9t",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Petr\u017ealka",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "Ankarag\u00fcc\u00fc",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Lechia Gda\u0144sk",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Young Boys II",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "JA Vichy",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Downham Town",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Broadbridge Heath",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Castell\u00f3n B",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Partick Thistle",
+      "Scottish Championship",
+      "Soccer"
+    ],
+    [
+      "Eastbourne Borough",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Horn",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Sheffield United WFC",
+      "English Womens Super League 2",
+      "Soccer"
+    ],
+    [
+      "Hereford",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Saint-Malo",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "Viktoria \u017di\u017ekov",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Bistrica",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Badalona Women",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Paris SG",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Warrington Rylands",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Paris 13 Atletico",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Mutilvera",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Sevenoaks Town",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Al-Qadsiah",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Getafe B",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "DUX Logro\u00f1o",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Nottingham Forest",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Walton and Hersham",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "BVV Barendrecht",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Folkestone Invicta",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Welling United",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Lealtad",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Edinburgh City",
+      "Scottish League 2",
+      "Soccer"
+    ],
+    [
+      "Ulm",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Sorrento",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "SGS Essen Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Chernihiv",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Burgos",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Rennes",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Kickers Emden",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "San Giovanni",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Guadalajara",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Hendon",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Bonner",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Paderborn II",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "West Ham Women",
+      "English Womens Super League",
+      "Soccer"
+    ],
+    [
+      "Memmingen",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Beykoz Anadolu",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Enfield Town",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Amiens",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "SCR Altach Juniors",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "\u00dcmraniyespor",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Luckenwalde",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Joventut Badalona",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "\u0160amor\u00edn",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "Marseille F\u00e9minin",
+      "France Premi\u00e8re Ligue",
+      "Soccer"
+    ],
+    [
+      "ACV",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Hamilton Academical",
+      "Scottish League 1",
+      "Soccer"
+    ],
+    [
+      "BVSC-Zugl\u00f3",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Chichester City",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Giana Erminio",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Moyola Park",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "Levante Femenino",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Melaka",
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "Puszcza Niepo\u0142omice",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "San Marino Academy",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "SR Colmar",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Bremer SV",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Johor Darul Ta'zim",
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "Coventry City",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "SC Cambuur",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Union Berlin",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Ashton United",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Groene Ster",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Viktoria Aschaffenburg",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Millwall",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "DC Power",
+      "USL Super League",
+      "Soccer"
+    ],
+    [
+      "Spartak Moscow",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Zenit Saint Petersburg",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Elaz\u0131\u011fspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Wigan Athletic",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Energie Cottbus",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Barwell",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "CD Coria",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Jesenice",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Team Altamura",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Dallas Trinity",
+      "USL Super League",
+      "Soccer"
+    ],
+    [
+      "Hull City",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Bastia",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Racing Club de Ferrol",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Harkemase Boys",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Eintracht Norderstedt 03",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Gainsborough Trinity",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Kozakken Boys",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Kun Khalifat",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Hednesford Town",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Araz-Nax\u00e7\u0131van",
+      "Azerbaijani Premier League",
+      "Soccer"
+    ],
+    [
+      "Walthamstow",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Oleksandriya",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Accrington Stanley",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Veres Rivne",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Karcag",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Tanjong Pagar United",
+      "Singapore Premier League",
+      "Soccer"
+    ],
+    [
+      "Lorient II",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "Real Madrid Baloncesto",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "HTV Basket",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "OL Lyonnes",
+      "France Premi\u00e8re Ligue",
+      "Soccer"
+    ],
+    [
+      "R\u00f6dinghausen",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "K\u0259p\u0259z",
+      "Azerbaijani Premier League",
+      "Soccer"
+    ],
+    [
+      "Villarreal B",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Berkhamsted",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Wiener Viktoria",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Empoli",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "East Grinstead Town",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Mynai",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Stuttgart II",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Kelantan The Real Warriors",
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "Pontedera",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Grand-Saconnex",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Ebbsfleet United",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Adanaspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Szentl\u0151rinc",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Harrow Borough",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "FC N\u00fcrnberg Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Dinan-L\u00e9hon",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "Macclesfield",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Cosmos",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Tottenham Hotspur",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Ajax",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Taiwan Power Company",
+      "Taiwan Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Lisse",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Radomlje",
+      "Slovenian 1. SNL",
+      "Soccer"
+    ],
+    [
+      "Stuttgart",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Acad\u00e9mico de Viseu",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Mildenhall Town",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Yeovil Town",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Kano Pillars",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "UCAM Murcia",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Teuta Durr\u00ebs",
+      "Albanian Superliga",
+      "Soccer"
+    ],
+    [
+      "Melilla",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Dijon Women",
+      "France Premi\u00e8re Ligue",
+      "Soccer"
+    ],
+    [
+      "Bury Town",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Brighton WFC",
+      "English Womens Super League",
+      "Soccer"
+    ],
+    [
+      "Real Madrid",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Alcione Milano",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Villarreal",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Gy\u0151ri ETO",
+      "Hungarian NB I",
+      "Soccer"
+    ],
+    [
+      "Union Brescia",
+      "Italian Serie C Girone A",
+      "Soccer"
+    ],
+    [
+      "Scarborough Athletic",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Kuala Lumpur City",
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "Al-Kholood",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Lorca Deportiva",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Casa Pia",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Thionville Lusitanos",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Tonbridge Angels",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Radcliffe",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Real Ja\u00e9n",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Beyo\u011flu Yeni \u00c7ar\u015f\u0131",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "C\u00f3rdoba",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Peterborough United",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Steinbach Haiger",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Metalist Kharkiv",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Adana 01",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Alanyaspor",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Espanyol",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "\u015eanl\u0131urfaspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Treibach",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Hemel Hempstead Town",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Portsmouth Women",
+      "English Womens Super League 2",
+      "Soccer"
+    ],
+    [
+      "Ban\u00edk Ostrava B",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Torres",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Famalicao",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Stocksbridge Park Steels",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Nizhny Novgorod",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Rodez AF",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Sutton United",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Crotone",
+      "Italian Serie C Girone C",
+      "Soccer"
+    ],
+    [
+      "Sevilla Atl\u00e9tico",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Orl\u00e9ans Loiret Basket",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Eastleigh",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Bayern Alzenau",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Breitenrain",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Real Sociedad Femenino",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Perugia",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Progr\u00e8s Niederkorn",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "Hannover 96 II",
+      "German Regionalliga Nord",
+      "Soccer"
+    ],
+    [
+      "Eintracht Frankfurt Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "FC K\u00f6ln",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Ajaccio",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Sloga Doboj",
+      "Bosnian Premier Liga",
+      "Soccer"
+    ],
+    [
+      "Hoffenheim",
+      "German Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Ikorodu City",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Southampton F.C. Women",
+      "English Womens Super League 2",
+      "Soccer"
+    ],
+    [
+      "Scheveningen",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Bognor Regis Town",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "\u0160iroki Brijeg",
+      "Bosnian Premier Liga",
+      "Soccer"
+    ],
+    [
+      "Sunderland",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "M\u00e9rida",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Saint-Pryv\u00e9 Saint-Hilaire",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "PSM Makassar",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Wikki Tourists",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Differdange 03",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "\u015al\u0105sk Wroc\u0142aw",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Baltika Kaliningrad",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Conquense",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Maidstone United",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Jong Sparta Rotterdam",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Darlington",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Dover Athletic",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Union Titus P\u00e9tange",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "Neft\u00e7i PFK",
+      "Azerbaijani Premier League",
+      "Soccer"
+    ],
+    [
+      "Bulle",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Mufulira Wanderers",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Le Havre",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Atalanta",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Royston Town",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Stirling Albion",
+      "Scottish League 2",
+      "Soccer"
+    ],
+    [
+      "Stade de Reims",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "G\u00fczide Gebzespor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Gillingham",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Marbella",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Linares Deportivo",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Tre Fiori",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Campobasso",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Niger Tornadoes",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Al-Ettifaq",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Bahlinger SC",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Vla\u0161im",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Grenoble",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "Lowestoft Town",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "St Albans City",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Maribor",
+      "Slovenian 1. SNL",
+      "Soccer"
+    ],
+    [
+      "Tudelano",
+      "Spanish Segunda RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Maestro United Zambia",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Slavia Prague B",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Algeciras",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Rotherham United",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Abia Warriors",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Somaspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Hastings United",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Heerenveen",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Levante Badalona",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Villefranche Beaujolais",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Ballyclare Comrades",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "W\u00fcrzburger Kickers",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Atl\u00e9tico Antoniano",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Carrarese",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Bali United",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Dorking Wanderers",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Orlando Pirates",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "Kahramanmara\u015f \u0130stiklalspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Tiszak\u00e9cske",
+      "Hungarian NB II",
+      "Soccer"
+    ],
+    [
+      "Ferencv\u00e1ros",
+      "Hungarian NB I",
+      "Soccer"
+    ],
+    [
+      "De Graafschap",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Peterhead",
+      "Scottish League 1",
+      "Soccer"
+    ],
+    [
+      "Schalke 04 II",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "ViOn Zlat\u00e9 Moravce",
+      "Slovakian 2 Liga",
+      "Soccer"
+    ],
+    [
+      "Fuenlabrada",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "Reyer Venezia Mestre",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Prykarpattia Ivano-Frankivsk",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Atert Bissen",
+      "Luxembourg National Division",
+      "Soccer"
+    ],
+    [
+      "Madura United",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Challans Basket",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "FC Koln Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Utrecht",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Krka",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Rukh Lviv",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Sportlust '46",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Farnham Town",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Seekirchen",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Benfica B",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Athletic Club Women",
+      "Spanish Liga F",
+      "Soccer"
+    ],
+    [
+      "Rathfriland",
+      "Northern Irish Premier Intermediate League",
+      "Soccer"
+    ],
+    [
+      "Swansea City",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Alt\u0131nordu",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Stripfing",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "FC Liefering",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "Heracles Almelo",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "PEC Zwolle",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Weston-super-Mare",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Real Oviedo Vetusta",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Huesca",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "\u0130stanbul Ba\u015fak\u015fehir",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Feyenoord",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Bayer Leverkusen Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "NK Istra 1961",
+      "Croatian First Football League",
+      "Soccer"
+    ],
+    [
+      "Strasbourg",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Plymouth Argyle",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Real Madrid Castilla",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Karvan",
+      "Azerbaijani Premier League",
+      "Soccer"
+    ],
+    [
+      "SKN St. Polten",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "Brentford",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Ankaraspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Austria Lustenau",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "St. Anna",
+      "Austrian Regionalliga Mitte",
+      "Soccer"
+    ],
+    [
+      "Durban City",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "Olimpia Milano",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Han\u00e1ck\u00e1 Slavia Krom\u011b\u0159\u00ed\u017e",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Nkwazi",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Neom",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Brackley Town",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Fort Lauderdale United Women",
+      "USL Super League",
+      "Soccer"
+    ],
+    [
+      "Harrogate Town",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Gosport Borough",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Kocaelispor",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Saint-Chamond Basket",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Granville",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "Sportfreunde Lotte",
+      "German Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Kapfenberger SV",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "Ahrobiznes Volochysk",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Guingamp",
+      "French Ligue 2",
+      "Soccer"
+    ],
+    [
+      "FC Saarbr\u00fccken",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Adana Demirspor",
+      "Turkish 1 Lig",
+      "Soccer"
+    ],
+    [
+      "Basquet Manresa",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "Brantham Athletic",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Ceuta",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Worthing",
+      "English National League South",
+      "Soccer"
+    ],
+    [
+      "Vevey-Sports",
+      "Swiss Promotion League",
+      "Soccer"
+    ],
+    [
+      "Elche",
+      "Spanish La Liga",
+      "Soccer"
+    ],
+    [
+      "Lorient",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Halifax Town",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Pinzgau Saalfelden",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Pogo\u0144 Siedlce",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Udinese",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Ibiza",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Aston Villa WFC",
+      "English Womens Super League",
+      "Soccer"
+    ],
+    [
+      "Chippa United",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "Barbastro",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Worksop Town",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Chornomorets Odesa",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Genemuiden",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Gorleston",
+      "England Non League Div One Isthmian North",
+      "Soccer"
+    ],
+    [
+      "Lokomotiv Moscow",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Leiston",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Pennarossa",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Rijeka",
+      "Croatian First Football League",
+      "Soccer"
+    ],
+    [
+      "Karaman",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "FC Andorra",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Marino de Luanco",
+      "Spanish Segunda RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "HSV Hoek",
+      "Dutch Tweede Divisie",
+      "Soccer"
+    ],
+    [
+      "Livyi Bereh Kyiv",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Bayern Munich Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Gimn\u00e0stic",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Tarazona",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "RKC Waalwijk",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Southport",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Merthyr Town",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Taichung Futuro",
+      "Taiwan Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Brinje-Grosuplje",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Leyton Orient",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Oliveirense",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "ADO Den Haag",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Caen Basket Calvados",
+      "French LNB Pro B",
+      "Basketball"
+    ],
+    [
+      "Bhayangkara Presisi Lampung",
+      "Indonesian Super League",
+      "Soccer"
+    ],
+    [
+      "Pallacanestro Cant\u00f9",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "FC Fleury 91 Women",
+      "France Premi\u00e8re Ligue",
+      "Soccer"
+    ],
+    [
+      "G\u00f6ztepe",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Torrent",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Alcoyano",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Metropolitan Police",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "M\u00e1laga",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Admira Wacker",
+      "Austrian Erste Liga",
+      "Soccer"
+    ],
+    [
+      "St Ives Town",
+      "English Southern Premier League Central Division One",
+      "Soccer"
+    ],
+    [
+      "Derthona Basket",
+      "Italian Lega Basket",
+      "Basketball"
+    ],
+    [
+      "Notts County",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Radnik Bijeljina",
+      "Bosnian Premier Liga",
+      "Soccer"
+    ],
+    [
+      "Metz",
+      "French Ligue 1",
+      "Soccer"
+    ],
+    [
+      "Sheffield United",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Real Murcia",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Boulogne",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Cleethorpes Town",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Middlesbrough",
+      "English League Championship",
+      "Soccer"
+    ],
+    [
+      "Pas de la Casa",
+      "Andorran 1a Divisi\u00f3",
+      "Soccer"
+    ],
+    [
+      "Vukovar",
+      "Croatian First Football League",
+      "Soccer"
+    ],
+    [
+      "MVV Maastricht",
+      "Dutch Eerste Divisie",
+      "Soccer"
+    ],
+    [
+      "Napoli",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Negeri Sembilan",
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "Dinamo City",
+      "Albanian Superliga",
+      "Soccer"
+    ],
+    [
+      "Stade Poitevin",
+      "French National 2 Group A",
+      "Soccer"
+    ],
+    [
+      "Korona Kielce",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Hallescher",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Faetano",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Magdeburg",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Selangor",
+      "Malaysian Super League",
+      "Soccer"
+    ],
+    [
+      "Versailles",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Juvenes/Dogana",
+      "San-Marino Campionato",
+      "Soccer"
+    ],
+    [
+      "Braintree Town",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Barakaldo",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Nacional de Madeira",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Bucaspor 1928",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Ingolstadt",
+      "Germany Liga 3",
+      "Soccer"
+    ],
+    [
+      "Atl\u00e8tic d'Escaldes",
+      "Andorran 1a Divisi\u00f3",
+      "Soccer"
+    ],
+    [
+      "FK Sarajevo",
+      "Bosnian Premier Liga",
+      "Soccer"
+    ],
+    [
+      "Arsenal WFC",
+      "English Womens Super League",
+      "Soccer"
+    ],
+    [
+      "York City",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Saint-\u00c9tienne Women",
+      "France Premi\u00e8re Ligue",
+      "Soccer"
+    ],
+    [
+      "Reggiana",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Athletic Bilbao B",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Hajduk Split",
+      "Croatian First Football League",
+      "Soccer"
+    ],
+    [
+      "Chrobry G\u0142og\u00f3w",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Deal Town",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Carl Zeiss Jena",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Three Bridges",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Durham WFC",
+      "English Womens Super League 2",
+      "Soccer"
+    ],
+    [
+      "FC United of Manchester",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Bischofshofen",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "Sunderland Women",
+      "English Womens Super League 2",
+      "Soccer"
+    ],
+    [
+      "Ajaccio",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Leicester City WFC",
+      "English Womens Super League",
+      "Soccer"
+    ],
+    [
+      "RB Leipzig Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Cambridge United",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Gaziantep",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Scherpenzeel",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Prison Leopards",
+      "Zambia Super League",
+      "Soccer"
+    ],
+    [
+      "Vizela",
+      "Portuguese LigaPro",
+      "Soccer"
+    ],
+    [
+      "Toulon",
+      "French National 2 Group C",
+      "Soccer"
+    ],
+    [
+      "St. Johann",
+      "Austrian Regionalliga West",
+      "Soccer"
+    ],
+    [
+      "FV Illertissen",
+      "German Regionalliga Bayern",
+      "Soccer"
+    ],
+    [
+      "Pineto",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Manchester United",
+      "English Premier League",
+      "Soccer"
+    ],
+    [
+      "Poltava",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "\u0141KS \u0141\u00f3d\u017a",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "Fortuna D\u00fcsseldorf",
+      "German 2. Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Huizen",
+      "Netherlands Derde Divisie Saturday",
+      "Soccer"
+    ],
+    [
+      "Go Ahead Eagles",
+      "Dutch Eredivisie",
+      "Soccer"
+    ],
+    [
+      "Spalding United",
+      "English Southern Premier League Central Division",
+      "Soccer"
+    ],
+    [
+      "Puente Genil",
+      "Spanish Segunda RFEF Group 4",
+      "Soccer"
+    ],
+    [
+      "Erith Town",
+      "England Non League Div One Southern SW",
+      "Soccer"
+    ],
+    [
+      "Biesheim",
+      "French National 2 Group B",
+      "Soccer"
+    ],
+    [
+      "Werder Bremen Women",
+      "Germany Women Bundesliga",
+      "Soccer"
+    ],
+    [
+      "Reading",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Akhmat Grozny",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Aubagne Air Bel",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Bourg-P\u00e9ronnas",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Pianese",
+      "Italian Serie C Girone B",
+      "Soccer"
+    ],
+    [
+      "Moreirense",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Golden Arrows",
+      "South African Premier Soccer League",
+      "Soccer"
+    ],
+    [
+      "Arenteiro",
+      "Spanish Primera RFEF Group 1",
+      "Soccer"
+    ],
+    [
+      "Traiskirchen",
+      "Austrian Regionalliga Ost",
+      "Soccer"
+    ],
+    [
+      "Pogo\u0144 Grodzisk Mazowiecki",
+      "Polish I liga",
+      "Soccer"
+    ],
+    [
+      "\u00dajpest",
+      "Hungarian NB I",
+      "Soccer"
+    ],
+    [
+      "Wingate and Finchley",
+      "English Isthmian League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Poblense",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Cagliari",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "FC Santa Coloma",
+      "Andorran 1a Divisi\u00f3",
+      "Soccer"
+    ],
+    [
+      "Real Madrid C",
+      "Spanish Segunda RFEF Group 5",
+      "Soccer"
+    ],
+    [
+      "El-Kanemi Warriors",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Celje",
+      "Slovenian 1. SNL",
+      "Soccer"
+    ],
+    [
+      "Shooting Stars",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Zbrojovka Brno",
+      "Czech National Football League",
+      "Soccer"
+    ],
+    [
+      "Juventud Torremolinos",
+      "Spanish Primera RFEF Group 2",
+      "Soccer"
+    ],
+    [
+      "Rivers United",
+      "Nigerian NPFL",
+      "Soccer"
+    ],
+    [
+      "Kepezspor",
+      "Turkish 2 Lig",
+      "Soccer"
+    ],
+    [
+      "Be\u015fikta\u015f",
+      "Turkish Super Lig",
+      "Soccer"
+    ],
+    [
+      "Greifswalder",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Dekani",
+      "Slovenian 2 SNL",
+      "Soccer"
+    ],
+    [
+      "Terrassa",
+      "Spanish Segunda RFEF Group 3",
+      "Soccer"
+    ],
+    [
+      "Bruk-Bet Termalica Nieciecza",
+      "Polish Ekstraklasa",
+      "Soccer"
+    ],
+    [
+      "Hartley Wintney",
+      "England Non League Div One Isthmian South",
+      "Soccer"
+    ],
+    [
+      "Juve Stabia",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Fleetwood Town",
+      "English League 2",
+      "Soccer"
+    ],
+    [
+      "Bracknell Town",
+      "English Southern Premier League South Division",
+      "Soccer"
+    ],
+    [
+      "Roma",
+      "Italian Serie A",
+      "Soccer"
+    ],
+    [
+      "Al-Riyadh",
+      "Saudi-Arabian Pro League",
+      "Soccer"
+    ],
+    [
+      "Nyva Ternopil",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Aluminij",
+      "Slovenian 1. SNL",
+      "Soccer"
+    ],
+    [
+      "Gemert",
+      "Netherlands Derde Divisie Sunday",
+      "Soccer"
+    ],
+    [
+      "Vit\u00f3ria de Guimar\u00e3es",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Queen of the South",
+      "Scottish League 1",
+      "Soccer"
+    ],
+    [
+      "Altrincham",
+      "English National League",
+      "Soccer"
+    ],
+    [
+      "Las Palmas",
+      "Spanish La Liga 2",
+      "Soccer"
+    ],
+    [
+      "Northampton Town",
+      "English League 1",
+      "Soccer"
+    ],
+    [
+      "Gil Vicente",
+      "Portuguese Primeira Liga",
+      "Soccer"
+    ],
+    [
+      "Schott Mainz",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ],
+    [
+      "Baloncesto M\u00e1laga",
+      "Spanish Liga ACB",
+      "Basketball"
+    ],
+    [
+      "Bari",
+      "Italian Serie B",
+      "Soccer"
+    ],
+    [
+      "Warrington Town",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Hyde United",
+      "English Northern Premier League Premier Division",
+      "Soccer"
+    ],
+    [
+      "Bukovyna Chernivtsi",
+      "Ukrainian First League",
+      "Soccer"
+    ],
+    [
+      "Stade Briochin",
+      "French Championnat National",
+      "Soccer"
+    ],
+    [
+      "Hertha Zehlendorf",
+      "German Regionalliga Nordost",
+      "Soccer"
+    ],
+    [
+      "Torpedo Moscow",
+      "Russian Football Premier League",
+      "Soccer"
+    ],
+    [
+      "Buxton",
+      "English National League North",
+      "Soccer"
+    ],
+    [
+      "Shakhtar Donetsk",
+      "Ukrainian Premier League",
+      "Soccer"
+    ],
+    [
+      "Balingen",
+      "German Regionalliga SudWest",
+      "Soccer"
+    ]
+  ]
+}
