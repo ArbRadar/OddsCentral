@@ -1,0 +1,239 @@
+api_key,display_name,sport,region,category,pattern_type
+nfl,NFL,American Football,USA,Major League,simple
+ncaaf,NCAAF,American Football,USA,Major League,simple
+nba,NBA,Basketball,USA,Major League,simple
+wnba,WNBA,Basketball,USA,Major League,simple
+ncaab,NCAAB,Basketball,USA,Major League,simple
+nba_all_star,NBA All Star,Basketball,USA,Special Event,underscore
+nba_summer_league,NBA Summer League,Basketball,USA,Special Event,underscore
+wnba_all_star,WNBA All Star,Basketball,USA,Special Event,underscore
+mlb,MLB,Baseball,USA,Major League,simple
+college_baseball,College Baseball,Baseball,USA,Major League,underscore
+world_baseball_classic,World Baseball Classic,Baseball,International,Special Event,underscore
+nhl,NHL,Ice Hockey,USA/Canada,Major League,simple
+atp,ATP,Tennis,International,Major League,simple
+wta,WTA,Tennis,International,Major League,simple
+pga,PGA,Golf,International,Major League,simple
+ufc,UFC,MMA,International,Major League,simple
+boxing,Boxing,Boxing,International,Major League,simple
+afl,AFL,Aussie Rules,Australia,Major League,simple
+table_tennis,Table Tennis,Table Tennis,International,Major League,underscore
+athletics,Athletics,Athletics,International,Major League,simple
+spain_-_la_liga,Spanish La Liga,Soccer,Spain,Regional League,country_-_league
+england_-_premier_league,English Premier League,Soccer,England,Regional League,country_-_league
+germany_-_bundesliga,German Bundesliga,Soccer,Germany,Regional League,country_-_league
+italy_-_serie_a,Italian Serie A,Soccer,Italy,Regional League,country_-_league
+france_-_ligue_1,French Ligue 1,Soccer,France,Regional League,country_-_league
+netherlands_-_eredivisie,Dutch Eredivisie,Soccer,Netherlands,Regional League,country_-_league
+portugal_-_primeira_liga,Portuguese Primeira Liga,Soccer,Portugal,Regional League,country_-_league
+brazil_-_serie_a,Brazilian Serie A,Soccer,Brazil,Regional League,country_-_league
+argentina_-_primera_division,Argentina Primera División,Soccer,Argentina,Regional League,country_-_league
+usa_-_major_league_soccer,MLS (USA),Soccer,USA,Regional League,country_-_league
+mexico_-_liga_mx,Liga MX (Mexico),Soccer,Mexico,Regional League,country_-_league
+belgium_-_jupiler_pro_league,Belgian Jupiler Pro League,Soccer,Belgium,Regional League,country_-_league
+scotland_-_premiership,Scottish Premiership,Soccer,Scotland,Regional League,country_-_league
+sweden_-_allsvenskan,Swedish Allsvenskan,Soccer,Sweden,Regional League,country_-_league
+norway_-_eliteserien,Norwegian Eliteserien,Soccer,Norway,Regional League,country_-_league
+denmark_-_superliga,Danish Superliga,Soccer,Denmark,Regional League,country_-_league
+austria_-_bundesliga,Austrian Bundesliga,Soccer,Austria,Regional League,country_-_league
+switzerland_-_super_league,Swiss Super League,Soccer,Switzerland,Regional League,country_-_league
+turkey_-_super_lig,Turkish Super Lig,Soccer,Turkey,Regional League,country_-_league
+greece_-_super_league,Greek Super League,Soccer,Greece,Regional League,country_-_league
+russia_-_premier_league,Russian Premier League,Soccer,Russia,Regional League,country_-_league
+ukraine_-_premier_league,Ukrainian Premier League,Soccer,Ukraine,Regional League,country_-_league
+poland_-_ekstraklasa,Polish Ekstraklasa,Soccer,Poland,Regional League,country_-_league
+czech_republic_-_first_league,Czech First League,Soccer,Czech Republic,Regional League,country_-_league
+slovakia_-_superliga,Slovak Superliga,Soccer,Slovakia,Regional League,country_-_league
+romania_-_liga_i,Romanian Liga I,Soccer,Romania,Regional League,country_-_league
+serbia_-_super_liga,Serbian Super Liga,Soccer,Serbia,Regional League,country_-_league
+bulgaria_-_parva_liga,Bulgarian Parva Liga,Soccer,Bulgaria,Regional League,country_-_league
+chile_-_primera_division,Chilean Primera División,Soccer,Chile,Regional League,country_-_league
+colombia_-_primera_a,Colombian Primera A,Soccer,Colombia,Regional League,country_-_league
+ecuador_-_serie_a,Ecuadorian Serie A,Soccer,Ecuador,Regional League,country_-_league
+peru_-_primera_division,Peruvian Primera División,Soccer,Peru,Regional League,country_-_league
+uruguay_-_primera_division,Uruguayan Primera División,Soccer,Uruguay,Regional League,country_-_league
+venezuela_-_copa_venezuela,Copa Venezuela,Soccer,Venezuela,Regional League,country_-_league
+paraguay_-_primera_division,Paraguayan Primera División,Soccer,Paraguay,Regional League,country_-_league
+china_-_super_league,Chinese Super League,Soccer,China,Regional League,country_-_league
+india_-_super_league,Indian Super League,Soccer,India,Regional League,country_-_league
+saudi_arabia_-_saudi_league,Saudi League,Soccer,Saudi Arabia,Regional League,country_-_league
+egypt_-_premier_league,Egyptian Premier League,Soccer,Egypt,Regional League,country_-_league
+uefa_-_champions_league,UEFA Champions League,Soccer,Europe,International Competition,org_-_competition
+uefa_-_europa_league,UEFA Europa League,Soccer,Europe,International Competition,org_-_competition
+uefa_-_europa_conference_league,UEFA Europa Conference League,Soccer,Europe,International Competition,org_-_competition
+uefa_-_european_championship,UEFA European Championship,Soccer,Europe,International Competition,org_-_competition
+uefa_-_nations_league,UEFA Nations League,Soccer,Europe,International Competition,org_-_competition
+fifa_-_world_cup,FIFA World Cup,Soccer,International,International Competition,org_-_competition
+fifa_-_world_cup_qualifiers,FIFA World Cup Qualifiers,Soccer,International,International Competition,org_-_competition
+conmebol_-_copa_libertadores,Copa Libertadores,Soccer,South America,International Competition,org_-_competition
+conmebol_-_copa_sudamericana,Copa Sudamericana,Soccer,South America,International Competition,org_-_competition
+conmebol_-_copa_america,Copa América,Soccer,South America,International Competition,org_-_competition
+concacaf_-_gold_cup,CONCACAF Gold Cup,Soccer,North America,International Competition,org_-_competition
+caf_-_africa_cup_of_nations,Africa Cup of Nations,Soccer,Africa,International Competition,org_-_competition
+afc_-_champions_league,AFC Champions League,Soccer,Asia,International Competition,org_-_competition
+spain_-_liga_acb,Spanish Liga ACB,Basketball,Spain,Regional League,country_-_league
+italy_-_lega_basket_serie_a,Italian Lega Basket Serie A,Basketball,Italy,Regional League,country_-_league
+france_-_lnb_pro_a,French LNB Pro A,Basketball,France,Regional League,country_-_league
+germany_-_bbl,German BBL,Basketball,Germany,Regional League,country_-_league
+england_-_bbl,English BBL,Basketball,England,Regional League,country_-_league
+australia_-_nbl,Australian NBL,Basketball,Australia,Regional League,country_-_league
+korea_-_kbl,Korean KBL,Basketball,Korea,Regional League,country_-_league
+china_-_cba,Chinese CBA,Basketball,China,Regional League,country_-_league
+mexico_-_lnbp,Mexican LNBP,Basketball,Mexico,Regional League,country_-_league
+puerto_rico_-_bsn,Puerto Rican BSN,Basketball,Puerto Rico,Regional League,country_-_league
+new_zealand_-_nbl,New Zealand NBL,Basketball,New Zealand,Regional League,country_-_league
+fiba_-_world_cup,FIBA World Cup,Basketball,International,International Competition,org_-_competition
+fiba_-_eurobasket,FIBA EuroBasket,Basketball,Europe,International Competition,org_-_competition
+fiba_-_americup,FIBA AmeriCup,Basketball,Americas,International Competition,org_-_competition
+fiba_-_asia_cup,FIBA Asia Cup,Basketball,Asia,International Competition,org_-_competition
+fiba_-_afrobasket,FIBA AfroBasket,Basketball,Africa,International Competition,org_-_competition
+mexico_-_lmb,Mexican LMB,Baseball,Mexico,Regional League,country_-_league
+usa_-_milb_aaa,USA MILB AAA,Baseball,USA,Regional League,country_-_league
+usa_-_mlb_all_star,USA MLB All Star,Baseball,USA,Special Event,country_-_league
+india_-_ipl,Indian Premier League,Cricket,India,Regional League,country_-_league
+australia_-_big_bash_league,Big Bash League,Cricket,Australia,Regional League,country_-_league
+england_-_the_hundred,The Hundred,Cricket,England,Regional League,country_-_league
+west_indies_-_caribbean_premier_league,Caribbean Premier League,Cricket,West Indies,Regional League,country_-_league
+sri_lanka_-_lanka_premier_league,Lanka Premier League,Cricket,Sri Lanka,Regional League,country_-_league
+usa_-_major_league_cricket,Major League Cricket,Cricket,USA,Regional League,country_-_league
+sweden_-_shl,Swedish SHL,Ice Hockey,Sweden,Regional League,country_-_league
+finland_-_sm_liiga,Finnish SM-Liiga,Ice Hockey,Finland,Regional League,country_-_league
+russia_-_khl,Kontinental Hockey League,Ice Hockey,Russia,Regional League,country_-_league
+czech_republic_-_extraliga,Czech Extraliga,Ice Hockey,Czech Republic,Regional League,country_-_league
+usa_-_ahl,American Hockey League,Ice Hockey,USA,Regional League,country_-_league
+france_-_ligue_magnus,French Ligue Magnus,Ice Hockey,France,Regional League,country_-_league
+iihf_-_world_championship,IIHF World Championship,Ice Hockey,International,International Competition,org_-_competition
+nascar_-_cup_series,NASCAR Cup Series,Motorsports,USA,Regional League,country_-_league
+nascar_-_xfinity_series,NASCAR Xfinity Series,Motorsports,USA,Regional League,country_-_league
+nascar_-_truck_series,NASCAR Truck Series,Motorsports,USA,Regional League,country_-_league
+icc_-_test_championship,ICC Test Championship,Cricket,International,International Competition,org_-_competition
+olympics_basketball_men,Olympics Basketball Men,Basketball,International,Olympics,olympics_sport_gender
+olympics_basketball_women,Olympics Basketball Women,Basketball,International,Olympics,olympics_sport_gender
+olympics_soccer_men,Olympics Soccer Men,Soccer,International,Olympics,olympics_sport_gender
+olympics_soccer_women,Olympics Soccer Women,Soccer,International,Olympics,olympics_sport_gender
+olympics_tennis_men,Olympics Tennis Men,Tennis,International,Olympics,olympics_sport_gender
+olympics_tennis_women,Olympics Tennis Women,Tennis,International,Olympics,olympics_sport_gender
+olympics_table_tennis_men,Olympics Table Tennis Men,Table Tennis,International,Olympics,olympics_sport_gender
+olympics_table_tennis_women,Olympics Table Tennis Women,Table Tennis,International,Olympics,olympics_sport_gender
+acc_-_asia_cup_women,ACC Asia Cup Women,Cricket,Asia,International Competition,org_-_competition
+argentina_-_copa_argentina,Copa Argentina,Soccer,Argentina,Cup Competition,country_-_competition
+argentina_-_primera_nacional,Argentina Primera Nacional,Soccer,Argentina,Regional League,country_-_league
+australia_-_big_bash_league_women,Big Bash League Women,Cricket,Australia,Regional League,country_-_league
+australia_-_capital_npl,Australia Capital NPL,Soccer,Australia,Regional League,country_-_league
+australia_-_cup,Australia Cup,Soccer,Australia,Cup Competition,country_-_competition
+australia_-_northern_nsw_npl,Australia Northern NSW NPL,Soccer,Australia,Regional League,country_-_league
+australia_-_nrl,Australian NRL,Rugby League,Australia,Regional League,country_-_league
+australia_-_nrlw,Australian NRLW,Rugby League,Australia,Regional League,country_-_league
+australia_-_nsw_npl,Australia NSW NPL,Soccer,Australia,Regional League,country_-_league
+australia_-_queensland_npl,Australia Queensland NPL,Soccer,Australia,Regional League,country_-_league
+australia_-_queensland_premier_league,Australia Queensland Premier League,Soccer,Australia,Regional League,country_-_league
+australia_-_south_australia_npl,Australia South Australia NPL,Soccer,Australia,Regional League,country_-_league
+australia_-_tasmania_npl,Australia Tasmania NPL,Soccer,Australia,Regional League,country_-_league
+australia_-_victoria_npl,Australia Victoria NPL,Soccer,Australia,Regional League,country_-_league
+belarus_-_premier_league,Belarus Premier League,Soccer,Belarus,Regional League,country_-_league
+belgium_-_cup,Belgian Cup,Soccer,Belgium,Cup Competition,country_-_competition
+brazil_-_copa_do_brasil,Copa do Brasil,Soccer,Brazil,Cup Competition,country_-_competition
+brazil_-_serie_b,Brazilian Serie B,Soccer,Brazil,Regional League,country_-_league
+brazil_-_serie_c,Brazilian Serie C,Soccer,Brazil,Regional League,country_-_league
+brazil_-_serie_d,Brazilian Serie D,Soccer,Brazil,Regional League,country_-_league
+caf_-_african_nations_championship,CAF African Nations Championship,Soccer,Africa,International Competition,org_-_competition
+canada_-_premier_league,Canadian Premier League,Soccer,Canada,Regional League,country_-_league
+chile_-_cup,Chilean Cup,Soccer,Chile,Cup Competition,country_-_competition
+china_-_fa_cup,Chinese FA Cup,Soccer,China,Cup Competition,country_-_competition
+china_-_league_one,Chinese League One,Soccer,China,Regional League,country_-_league
+china_-_league_two,Chinese League Two,Soccer,China,Regional League,country_-_league
+colombia_-_primera_b,Colombian Primera B,Soccer,Colombia,Regional League,country_-_league
+concacaf_-_nations_league,CONCACAF Nations League,Soccer,North America,International Competition,org_-_competition
+cosafa_-_cup,COSAFA Cup,Soccer,Africa,International Competition,org_-_competition
+denmark_-_superisligaen,Danish Superisligaen,Ice Hockey,Denmark,Regional League,country_-_league
+ecuador_-_serie_b,Ecuadorian Serie B,Soccer,Ecuador,Regional League,country_-_league
+egypt_-_second_division,Egyptian Second Division,Soccer,Egypt,Regional League,country_-_league
+england_-_championship,English Championship,Soccer,England,Regional League,country_-_league
+england_-_charlotte_edwards_cup,Charlotte Edwards Cup,Cricket,England,Cup Competition,country_-_competition
+england_-_community_shield,English Community Shield,Soccer,England,Cup Competition,country_-_competition
+england_-_county_championship,County Championship,Cricket,England,Regional League,country_-_league
+england_-_efl_cup,English EFL Cup,Soccer,England,Cup Competition,country_-_competition
+england_-_efl_trophy,English EFL Trophy,Soccer,England,Cup Competition,country_-_competition
+england_-_fa_cup,English FA Cup,Soccer,England,Cup Competition,country_-_competition
+england_-_national_league,English National League,Soccer,England,Regional League,country_-_league
+england_-_rhf_trophy,RHF Trophy,Cricket,England,Cup Competition,country_-_competition
+england_-_super_league,English Super League,Rugby League,England,Regional League,country_-_league
+england_-_the_hundred_women,The Hundred Women,Cricket,England,Regional League,country_-_league
+estonia_-_esiliiga,Estonian Esiliiga,Soccer,Estonia,Regional League,country_-_league
+estonia_-_esiliiga_b,Estonian Esiliiga B,Soccer,Estonia,Regional League,country_-_league
+estonia_-_meistriliiga_women,Estonian Meistriliiga Women,Soccer,Estonia,Regional League,country_-_league
+ethiopia_-_premier_league,Ethiopian Premier League,Soccer,Ethiopia,Regional League,country_-_league
+europe_-_elof,European League of Football,American Football,Europe,Regional League,region_-_league
+fifa_-_club_world_cup,FIFA Club World Cup,Soccer,International,International Competition,org_-_competition
+fifa_-_world_cup_women,FIFA Women's World Cup,Soccer,International,International Competition,org_-_competition
+finland_-_suomen_cup,Finnish Cup,Soccer,Finland,Cup Competition,country_-_competition
+finland_-_veikkausliiga,Finnish Veikkausliiga,Soccer,Finland,Regional League,country_-_league
+finland_-_ykkonen,Finnish Ykkönen,Soccer,Finland,Regional League,country_-_league
+finland_-_ykkosliiga,Finnish Ykkösliiga,Ice Hockey,Finland,Regional League,country_-_league
+fivb_-_nations_league,FIVB Nations League,Volleyball,International,International Competition,org_-_competition
+france_-_super_cup,French Super Cup,Soccer,France,Cup Competition,country_-_competition
+guatemala_-_liga_nacional,Guatemalan Liga Nacional,Soccer,Guatemala,Regional League,country_-_league
+guatemala_-_primera_division,Guatemalan Primera División,Soccer,Guatemala,Regional League,country_-_league
+hungary_-_nb_i,Hungarian NB I,Soccer,Hungary,Regional League,country_-_league
+india_-_calcutta_premier_division,Calcutta Premier Division,Cricket,India,Regional League,country_-_league
+india_-_tamil_nadu_premier_league,Tamil Nadu Premier League,Cricket,India,Regional League,country_-_league
+international_-_club_friendlies,International Club Friendlies,Soccer,International,Friendlies,international_-_type
+international_-_list_a_tours,International List A Tours,Cricket,International,Tours,international_-_type
+international_-_the_rugby_championship,The Rugby Championship,Rugby Union,International,International Competition,international_-_competition
+international_-_tours,International Tours,Cricket,International,Tours,international_-_type
+international_-_tours_women,International Tours Women,Cricket,International,Tours,international_-_type
+iraq_-_stars_league,Iraqi Stars League,Soccer,Iraq,Regional League,country_-_league
+ireland_-_premier_league,Irish Premier League,Soccer,Ireland,Regional League,country_-_league
+israel_-_cup,Israeli Cup,Soccer,Israel,Cup Competition,country_-_competition
+israel_-_premier_league,Israeli Premier League,Soccer,Israel,Regional League,country_-_league
+italy_-_serie_b,Italian Serie B,Soccer,Italy,Regional League,country_-_league
+italy_-_serie_c,Italian Serie C,Soccer,Italy,Regional League,country_-_league
+kazakhstan_-_first_division,Kazakhstani First Division,Soccer,Kazakhstan,Regional League,country_-_league
+kazakhstan_-_premier_league,Kazakhstani Premier League,Soccer,Kazakhstan,Regional League,country_-_league
+kenya_-_super_league,Kenyan Super League,Soccer,Kenya,Regional League,country_-_league
+korea_-_kbl_cup,Korean KBL Cup,Basketball,Korea,Cup Competition,country_-_competition
+latvia_-_virsliga,Latvian Virsliga,Soccer,Latvia,Regional League,country_-_league
+lithuania_-_a_lyga,Lithuanian A Lyga,Soccer,Lithuania,Regional League,country_-_league
+malaysia_-_super_league,Malaysian Super League,Soccer,Malaysia,Regional League,country_-_league
+mexico_-_liga_de_expansion_mx,Liga de Expansión MX,Soccer,Mexico,Regional League,country_-_league
+mongolia_-_premier_league,Mongolian Premier League,Soccer,Mongolia,Regional League,country_-_league
+netherlands_-_eerste_divisie,Dutch Eerste Divisie,Soccer,Netherlands,Regional League,country_-_league
+north_america_-_leagues_cup,Leagues Cup,Soccer,North America,International Competition,region_-_competition
+peru_-_segunda_division,Peruvian Segunda División,Soccer,Peru,Regional League,country_-_league
+poland_-_cup,Polish Cup,Soccer,Poland,Cup Competition,country_-_competition
+poland_-_i_liga,Polish I Liga,Soccer,Poland,Regional League,country_-_league
+portugal_-_segunda_liga,Portuguese Segunda Liga,Soccer,Portugal,Regional League,country_-_league
+romania_-_liga_ii,Romanian Liga II,Soccer,Romania,Regional League,country_-_league
+russia_-_second_league_a,Russian Second League A,Soccer,Russia,Regional League,country_-_league
+russia_-_super_cup,Russian Super Cup,Soccer,Russia,Cup Competition,country_-_competition
+scotland_-_championship,Scottish Championship,Soccer,Scotland,Regional League,country_-_league
+singapore_-_premier_league,Singaporean Premier League,Soccer,Singapore,Regional League,country_-_league
+spain_-_copa_del_rey,Copa del Rey,Soccer,Spain,Cup Competition,country_-_competition
+spain_-_leb_oro,Spanish LEB Oro,Basketball,Spain,Regional League,country_-_league
+sweden_-_ettan,Swedish Ettan,Soccer,Sweden,Regional League,country_-_league
+sweden_-_superettan,Swedish Superettan,Soccer,Sweden,Regional League,country_-_league
+switzerland_-_challenge_league,Swiss Challenge League,Soccer,Switzerland,Regional League,country_-_league
+switzerland_-_cup,Swiss Cup,Soccer,Switzerland,Cup Competition,country_-_competition
+turkey_-_cup,Turkish Cup,Soccer,Turkey,Cup Competition,country_-_competition
+uefa_-_champions_league_women,UEFA Women's Champions League,Soccer,Europe,International Competition,org_-_competition
+uefa_-_european_championship_qualifiers,UEFA European Championship Qualifiers,Soccer,Europe,International Competition,org_-_competition
+uefa_-_european_championship_women,UEFA Women's European Championship,Soccer,Europe,International Competition,org_-_competition
+uefa_-_super_cup,UEFA Super Cup,Soccer,Europe,Cup Competition,org_-_competition
+uruguay_-_metro_league,Uruguayan Metro League,Basketball,Uruguay,Regional League,country_-_league
+uruguay_-_segunda_division,Uruguayan Segunda División,Soccer,Uruguay,Regional League,country_-_league
+usa_-_mls_next_pro,MLS Next Pro,Soccer,USA,Regional League,country_-_league
+usa_-_national_lacrosse_league,National Lacrosse League,Lacrosse,USA,Regional League,country_-_league
+usa_-_nisa,NISA,Soccer,USA,Regional League,country_-_league
+usa_-_npsl,NPSL,Soccer,USA,Regional League,country_-_league
+usa_-_nwsl,NWSL,Soccer,USA,Regional League,country_-_league
+usa_-_premier_lacrosse_league,Premier Lacrosse League,Lacrosse,USA,Regional League,country_-_league
+usa_-_the_golf_league,The Golf League,Golf,USA,Regional League,country_-_league
+usa_-_unrivaled,Unrivaled,Basketball,USA,Regional League,country_-_league
+usa_-_usl_championship,USL Championship,Soccer,USA,Regional League,country_-_league
+usa_-_usl_league_one,USL League One,Soccer,USA,Regional League,country_-_league
+usa_-_usl_league_two,USL League Two,Soccer,USA,Regional League,country_-_league
+usa_-_usl_w_league,USL W League,Soccer,USA,Regional League,country_-_league
+uzbekistan_-_professional_league,Uzbekistani Professional League,Soccer,Uzbekistan,Regional League,country_-_league
+uzbekistan_-_super_league,Uzbekistani Super League,Soccer,Uzbekistan,Regional League,country_-_league
+west_indies_-_caribbean_premier_league_women,Caribbean Premier League Women,Cricket,West Indies,Regional League,country_-_league
+zimbabwe_-_premier_league,Zimbabwean Premier League,Soccer,Zimbabwe,Regional League,country_-_league

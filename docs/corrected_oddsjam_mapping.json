@@ -1,0 +1,704 @@
+{
+  "metadata": {
+    "title": "Corrected OddsJam API League Mapping",
+    "description": "Complete mapping of actual OddsJam API league keys extracted from working_sample.json",
+    "generated_date": "2025-08-28",
+    "source": "working_sample.json from live OddsJam API responses",
+    "key_patterns": [
+      "Major leagues: simple format (e.g., 'nfl', 'nba', 'mlb')",
+      "Regional leagues: country_-_league format (e.g., 'spain_-_la_liga')",
+      "Special events: organization_-_event format (e.g., 'uefa_-_champions_league')"
+    ],
+    "total_leagues": 266
+  },
+  "major_leagues": {
+    "American Football": {
+      "nfl": {
+        "display": "NFL",
+        "sport": "American Football",
+        "region": "USA"
+      },
+      "ncaaf": {
+        "display": "NCAAF (College Football)",
+        "sport": "American Football",
+        "region": "USA"
+      }
+    },
+    "Basketball": {
+      "nba": {
+        "display": "NBA",
+        "sport": "Basketball",
+        "region": "USA"
+      },
+      "wnba": {
+        "display": "WNBA",
+        "sport": "Basketball",
+        "region": "USA"
+      },
+      "ncaab": {
+        "display": "NCAAB (College Basketball)",
+        "sport": "Basketball",
+        "region": "USA"
+      },
+      "nba_all_star": {
+        "display": "NBA All Star",
+        "sport": "Basketball",
+        "region": "USA"
+      },
+      "nba_summer_league": {
+        "display": "NBA Summer League",
+        "sport": "Basketball",
+        "region": "USA"
+      },
+      "wnba_all_star": {
+        "display": "WNBA All Star",
+        "sport": "Basketball",
+        "region": "USA"
+      }
+    },
+    "Baseball": {
+      "mlb": {
+        "display": "MLB",
+        "sport": "Baseball",
+        "region": "USA"
+      },
+      "college_baseball": {
+        "display": "College Baseball",
+        "sport": "Baseball",
+        "region": "USA"
+      },
+      "world_baseball_classic": {
+        "display": "World Baseball Classic",
+        "sport": "Baseball",
+        "region": "International"
+      }
+    },
+    "Ice Hockey": {
+      "nhl": {
+        "display": "NHL",
+        "sport": "Ice Hockey",
+        "region": "USA/Canada"
+      }
+    },
+    "Tennis": {
+      "atp": {
+        "display": "ATP Tennis",
+        "sport": "Tennis",
+        "region": "International"
+      },
+      "wta": {
+        "display": "WTA Tennis",
+        "sport": "Tennis",
+        "region": "International"
+      }
+    },
+    "Golf": {
+      "pga": {
+        "display": "PGA Tour",
+        "sport": "Golf",
+        "region": "International"
+      }
+    },
+    "MMA": {
+      "ufc": {
+        "display": "UFC",
+        "sport": "MMA",
+        "region": "International"
+      }
+    },
+    "Boxing": {
+      "boxing": {
+        "display": "Boxing",
+        "sport": "Boxing",
+        "region": "International"
+      }
+    },
+    "Aussie Rules": {
+      "afl": {
+        "display": "AFL",
+        "sport": "Aussie Rules",
+        "region": "Australia"
+      }
+    },
+    "Other": {
+      "table_tennis": {
+        "display": "Table Tennis",
+        "sport": "Table Tennis",
+        "region": "International"
+      },
+      "athletics": {
+        "display": "Athletics",
+        "sport": "Athletics",
+        "region": "International"
+      }
+    }
+  },
+  "regional_leagues": {
+    "Soccer": {
+      "spain_-_la_liga": {
+        "display": "Spanish La Liga",
+        "sport": "Soccer",
+        "region": "Spain"
+      },
+      "england_-_premier_league": {
+        "display": "English Premier League",
+        "sport": "Soccer",
+        "region": "England"
+      },
+      "germany_-_bundesliga": {
+        "display": "German Bundesliga",
+        "sport": "Soccer",
+        "region": "Germany"
+      },
+      "italy_-_serie_a": {
+        "display": "Italian Serie A",
+        "sport": "Soccer",
+        "region": "Italy"
+      },
+      "france_-_ligue_1": {
+        "display": "French Ligue 1",
+        "sport": "Soccer",
+        "region": "France"
+      },
+      "netherlands_-_eredivisie": {
+        "display": "Dutch Eredivisie",
+        "sport": "Soccer",
+        "region": "Netherlands"
+      },
+      "portugal_-_primeira_liga": {
+        "display": "Portuguese Primeira Liga",
+        "sport": "Soccer",
+        "region": "Portugal"
+      },
+      "brazil_-_serie_a": {
+        "display": "Brazilian Serie A",
+        "sport": "Soccer",
+        "region": "Brazil"
+      },
+      "argentina_-_primera_division": {
+        "display": "Argentina Primera División",
+        "sport": "Soccer",
+        "region": "Argentina"
+      },
+      "usa_-_major_league_soccer": {
+        "display": "MLS (USA)",
+        "sport": "Soccer",
+        "region": "USA"
+      },
+      "mexico_-_liga_mx": {
+        "display": "Liga MX (Mexico)",
+        "sport": "Soccer",
+        "region": "Mexico"
+      },
+      "belgium_-_jupiler_pro_league": {
+        "display": "Belgian Jupiler Pro League",
+        "sport": "Soccer",
+        "region": "Belgium"
+      },
+      "scotland_-_premiership": {
+        "display": "Scottish Premiership",
+        "sport": "Soccer",
+        "region": "Scotland"
+      },
+      "sweden_-_allsvenskan": {
+        "display": "Swedish Allsvenskan",
+        "sport": "Soccer",
+        "region": "Sweden"
+      },
+      "norway_-_eliteserien": {
+        "display": "Norwegian Eliteserien",
+        "sport": "Soccer",
+        "region": "Norway"
+      },
+      "denmark_-_superliga": {
+        "display": "Danish Superliga",
+        "sport": "Soccer",
+        "region": "Denmark"
+      },
+      "austria_-_bundesliga": {
+        "display": "Austrian Bundesliga",
+        "sport": "Soccer",
+        "region": "Austria"
+      },
+      "switzerland_-_super_league": {
+        "display": "Swiss Super League",
+        "sport": "Soccer",
+        "region": "Switzerland"
+      },
+      "turkey_-_super_lig": {
+        "display": "Turkish Super Lig",
+        "sport": "Soccer",
+        "region": "Turkey"
+      },
+      "greece_-_super_league": {
+        "display": "Greek Super League",
+        "sport": "Soccer",
+        "region": "Greece"
+      },
+      "russia_-_premier_league": {
+        "display": "Russian Premier League",
+        "sport": "Soccer",
+        "region": "Russia"
+      },
+      "ukraine_-_premier_league": {
+        "display": "Ukrainian Premier League",
+        "sport": "Soccer",
+        "region": "Ukraine"
+      },
+      "poland_-_ekstraklasa": {
+        "display": "Polish Ekstraklasa",
+        "sport": "Soccer",
+        "region": "Poland"
+      },
+      "czech_republic_-_first_league": {
+        "display": "Czech First League",
+        "sport": "Soccer",
+        "region": "Czech Republic"
+      },
+      "slovakia_-_superliga": {
+        "display": "Slovak Superliga",
+        "sport": "Soccer",
+        "region": "Slovakia"
+      },
+      "romania_-_liga_i": {
+        "display": "Romanian Liga I",
+        "sport": "Soccer",
+        "region": "Romania"
+      },
+      "serbia_-_super_liga": {
+        "display": "Serbian Super Liga",
+        "sport": "Soccer",
+        "region": "Serbia"
+      },
+      "bulgaria_-_parva_liga": {
+        "display": "Bulgarian Parva Liga",
+        "sport": "Soccer",
+        "region": "Bulgaria"
+      },
+      "chile_-_primera_division": {
+        "display": "Chilean Primera División",
+        "sport": "Soccer",
+        "region": "Chile"
+      },
+      "colombia_-_primera_a": {
+        "display": "Colombian Primera A",
+        "sport": "Soccer",
+        "region": "Colombia"
+      },
+      "ecuador_-_serie_a": {
+        "display": "Ecuadorian Serie A",
+        "sport": "Soccer",
+        "region": "Ecuador"
+      },
+      "peru_-_primera_division": {
+        "display": "Peruvian Primera División",
+        "sport": "Soccer",
+        "region": "Peru"
+      },
+      "uruguay_-_primera_division": {
+        "display": "Uruguayan Primera División",
+        "sport": "Soccer",
+        "region": "Uruguay"
+      },
+      "venezuela_-_copa_venezuela": {
+        "display": "Copa Venezuela",
+        "sport": "Soccer",
+        "region": "Venezuela"
+      },
+      "paraguay_-_primera_division": {
+        "display": "Paraguayan Primera División",
+        "sport": "Soccer",
+        "region": "Paraguay"
+      },
+      "china_-_super_league": {
+        "display": "Chinese Super League",
+        "sport": "Soccer",
+        "region": "China"
+      },
+      "india_-_super_league": {
+        "display": "Indian Super League",
+        "sport": "Soccer",
+        "region": "India"
+      },
+      "saudi_arabia_-_saudi_league": {
+        "display": "Saudi League",
+        "sport": "Soccer",
+        "region": "Saudi Arabia"
+      },
+      "egypt_-_premier_league": {
+        "display": "Egyptian Premier League",
+        "sport": "Soccer",
+        "region": "Egypt"
+      }
+    },
+    "Basketball": {
+      "spain_-_liga_acb": {
+        "display": "Spanish Liga ACB",
+        "sport": "Basketball",
+        "region": "Spain"
+      },
+      "italy_-_lega_basket_serie_a": {
+        "display": "Italian Lega Basket Serie A",
+        "sport": "Basketball",
+        "region": "Italy"
+      },
+      "france_-_lnb_pro_a": {
+        "display": "French LNB Pro A",
+        "sport": "Basketball",
+        "region": "France"
+      },
+      "germany_-_bbl": {
+        "display": "German BBL",
+        "sport": "Basketball",
+        "region": "Germany"
+      },
+      "england_-_bbl": {
+        "display": "English BBL",
+        "sport": "Basketball",
+        "region": "England"
+      },
+      "australia_-_nbl": {
+        "display": "Australian NBL",
+        "sport": "Basketball",
+        "region": "Australia"
+      },
+      "korea_-_kbl": {
+        "display": "Korean KBL",
+        "sport": "Basketball",
+        "region": "Korea"
+      },
+      "china_-_cba": {
+        "display": "Chinese CBA",
+        "sport": "Basketball",
+        "region": "China"
+      },
+      "mexico_-_lnbp": {
+        "display": "Mexican LNBP",
+        "sport": "Basketball",
+        "region": "Mexico"
+      },
+      "puerto_rico_-_bsn": {
+        "display": "Puerto Rican BSN",
+        "sport": "Basketball",
+        "region": "Puerto Rico"
+      },
+      "new_zealand_-_nbl": {
+        "display": "New Zealand NBL",
+        "sport": "Basketball",
+        "region": "New Zealand"
+      }
+    },
+    "Baseball": {
+      "mexico_-_lmb": {
+        "display": "Mexican LMB",
+        "sport": "Baseball",
+        "region": "Mexico"
+      },
+      "usa_-_milb_aaa": {
+        "display": "USA MILB AAA",
+        "sport": "Baseball",
+        "region": "USA"
+      },
+      "usa_-_mlb_all_star": {
+        "display": "USA MLB All Star",
+        "sport": "Baseball",
+        "region": "USA"
+      }
+    },
+    "Cricket": {
+      "india_-_ipl": {
+        "display": "Indian Premier League",
+        "sport": "Cricket",
+        "region": "India"
+      },
+      "australia_-_big_bash_league": {
+        "display": "Big Bash League",
+        "sport": "Cricket",
+        "region": "Australia"
+      },
+      "england_-_the_hundred": {
+        "display": "The Hundred",
+        "sport": "Cricket",
+        "region": "England"
+      },
+      "west_indies_-_caribbean_premier_league": {
+        "display": "Caribbean Premier League",
+        "sport": "Cricket",
+        "region": "West Indies"
+      },
+      "sri_lanka_-_lanka_premier_league": {
+        "display": "Lanka Premier League",
+        "sport": "Cricket",
+        "region": "Sri Lanka"
+      },
+      "usa_-_major_league_cricket": {
+        "display": "Major League Cricket",
+        "sport": "Cricket",
+        "region": "USA"
+      }
+    },
+    "Ice Hockey": {
+      "sweden_-_shl": {
+        "display": "Swedish SHL",
+        "sport": "Ice Hockey",
+        "region": "Sweden"
+      },
+      "finland_-_sm_liiga": {
+        "display": "Finnish SM-Liiga",
+        "sport": "Ice Hockey",
+        "region": "Finland"
+      },
+      "russia_-_khl": {
+        "display": "Kontinental Hockey League",
+        "sport": "Ice Hockey",
+        "region": "Russia"
+      },
+      "czech_republic_-_extraliga": {
+        "display": "Czech Extraliga",
+        "sport": "Ice Hockey",
+        "region": "Czech Republic"
+      },
+      "usa_-_ahl": {
+        "display": "American Hockey League",
+        "sport": "Ice Hockey",
+        "region": "USA"
+      },
+      "france_-_ligue_magnus": {
+        "display": "French Ligue Magnus",
+        "sport": "Ice Hockey",
+        "region": "France"
+      }
+    },
+    "Motorsports": {
+      "nascar_-_cup_series": {
+        "display": "NASCAR Cup Series",
+        "sport": "Motorsports",
+        "region": "USA"
+      },
+      "nascar_-_xfinity_series": {
+        "display": "NASCAR Xfinity Series",
+        "sport": "Motorsports",
+        "region": "USA"
+      },
+      "nascar_-_truck_series": {
+        "display": "NASCAR Truck Series",
+        "sport": "Motorsports",
+        "region": "USA"
+      }
+    }
+  },
+  "international_competitions": {
+    "Soccer": {
+      "uefa_-_champions_league": {
+        "display": "UEFA Champions League",
+        "sport": "Soccer",
+        "region": "Europe"
+      },
+      "uefa_-_europa_league": {
+        "display": "UEFA Europa League",
+        "sport": "Soccer",
+        "region": "Europe"
+      },
+      "uefa_-_europa_conference_league": {
+        "display": "UEFA Europa Conference League",
+        "sport": "Soccer",
+        "region": "Europe"
+      },
+      "uefa_-_european_championship": {
+        "display": "UEFA European Championship",
+        "sport": "Soccer",
+        "region": "Europe"
+      },
+      "uefa_-_nations_league": {
+        "display": "UEFA Nations League",
+        "sport": "Soccer",
+        "region": "Europe"
+      },
+      "fifa_-_world_cup": {
+        "display": "FIFA World Cup",
+        "sport": "Soccer",
+        "region": "International"
+      },
+      "fifa_-_world_cup_qualifiers": {
+        "display": "FIFA World Cup Qualifiers",
+        "sport": "Soccer",
+        "region": "International"
+      },
+      "conmebol_-_copa_libertadores": {
+        "display": "Copa Libertadores",
+        "sport": "Soccer",
+        "region": "South America"
+      },
+      "conmebol_-_copa_sudamericana": {
+        "display": "Copa Sudamericana",
+        "sport": "Soccer",
+        "region": "South America"
+      },
+      "conmebol_-_copa_america": {
+        "display": "Copa América",
+        "sport": "Soccer",
+        "region": "South America"
+      },
+      "concacaf_-_gold_cup": {
+        "display": "CONCACAF Gold Cup",
+        "sport": "Soccer",
+        "region": "North America"
+      },
+      "caf_-_africa_cup_of_nations": {
+        "display": "Africa Cup of Nations",
+        "sport": "Soccer",
+        "region": "Africa"
+      },
+      "afc_-_champions_league": {
+        "display": "AFC Champions League",
+        "sport": "Soccer",
+        "region": "Asia"
+      }
+    },
+    "Basketball": {
+      "fiba_-_world_cup": {
+        "display": "FIBA World Cup",
+        "sport": "Basketball",
+        "region": "International"
+      },
+      "fiba_-_eurobasket": {
+        "display": "FIBA EuroBasket",
+        "sport": "Basketball",
+        "region": "Europe"
+      },
+      "fiba_-_americup": {
+        "display": "FIBA AmeriCup",
+        "sport": "Basketball",
+        "region": "Americas"
+      },
+      "fiba_-_asia_cup": {
+        "display": "FIBA Asia Cup",
+        "sport": "Basketball",
+        "region": "Asia"
+      },
+      "fiba_-_afrobasket": {
+        "display": "FIBA AfroBasket",
+        "sport": "Basketball",
+        "region": "Africa"
+      }
+    },
+    "Ice Hockey": {
+      "iihf_-_world_championship": {
+        "display": "IIHF World Championship",
+        "sport": "Ice Hockey",
+        "region": "International"
+      }
+    },
+    "Cricket": {
+      "icc_-_test_championship": {
+        "display": "ICC Test Championship",
+        "sport": "Cricket",
+        "region": "International"
+      }
+    }
+  },
+  "olympics": {
+    "olympics_basketball_men": {
+      "display": "Olympics Basketball Men",
+      "sport": "Basketball",
+      "region": "International"
+    },
+    "olympics_basketball_women": {
+      "display": "Olympics Basketball Women",
+      "sport": "Basketball",
+      "region": "International"
+    },
+    "olympics_soccer_men": {
+      "display": "Olympics Soccer Men",
+      "sport": "Soccer",
+      "region": "International"
+    },
+    "olympics_soccer_women": {
+      "display": "Olympics Soccer Women",
+      "sport": "Soccer",
+      "region": "International"
+    },
+    "olympics_tennis_men": {
+      "display": "Olympics Tennis Men",
+      "sport": "Tennis",
+      "region": "International"
+    },
+    "olympics_tennis_women": {
+      "display": "Olympics Tennis Women",
+      "sport": "Tennis",
+      "region": "International"
+    },
+    "olympics_table_tennis_men": {
+      "display": "Olympics Table Tennis Men",
+      "sport": "Table Tennis",
+      "region": "International"
+    },
+    "olympics_table_tennis_women": {
+      "display": "Olympics Table Tennis Women",
+      "sport": "Table Tennis",
+      "region": "International"
+    }
+  },
+  "all_leagues_flat": [
+    "nfl", "ncaaf", "nba", "wnba", "ncaab", "nba_all_star", "nba_summer_league", "wnba_all_star",
+    "mlb", "college_baseball", "world_baseball_classic", "nhl", "atp", "wta", "pga", "ufc", "boxing",
+    "afl", "table_tennis", "athletics",
+    "acc_-_asia_cup_women", "afc_-_champions_league", "argentina_-_copa_argentina", "argentina_-_primera_division",
+    "argentina_-_primera_nacional", "australia_-_big_bash_league", "australia_-_big_bash_league_women",
+    "australia_-_capital_npl", "australia_-_cup", "australia_-_nbl", "australia_-_northern_nsw_npl",
+    "australia_-_nrl", "australia_-_nrlw", "australia_-_nsw_npl", "australia_-_queensland_npl",
+    "australia_-_queensland_premier_league", "australia_-_south_australia_npl", "australia_-_tasmania_npl",
+    "australia_-_victoria_npl", "austria_-_bundesliga", "belarus_-_premier_league", "belgium_-_cup",
+    "belgium_-_jupiler_pro_league", "brazil_-_copa_do_brasil", "brazil_-_serie_a", "brazil_-_serie_b",
+    "brazil_-_serie_c", "brazil_-_serie_d", "bulgaria_-_parva_liga", "caf_-_africa_cup_of_nations",
+    "caf_-_african_nations_championship", "canada_-_premier_league", "chile_-_cup", "chile_-_primeira_division",
+    "china_-_cba", "china_-_fa_cup", "china_-_league_one", "china_-_league_two", "china_-_super_league",
+    "colombia_-_primera_a", "colombia_-_primera_b", "concacaf_-_gold_cup", "concacaf_-_nations_league",
+    "conmebol_-_copa_america", "conmebol_-_copa_libertadores", "conmebol_-_copa_sudamericana", "cosafa_-_cup",
+    "czech_republic_-_extraliga", "czech_republic_-_first_league", "czech_republic_-_fnl", "denmark_-_superisligaen",
+    "denmark_-_superliga", "ecuador_-_serie_a", "ecuador_-_serie_b", "egypt_-_premier_league",
+    "egypt_-_second_division", "england_-_bbl", "england_-_championship", "england_-_charlotte_edwards_cup",
+    "england_-_community_shield", "england_-_county_championship", "england_-_efl_cup", "england_-_efl_trophy",
+    "england_-_fa_cup", "england_-_national_league", "england_-_premier_league", "england_-_rhf_trophy",
+    "england_-_super_league", "england_-_the_hundred", "england_-_the_hundred_women", "estonia_-_esiliiga",
+    "estonia_-_esiliiga_b", "estonia_-_meistriliiga_women", "ethiopia_-_premier_league", "europe_-_elof",
+    "fiba_-_afrobasket", "fiba_-_americup", "fiba_-_asia_cup", "fiba_-_eurobasket", "fiba_-_world_cup",
+    "fifa_-_club_world_cup", "fifa_-_world_cup", "fifa_-_world_cup_qualifiers", "fifa_-_world_cup_women",
+    "finland_-_sm_liiga", "finland_-_suomen_cup", "finland_-_veikkausliiga", "finland_-_ykkonen",
+    "finland_-_ykkosliiga", "fivb_-_nations_league", "france_-_ligue_magnus", "france_-_lnb_pro_a",
+    "france_-_super_cup", "germany_-_bbl", "germany_-_bundesliga", "greece_-_super_league",
+    "guatemala_-_liga_nacional", "guatemala_-_primera_division", "hungary_-_nb_i", "icc_-_test_championship",
+    "iihf_-_world_championship", "india_-_calcutta_premier_division", "india_-_ipl", "india_-_super_league",
+    "india_-_tamil_nadu_premier_league", "international_-_club_friendlies", "international_-_list_a_tours",
+    "international_-_the_rugby_championship", "international_-_tours", "international_-_tours_women",
+    "iraq_-_stars_league", "ireland_-_premier_league", "israel_-_cup", "israel_-_premier_league",
+    "italy_-_lega_basket_serie_a", "italy_-_serie_a", "italy_-_serie_b", "italy_-_serie_c",
+    "kazakhstan_-_first_division", "kazakhstan_-_premier_league", "kenya_-_super_league", "korea_-_kbl",
+    "korea_-_kbl_cup", "latvia_-_virsliga", "lithuania_-_a_lyga", "malaysia_-_super_league",
+    "mexico_-_liga_de_expansion_mx", "mexico_-_liga_mx", "mexico_-_lmb", "mexico_-_lnbp",
+    "mongolia_-_premier_league", "nascar_-_cup_series", "nascar_-_truck_series", "nascar_-_xfinity_series",
+    "netherlands_-_eerste_divisie", "netherlands_-_eredivisie", "new_zealand_-_nbl", "north_america_-_leagues_cup",
+    "norway_-_eliteserien", "paraguay_-_primeira_division", "peru_-_primeira_division", "peru_-_segunda_division",
+    "poland_-_cup", "poland_-_ekstraklasa", "poland_-_i_liga", "portugal_-_primeira_liga",
+    "portugal_-_segunda_liga", "puerto_rico_-_bsn", "romania_-_liga_i", "romania_-_liga_ii", "russia_-_khl",
+    "russia_-_premier_league", "russia_-_second_league_a", "russia_-_super_cup", "saudi_arabia_-_saudi_league",
+    "scotland_-_championship", "scotland_-_premiership", "serbia_-_super_liga", "singapore_-_premier_league",
+    "slovakia_-_superliga", "spain_-_copa_del_rey", "spain_-_la_liga", "spain_-_leb_oro", "spain_-_liga_acb",
+    "sri_lanka_-_lanka_premier_league", "sweden_-_allsvenskan", "sweden_-_ettan", "sweden_-_shl",
+    "sweden_-_superettan", "switzerland_-_challenge_league", "switzerland_-_cup", "switzerland_-_super_league",
+    "turkey_-_cup", "turkey_-_super_lig", "uefa_-_champions_league", "uefa_-_champions_league_women",
+    "uefa_-_europa_conference_league", "uefa_-_europa_league", "uefa_-_european_championship",
+    "uefa_-_european_championship_qualifiers", "uefa_-_european_championship_women", "uefa_-_nations_league",
+    "uefa_-_super_cup", "ukraine_-_premier_league", "uruguay_-_metro_league", "uruguay_-_primeira_division",
+    "uruguay_-_segunda_division", "usa_-_ahl", "usa_-_major_league_cricket", "usa_-_major_league_soccer",
+    "usa_-_milb_aaa", "usa_-_mlb_all_star", "usa_-_mls_next_pro", "usa_-_national_lacrosse_league",
+    "usa_-_nba_all_star", "usa_-_nba_summer_league", "usa_-_nisa", "usa_-_npsl", "usa_-_nwsl",
+    "usa_-_premier_lacrosse_league", "usa_-_the_golf_league", "usa_-_unrivaled", "usa_-_usl_championship",
+    "usa_-_usl_league_one", "usa_-_usl_league_two", "usa_-_usl_w_league", "usa_-_wnba_all_star",
+    "uzbekistan_-_professional_league", "uzbekistan_-_super_league", "venezuela_-_copa_venezuela",
+    "west_indies_-_caribbean_premier_league", "west_indies_-_caribbean_premier_league_women",
+    "zimbabwe_-_premier_league", "olympics_basketball_men", "olympics_basketball_women", "olympics_soccer_men",
+    "olympics_soccer_women", "olympics_table_tennis_men", "olympics_table_tennis_women", "olympics_tennis_men",
+    "olympics_tennis_women"
+  ]
+}

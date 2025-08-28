@@ -382,6 +382,105 @@
     .tab-section {
       margin-bottom: 2rem;
     }
+
+    /* New styles for scraping targets & mappings */
+    .subsection {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .subsection h3 {
+      margin: 0 0 0.5rem 0;
+      color: #1e293b;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      color: #6b7280;
+      font-style: italic;
+    }
+
+    .mapping-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+
+    .mapping-item input, .mapping-item select {
+      padding: 0.5rem;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      font-size: 0.875rem;
+    }
+
+    .mapping-item .confidence-score {
+      font-family: monospace;
+      font-weight: 600;
+      color: #059669;
+    }
+
+    .mapping-item .remove-btn {
+      background: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 0.5rem;
+      cursor: pointer;
+      font-size: 0.75rem;
+    }
+
+    .mapping-item .remove-btn:hover {
+      background: #dc2626;
+    }
+
+    .target-item {
+      display: grid;
+      grid-template-columns: auto 1fr 1fr 1fr auto auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+
+    .target-item.enabled {
+      background: #ecfdf5;
+      border-color: #10b981;
+    }
+
+    .target-item .priority {
+      font-family: monospace;
+      font-weight: 600;
+      color: #6b7280;
+    }
+
+    .target-item .toggle {
+      width: 20px;
+      height: 20px;
+    }
+
+    .danger-button {
+      background: #ef4444;
+      color: white;
+    }
+
+    .danger-button:hover {
+      background: #dc2626;
+    }
   </style>
 </head>
 <body>
@@ -509,23 +608,62 @@
       </div>
     </div>
 
-    <!-- League Mappings Tab -->
+    <!-- Scraping Targets & Mappings Tab -->
     <div class="config-tab-content" id="leagues-tab">
       <div class="config-section">
-        <h2>League Mappings</h2>
+        <h2>Scraping Targets & Mappings</h2>
         <div class="config-group">
-          <div class="help-text" style="margin-bottom: 1rem;">Configure which leagues belong to which sports. This affects how games are classified and how many outcomes are expected.</div>
-          <div id="league-mappings-container">
-            <!-- League mappings will be populated by JavaScript -->
+          <div class="help-text" style="margin-bottom: 1rem;">
+            Configure which sports/leagues to scrape and how to map OddsJam nomenclature to Omenizer nomenclature for the matching engine.
           </div>
+          
+          <!-- Scraping Targets Section -->
+          <div class="subsection">
+            <h3>🎯 Scraping Targets</h3>
+            <p class="help-text">Enable/disable which sports and leagues to scrape from OddsJam</p>
+            <div id="scraping-targets-container">
+              <div class="loading">Loading scraping targets...</div>
+            </div>
+            <div class="button-group" style="margin-top: 1rem;">
+              <button type="button" class="primary-button" id="add-scraping-target">Add New Target</button>
+              <button type="button" class="secondary-button" id="save-targets">Save Changes</button>
+            </div>
+          </div>
+
+          <!-- Sport Mappings Section -->
+          <div class="subsection" style="margin-top: 2rem;">
+            <h3>🏆 Sport Mappings</h3>
+            <p class="help-text">Map OddsJam sport names to Omenizer sport names</p>
+            <div id="sport-mappings-container">
+              <div class="loading">Loading sport mappings...</div>
+            </div>
+            <div class="button-group" style="margin-top: 1rem;">
+              <button type="button" class="primary-button" id="add-sport-mapping">Add Sport Mapping</button>
+              <button type="button" class="secondary-button" id="save-sport-mappings">Save Changes</button>
+            </div>
+          </div>
+
+          <!-- League Mappings Section -->
+          <div class="subsection" style="margin-top: 2rem;">
+            <h3>🏟️ League Mappings</h3>
+            <p class="help-text">Map OddsJam league names to Omenizer league names</p>
+            <div id="league-mappings-container">
+              <div class="loading">Loading league mappings...</div>
+            </div>
+            <div class="button-group" style="margin-top: 1rem;">
+              <button type="button" class="primary-button" id="add-league-mapping">Add League Mapping</button>
+              <button type="button" class="secondary-button" id="save-league-mappings">Save Changes</button>
+            </div>
+          </div>
+
         </div>
         <div class="config-group">
-          <div class="button-group" style="margin-top: 1rem;">
-            <button type="button" class="secondary-button" id="reset-mappings">Reset to Defaults</button>
-            <button type="button" class="secondary-button" id="export-mappings">Export Mappings</button>
-            <button type="button" class="secondary-button" id="import-mappings">Import Mappings</button>
+          <div class="button-group" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
+            <button type="button" class="secondary-button" id="export-all-config">Export All Configuration</button>
+            <button type="button" class="secondary-button" id="import-all-config">Import Configuration</button>
+            <button type="button" class="danger-button" id="reset-all-config">Reset to Defaults</button>
           </div>
-          <input type="file" id="import-file" accept=".json" style="display: none;">
+          <input type="file" id="import-config-file" accept=".json" style="display: none;">
         </div>
       </div>
     </div>

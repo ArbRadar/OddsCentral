@@ -6,8 +6,31 @@ from sportsbook_scraper.items import GameItem, OddsItem
 
 class UnifiedSpider(scrapy.Spider):
     """
-    Unified spider using new clean architecture.
-    Replaces odds_spider.py with database-driven configuration.
+    Unified spider for scraping odds data from multiple platforms.
+    
+    This spider uses database-driven configuration to:
+    1. Load scraping targets from the scraping_targets table
+    2. Build API URLs using endpoint patterns from known_endpoints table
+    3. Apply authentication from platform_auth table
+    4. Filter bookmakers based on bookmaker_filters table
+    
+    OddsJam API Requirements:
+    - All sports use the same endpoint: /api/backend/oddscreen/v2/game/data
+    - Required parameters: sport, league, state, market_name, is_future, 
+      game_status_filter, opening_odds
+    - Authentication via cookies: access_token, cf_clearance, state
+    - Supports both 2-way (MLB, NBA) and 3-way (soccer) markets
+    
+    Configuration Example:
+    {
+        "sport": "soccer",
+        "league": "spain_-_la_liga", 
+        "state": "MX-MX",
+        "market_name": "moneyline",
+        "is_future": "0",
+        "game_status_filter": "All",
+        "opening_odds": "false"
+    }
     """
     name = "unified"
     allowed_domains = []  # Will be populated from platforms
@@ -202,7 +225,17 @@ class UnifiedSpider(scrapy.Spider):
             )
     
     def build_api_url(self, platform, endpoint, target, auth_data):
-        """Build complete API URL from endpoint pattern and target config"""
+        """
+        Build complete API URL from endpoint pattern and target config.
+        
+        OddsJam URL Pattern:
+        /api/backend/oddscreen/v2/game/data?sport={sport}&league={league}
+        &market_name={market_name}&state={state}&is_future={is_future}
+        &game_status_filter={game_status_filter}&opening_odds={opening_odds}
+        
+        All parameters are required for OddsJam API to return data.
+        Missing parameters will result in empty responses or errors.
+        """
         try:
             base_url = platform['base_url']
             pattern = endpoint['endpoint_pattern']
@@ -287,7 +320,7 @@ class UnifiedSpider(scrapy.Spider):
                 self.logger.info(f"Game {game_id} has {len(rows)} rows")
                 
                 # Parse game data
-                home_team, away_team, home_odds_data, away_odds_data = self.extract_game_info(rows)
+                home_team, away_team, home_odds_data, away_odds_data, draw_odds_data = self.extract_game_info(rows)
                 
                 if home_team and away_team:
                     # Create game item
@@ -308,8 +341,8 @@ class UnifiedSpider(scrapy.Spider):
                     game_item['created_at'] = datetime.utcnow().isoformat()
                     yield game_item
                     
-                    # Process odds with bookmaker filtering
-                    all_bookmakers = set(home_odds_data.keys()) | set(away_odds_data.keys())
+                    # Process odds with bookmaker filtering - include draw odds
+                    all_bookmakers = set(home_odds_data.keys()) | set(away_odds_data.keys()) | set(draw_odds_data.keys())
                     
                     # Bookmaker filtering disabled - get all available odds
                     # if enabled_bookmakers:
@@ -319,24 +352,28 @@ class UnifiedSpider(scrapy.Spider):
                     #     if original_count != filtered_count:
                     #         self.logger.info(f"Filtered bookmakers for {game_id}: {original_count} → {filtered_count}")
                     
-                    self.logger.info(f"Processing all {len(all_bookmakers)} bookmakers for {game_id}")
+                    has_draw = bool(draw_odds_data)
+                    game_type = "3-outcome" if has_draw else "2-outcome"
+                    self.logger.info(f"Processing all {len(all_bookmakers)} bookmakers for {game_id} ({game_type} game)")
                     
                     for bookmaker_name in all_bookmakers:
                         home_odds_list = home_odds_data.get(bookmaker_name, [])
                         away_odds_list = away_odds_data.get(bookmaker_name, [])
+                        draw_odds_list = draw_odds_data.get(bookmaker_name, [])
                         
                         # Extract odds values
                         home_odds = self.extract_odds_value(home_odds_list)
                         away_odds = self.extract_odds_value(away_odds_list)
+                        draw_odds = self.extract_odds_value(draw_odds_list)
                         
                         # Create odds item if we have at least one odds value
-                        if home_odds is not None or away_odds is not None:
+                        if home_odds is not None or away_odds is not None or draw_odds is not None:
                             odds_item = OddsItem()
                             odds_item['game_id'] = game_id
                             odds_item['sportsbook'] = bookmaker_name
                             odds_item['home_odds'] = home_odds
                             odds_item['away_odds'] = away_odds
-                            odds_item['draw_odds'] = None
+                            odds_item['draw_odds'] = draw_odds
                             odds_item['odds_format'] = 'american'
                             odds_item['created_at'] = datetime.utcnow().isoformat()
                             odds_item['timestamp'] = datetime.utcnow().isoformat()
@@ -349,33 +386,62 @@ class UnifiedSpider(scrapy.Spider):
                 self.logger.error(f"Error processing game data: {e}")
     
     def extract_game_info(self, rows):
-        """Extract game info from OddsJam rows"""
+        """Extract game info from OddsJam rows - supports both 2-outcome and 3-outcome games"""
         home_odds_data = {}
         away_odds_data = {}
+        draw_odds_data = {}
         home_team = None
         away_team = None
         
         for row_idx, row in enumerate(rows):
-            if 'display' not in row or 'odds' not in row or 'home_or_away' not in row:
+            if 'display' not in row or 'odds' not in row:
                 continue
             
             display_info = row['display']
             odds_data = row['odds']
-            home_or_away = row['home_or_away'].lower()
+            
+            # Handle potential None or missing 'home_or_away' field
+            home_or_away_value = row.get('home_or_away')
+            if home_or_away_value is None:
+                # For draw outcomes, home_or_away might be None or missing
+                # Check if this looks like a draw based on team name
+                market_key = list(display_info.keys())[0] if display_info else None
+                if market_key:
+                    team_info = display_info[market_key]
+                    team_name = team_info.get('team_name', team_info.get('title', 'Unknown'))
+                    if team_name.lower() in ['draw', 'tie', 'x']:
+                        home_or_away = 'draw'
+                    else:
+                        self.logger.warning(f"Row {row_idx} has no home_or_away field and doesn't look like draw: {team_name}")
+                        continue
+                else:
+                    self.logger.warning(f"Row {row_idx} has no home_or_away field and no display info")
+                    continue
+            else:
+                home_or_away = home_or_away_value.lower()
             
             # Extract team name from display info
-            market_key = list(display_info.keys())[0]
-            team_info = display_info[market_key]
-            team_name = team_info.get('team_name', team_info.get('title', 'Unknown'))
+            if display_info:
+                market_key = list(display_info.keys())[0]
+                team_info = display_info[market_key]
+                team_name = team_info.get('team_name', team_info.get('title', 'Unknown'))
+            else:
+                team_name = 'Unknown'
             
+            # Assign data based on outcome type
             if home_or_away == 'home':
                 home_team = team_name
                 home_odds_data = odds_data
-            else:
+            elif home_or_away == 'away':
                 away_team = team_name
                 away_odds_data = odds_data
+            elif home_or_away == 'draw':
+                # For draw, we don't set team name but we do capture odds
+                draw_odds_data = odds_data
+            else:
+                self.logger.warning(f"Unknown home_or_away value: {home_or_away} for team: {team_name}")
         
-        return home_team, away_team, home_odds_data, away_odds_data
+        return home_team, away_team, home_odds_data, away_odds_data, draw_odds_data
     
     def extract_odds_value(self, odds_list):
         """Extract odds value from odds list"""

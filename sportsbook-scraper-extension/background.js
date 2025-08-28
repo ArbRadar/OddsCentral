@@ -1544,10 +1544,90 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     return true;
   }
   
+  if (request.type === 'GET_SCRAPING_TARGETS') {
+    // Fetch scraping targets from database
+    if (!supabaseClient) {
+      sendResponse({ success: false, error: 'Database not connected' });
+      return true;
+    }
+
+    fetch(`${supabaseClient.url}/scraping_targets?select=*&order=priority`, {
+      headers: supabaseClient.headers
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Parse the config JSON strings and show all targets (not just enabled)
+      const parsedData = data.map(target => ({
+        ...target,
+        config: typeof target.config === 'string' ? JSON.parse(target.config) : target.config
+      }));
+      sendResponse({ success: true, data: parsedData });
+    })
+    .catch(error => {
+      console.error('Error fetching scraping targets:', error);
+      sendResponse({ success: false, error: error.message });
+    });
+    return true;
+  }
+
+  if (request.type === 'GET_SPORT_MAPPINGS') {
+    // Fetch sport mappings from database
+    if (!supabaseClient) {
+      sendResponse({ success: false, error: 'Database not connected' });
+      return true;
+    }
+
+    fetch(`${supabaseClient.url}/sports_mapping?select=*&order=oddsjam_sport`, {
+      headers: supabaseClient.headers
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      sendResponse({ success: true, data: data });
+    })
+    .catch(error => {
+      console.error('Error fetching sport mappings:', error);
+      sendResponse({ success: false, error: error.message });
+    });
+    return true;
+  }
+
   if (request.type === 'GET_LEAGUE_MAPPINGS') {
-    // Return current league mappings
-    const mappings = currentConfig?.leagueMappings || DEFAULT_LEAGUE_MAPPINGS;
-    sendResponse({ success: true, mappings: mappings });
+    // Fetch league mappings + all available leagues for dropdowns
+    if (!supabaseClient) {
+      sendResponse({ success: false, error: 'Database not connected' });
+      return true;
+    }
+
+    // Get both mappings and available leagues
+    Promise.all([
+      fetch(`${supabaseClient.url}/leagues_mapping?select=*&order=oddsjam_league`, {
+        headers: supabaseClient.headers
+      }).then(r => r.json()),
+      fetch(`${supabaseClient.url}/leagues_reference?select=id,name&active=eq.true&order=name`, {
+        headers: supabaseClient.headers
+      }).then(r => r.json())
+    ])
+    .then(([mappings, omenizerLeagues]) => {
+      sendResponse({ 
+        success: true, 
+        data: mappings,
+        omenizerLeagues: omenizerLeagues
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching league mappings:', error);
+      sendResponse({ success: false, error: error.message });
+    });
     return true;
   }
   
@@ -1565,6 +1645,303 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         sendResponse({ success: false, error: error.message });
       });
     return true;
+  }
+
+  if (request.type === 'SAVE_SCRAPING_TARGETS') {
+    // Save scraping targets to database
+    if (!supabaseClient) {
+      sendResponse({ success: false, error: 'Database not connected' });
+      return true;
+    }
+
+    const targets = request.targets || [];
+    const deletedIds = request.deletedIds || [];
+    const promises = [];
+
+    // Handle deletions first
+    deletedIds.forEach(id => {
+      console.log(`Deleting scraping target with ID: ${id}`);
+      promises.push(
+        fetch(`${supabaseClient.url}/scraping_targets?id=eq.${id}`, {
+          method: 'DELETE',
+          headers: supabaseClient.headers
+        })
+      );
+    });
+
+    // Handle saves/updates
+    targets.forEach(target => {
+      const targetData = {
+        platform_id: 1, // OddsJam platform
+        target_type: 'sport_league',
+        name: target.name,
+        config: JSON.stringify({ 
+          sport: target.sport.toLowerCase(), 
+          league: target.league.toLowerCase(),
+          market: target.market
+        }),
+        enabled: target.enabled,
+        priority: target.priority
+      };
+
+      if (target.id) {
+        // Update existing
+        console.log(`Updating scraping target with ID: ${target.id}`);
+        promises.push(
+          fetch(`${supabaseClient.url}/scraping_targets?id=eq.${target.id}`, {
+            method: 'PATCH',
+            headers: supabaseClient.headers,
+            body: JSON.stringify(targetData)
+          })
+        );
+      } else {
+        // Insert new
+        console.log(`Inserting new scraping target: ${target.name}`);
+        promises.push(
+          fetch(`${supabaseClient.url}/scraping_targets`, {
+            method: 'POST',
+            headers: supabaseClient.headers,
+            body: JSON.stringify(targetData)
+          })
+        );
+      }
+    });
+
+    Promise.all(promises)
+      .then(responses => {
+        // Check if all responses were successful
+        const failures = responses.filter(response => !response.ok);
+        if (failures.length > 0) {
+          console.error(`${failures.length} operations failed out of ${responses.length}`);
+          throw new Error(`${failures.length} database operations failed`);
+        }
+        
+        console.log(`Successfully processed ${deletedIds.length} deletions and ${targets.length} saves/updates`);
+        sendResponse({ success: true });
+      })
+      .catch(error => {
+        console.error('Error saving scraping targets:', error);
+        sendResponse({ success: false, error: error.message });
+      });
+    return true;
+  }
+
+  if (request.type === 'SAVE_SPORT_MAPPINGS') {
+    // Save sport mappings to database
+    if (!supabaseClient) {
+      sendResponse({ success: false, error: 'Database not connected' });
+      return true;
+    }
+
+    const mappings = request.mappings || [];
+    const deletedIds = request.deletedIds || [];
+    const promises = [];
+
+    // Handle deletions first
+    deletedIds.forEach(id => {
+      console.log(`Deleting sport mapping with ID: ${id}`);
+      promises.push(
+        fetch(`${supabaseClient.url}/sports_mapping?id=eq.${id}`, {
+          method: 'DELETE',
+          headers: supabaseClient.headers
+        })
+      );
+    });
+
+    // Handle saves/updates
+    mappings.forEach(mapping => {
+      const mappingData = {
+        oddsjam_sport: mapping.oddsjam_sport.toUpperCase(),
+        omenizer_sport: mapping.omenizer_sport,
+        confidence_score: 1.0,
+        last_verified: new Date().toISOString()
+      };
+
+      if (mapping.id) {
+        // Update existing
+        console.log(`Updating sport mapping with ID: ${mapping.id}`);
+        promises.push(
+          fetch(`${supabaseClient.url}/sports_mapping?id=eq.${mapping.id}`, {
+            method: 'PATCH',
+            headers: supabaseClient.headers,
+            body: JSON.stringify(mappingData)
+          })
+        );
+      } else {
+        // Insert new
+        console.log(`Inserting new sport mapping: ${mapping.oddsjam_sport} -> ${mapping.omenizer_sport}`);
+        promises.push(
+          fetch(`${supabaseClient.url}/sports_mapping`, {
+            method: 'POST',
+            headers: supabaseClient.headers,
+            body: JSON.stringify(mappingData)
+          })
+        );
+      }
+    });
+
+    Promise.all(promises)
+      .then(responses => {
+        // Check if all responses were successful
+        const failures = responses.filter(response => !response.ok);
+        if (failures.length > 0) {
+          console.error(`${failures.length} operations failed out of ${responses.length}`);
+          throw new Error(`${failures.length} database operations failed`);
+        }
+        
+        console.log(`Successfully processed ${deletedIds.length} deletions and ${mappings.length} saves/updates`);
+        sendResponse({ success: true });
+      })
+      .catch(error => {
+        console.error('Error saving sport mappings:', error);
+        sendResponse({ success: false, error: error.message });
+      });
+    return true;
+  }
+
+  if (request.type === 'SAVE_LEAGUE_MAPPINGS') {
+    // Save league mappings to database
+    if (!supabaseClient) {
+      sendResponse({ success: false, error: 'Database not connected' });
+      return true;
+    }
+
+    const mappings = request.mappings || [];
+    const deletedIds = request.deletedIds || [];
+    const promises = [];
+
+    // Handle deletions first
+    deletedIds.forEach(id => {
+      console.log(`Deleting league mapping with ID: ${id}`);
+      promises.push(
+        fetch(`${supabaseClient.url}/leagues_mapping?id=eq.${id}`, {
+          method: 'DELETE',
+          headers: supabaseClient.headers
+        })
+      );
+    });
+
+    // Handle saves/updates
+    mappings.forEach(mapping => {
+      const mappingData = {
+        oddsjam_league: mapping.oddsjam_league,
+        omenizer_league: mapping.omenizer_league,
+        oddsjam_sport: mapping.oddsjam_sport || '',
+        omenizer_sport: mapping.omenizer_sport || '',
+        confidence_score: 1.0,
+        last_verified: new Date().toISOString()
+      };
+
+      if (mapping.id) {
+        // Update existing
+        console.log(`Updating league mapping with ID: ${mapping.id}`);
+        promises.push(
+          fetch(`${supabaseClient.url}/leagues_mapping?id=eq.${mapping.id}`, {
+            method: 'PATCH',
+            headers: supabaseClient.headers,
+            body: JSON.stringify(mappingData)
+          })
+        );
+      } else {
+        // Insert new
+        console.log(`Inserting new league mapping: ${mapping.oddsjam_league} -> ${mapping.omenizer_league}`);
+        promises.push(
+          fetch(`${supabaseClient.url}/leagues_mapping`, {
+            method: 'POST',
+            headers: supabaseClient.headers,
+            body: JSON.stringify(mappingData)
+          })
+        );
+      }
+    });
+
+    Promise.all(promises)
+      .then(async responses => {
+        // Check if all responses were successful
+        const failures = responses.filter(response => !response.ok);
+        if (failures.length > 0) {
+          console.error(`${failures.length} operations failed out of ${responses.length}`);
+          
+          // Collect detailed error information from each failed response
+          const errorDetails = [];
+          for (let i = 0; i < responses.length; i++) {
+            const response = responses[i];
+            if (!response.ok) {
+              try {
+                const errorText = await response.text();
+                let errorData;
+                try {
+                  errorData = JSON.parse(errorText);
+                } catch {
+                  errorData = { message: errorText };
+                }
+                
+                const operation = i < deletedIds.length ? 
+                  `DELETE league mapping ID ${deletedIds[i]}` : 
+                  `${mappings[i - deletedIds.length].id ? 'UPDATE' : 'INSERT'} league mapping: ${mappings[i - deletedIds.length].oddsjam_league} -> ${mappings[i - deletedIds.length].omenizer_league}`;
+                
+                errorDetails.push({
+                  operation,
+                  status: response.status,
+                  statusText: response.statusText,
+                  error: errorData
+                });
+                
+                console.error(`Failed ${operation}:`, {
+                  status: response.status,
+                  statusText: response.statusText,
+                  error: errorData
+                });
+              } catch (readError) {
+                console.error(`Failed to read error response for operation ${i}:`, readError);
+                errorDetails.push({
+                  operation: `Operation ${i}`,
+                  status: response.status,
+                  statusText: response.statusText,
+                  error: 'Could not read error details'
+                });
+              }
+            }
+          }
+          
+          const detailedErrorMessage = `${failures.length} database operations failed:\n` + 
+            errorDetails.map(detail => `- ${detail.operation}: ${detail.status} ${detail.statusText} - ${JSON.stringify(detail.error)}`).join('\n');
+          
+          throw new Error(detailedErrorMessage);
+        }
+        
+        console.log(`Successfully processed ${deletedIds.length} deletions and ${mappings.length} saves/updates`);
+        sendResponse({ success: true });
+      })
+      .catch(error => {
+        console.error('Error saving league mappings:', error);
+        sendResponse({ success: false, error: error.message });
+      });
+    return true;
+  }
+  
+  // Test API endpoint for verification
+  if (request.type === 'TEST_ENDPOINT') {
+    const { url, headers } = request;
+    
+    fetch(url, {
+      method: 'GET',
+      headers: headers
+    })
+    .then(response => {
+      return response.json().then(data => ({
+        status: response.status,
+        data: data
+      }));
+    })
+    .then(result => {
+      sendResponse(result);
+    })
+    .catch(error => {
+      sendResponse({ error: error.message });
+    });
+    
+    return true; // Will respond asynchronously
   }
   
   // URL Manager handlers

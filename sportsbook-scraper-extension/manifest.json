@@ -36,7 +36,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["dashboard.html", "scraper-control.html", "analytics.html", "analytics.js", "config.html", "config.js", "sportsbook.html", "sportsbook.js", "matching-api.js", "api-interceptor.js", "scraping-strategies.js", "endpoints.html", "endpoints.js", "api-scraper.js", "api-scraper-init.js", "scraping-status-indicator.js", "diagnostics.html", "diagnostics.js", "url-manager.html", "url-manager.js", "scraping-dashboard.html", "scraping-dashboard.js"],
+      "resources": ["dashboard.html", "scraper-control.html", "analytics.html", "analytics.js", "config.html", "config.js", "sportsbook.html", "sportsbook.js", "matching-api.js", "api-interceptor.js", "scraping-strategies.js", "endpoints.html", "endpoints.js", "api-scraper.js", "api-scraper-init.js", "scraping-status-indicator.js", "diagnostics.html", "diagnostics.js", "url-manager.html", "url-manager.js", "scraping-dashboard.html", "scraping-dashboard.js", "docs/oddsjam.json", "docs/complete_oddsjam_mapping.json", "verify-targets.html"],
       "matches": ["<all_urls>"]
     }
   ]

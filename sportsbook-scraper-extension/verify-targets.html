@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Scraping Targets - OddsCentral</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .controls {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-primary:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .status.idle { background-color: #e9ecef; color: #495057; }
+        .status.running { background-color: #fff3cd; color: #856404; }
+        .status.success { background-color: #d4edda; color: #155724; }
+        .status.error { background-color: #f8d7da; color: #721c24; }
+        .results {
+            margin-top: 20px;
+        }
+        .target-result {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        .target-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .target-name {
+            font-weight: 600;
+            color: #333;
+        }
+        .target-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .status-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .status-icon.success { background-color: #28a745; }
+        .status-icon.error { background-color: #dc3545; }
+        .status-icon.pending { background-color: #ffc107; }
+        .target-details {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .url-display {
+            background-color: #e9ecef;
+            padding: 8px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 12px;
+            margin: 5px 0;
+            word-break: break-all;
+        }
+        .error-message {
+            color: #dc3545;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+        .success-message {
+            color: #28a745;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+        .summary {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .summary-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: #666;
+        }
+        .config-info {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .missing-params {
+            color: #dc3545;
+            font-weight: 500;
+        }
+        .auth-warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Verify Scraping Targets</h1>
+        <p class="subtitle">Test all enabled OddsJam scraping targets to ensure they're configured correctly</p>
+        
+        <div class="auth-warning" id="authWarning" style="display: none;">
+            <strong>⚠️ Authentication Warning:</strong> Some requests may fail if authentication tokens have expired. 
+            Check the platform_auth table for valid tokens.
+        </div>
+        
+        <div class="controls">
+            <button class="btn-primary" id="verifyBtn" onclick="verifyTargets()">
+                Verify All Targets
+            </button>
+            <span class="status idle" id="statusBadge">Idle</span>
+            <span id="progressText"></span>
+        </div>
+        
+        <div id="results" class="results"></div>
+        
+        <div id="summary" class="summary" style="display: none;">
+            <div class="summary-title">Verification Summary</div>
+            <div class="summary-stats">
+                <div class="stat">
+                    <div class="stat-value" id="totalCount">0</div>
+                    <div class="stat-label">Total Targets</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="successCount" style="color: #28a745;">0</div>
+                    <div class="stat-label">Successful</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="failureCount" style="color: #dc3545;">0</div>
+                    <div class="stat-label">Failed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="successRate">0%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const SUPABASE_URL = 'http://localhost:54320';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0';
+        
+        const HEADERS = {
+            'apikey': SUPABASE_KEY,
+            'Authorization': `Bearer ${SUPABASE_KEY}`,
+            'Content-Type': 'application/json'
+        };
+        
+        const REQUIRED_PARAMS = [
+            'sport', 'league', 'state', 'market_name',
+            'is_future', 'game_status_filter', 'opening_odds'
+        ];
+        
+        let isVerifying = false;
+        let authWarningShown = false;
+        
+        async function loadPlatformData() {
+            const data = {};
+            
+            // Load platforms
+            const platformsResp = await fetch(`${SUPABASE_URL}/scraping_platforms?active=eq.true`, { headers: HEADERS });
+            if (platformsResp.ok) {
+                const platforms = await platformsResp.json();
+                data.platforms = {};
+                platforms.forEach(p => data.platforms[p.id] = p);
+            }
+            
+            // Load endpoints
+            const endpointsResp = await fetch(`${SUPABASE_URL}/known_endpoints?active=eq.true`, { headers: HEADERS });
+            if (endpointsResp.ok) {
+                const endpoints = await endpointsResp.json();
+                data.endpoints = {};
+                endpoints.forEach(e => data.endpoints[e.platform_id] = e);
+            }
+            
+            // Load authentication
+            const authResp = await fetch(`${SUPABASE_URL}/platform_auth?active=eq.true`, { headers: HEADERS });
+            if (authResp.ok) {
+                const authRecords = await authResp.json();
+                data.auth = {};
+                authRecords.forEach(a => data.auth[a.platform_id] = a.auth_data);
+            }
+            
+            return data;
+        }
+        
+        async function loadScrapingTargets() {
+            const response = await fetch(
+                `${SUPABASE_URL}/scraping_targets?enabled=eq.true&order=priority,name`,
+                { headers: HEADERS }
+            );
+            
+            if (response.ok) {
+                return await response.json();
+            }
+            return [];
+        }
+        
+        function buildApiUrl(platform, endpoint, target) {
+            try {
+                const baseUrl = platform.base_url;
+                const pattern = endpoint.endpoint_pattern;
+                const config = target.config;
+                
+                // Replace placeholders
+                let apiPath = pattern;
+                Object.keys(config).forEach(key => {
+                    apiPath = apiPath.replace(`{${key}}`, config[key]);
+                });
+                
+                return `${baseUrl}${apiPath}`;
+            } catch (e) {
+                return `ERROR: ${e.message}`;
+            }
+        }
+        
+        function validateTargetConfig(target) {
+            const config = target.config || {};
+            const missing = REQUIRED_PARAMS.filter(p => !(p in config));
+            return { valid: missing.length === 0, missing };
+        }
+        
+        async function testApiEndpoint(url, authData) {
+            const headers = {
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+                'Accept': 'application/json',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Referer': 'https://oddsjam.com/'
+            };
+            
+            // Build cookie string
+            const cookies = [];
+            if (authData) {
+                if (authData.access_token) cookies.push(`access_token=${authData.access_token}`);
+                if (authData.cf_clearance) cookies.push(`cf_clearance=${authData.cf_clearance}`);
+                if (authData.state) cookies.push(`state=${authData.state}`);
+            }
+            
+            if (cookies.length > 0) {
+                headers['Cookie'] = cookies.join('; ');
+            }
+            
+            try {
+                // Using Chrome extension to bypass CORS
+                const response = await chrome.runtime.sendMessage({
+                    type: 'TEST_ENDPOINT',
+                    url: url,
+                    headers: headers
+                });
+                
+                if (response.error) {
+                    return { success: false, message: response.error };
+                }
+                
+                if (response.status === 200) {
+                    const data = response.data;
+                    if (data && data.data && Array.isArray(data.data)) {
+                        const gameCount = data.data.length;
+                        if (gameCount > 0) {
+                            const firstGame = data.data[0];
+                            if (firstGame.game_id && firstGame.rows) {
+                                return { success: true, message: `Success: ${gameCount} games found` };
+                            } else {
+                                return { success: false, message: 'Invalid game structure' };
+                            }
+                        } else {
+                            return { success: true, message: 'Success: No games currently available' };
+                        }
+                    } else {
+                        return { success: false, message: 'Invalid response structure' };
+                    }
+                } else if (response.status === 401) {
+                    if (!authWarningShown) {
+                        document.getElementById('authWarning').style.display = 'block';
+                        authWarningShown = true;
+                    }
+                    return { success: false, message: 'Authentication failed - tokens may be expired' };
+                } else if (response.status === 403) {
+                    return { success: false, message: 'Forbidden - Cloudflare or rate limit' };
+                } else {
+                    return { success: false, message: `HTTP ${response.status}` };
+                }
+            } catch (e) {
+                return { success: false, message: `Error: ${e.message}` };
+            }
+        }
+        
+        function createTargetResultElement(target, index, total) {
+            const div = document.createElement('div');
+            div.className = 'target-result';
+            div.id = `target-${target.id}`;
+            
+            div.innerHTML = `
+                <div class="target-header">
+                    <div>
+                        <span class="target-name">[${index}/${total}] ${target.name}</span>
+                        <div class="target-status">
+                            <span class="status-icon pending"></span>
+                            <span>Pending...</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="target-details"></div>
+            `;
+            
+            return div;
+        }
+        
+        function updateTargetResult(targetId, success, message, url, config, missing) {
+            const element = document.getElementById(`target-${targetId}`);
+            if (!element) return;
+            
+            const statusElement = element.querySelector('.target-status');
+            const detailsElement = element.querySelector('.target-details');
+            
+            const statusIcon = success ? 'success' : 'error';
+            const statusText = success ? '✓ Success' : '✗ Failed';
+            
+            statusElement.innerHTML = `
+                <span class="status-icon ${statusIcon}"></span>
+                <span>${statusText}</span>
+            `;
+            
+            let detailsHtml = '';
+            
+            if (missing && missing.length > 0) {
+                detailsHtml += `<div class="missing-params">Missing parameters: ${missing.join(', ')}</div>`;
+            }
+            
+            if (url && !url.startsWith('ERROR:')) {
+                detailsHtml += `<div class="url-display">${url}</div>`;
+            }
+            
+            if (config) {
+                detailsHtml += `<div class="config-info">Config: ${JSON.stringify(config, null, 2)}</div>`;
+            }
+            
+            if (message) {
+                const messageClass = success ? 'success-message' : 'error-message';
+                detailsHtml += `<div class="${messageClass}">${message}</div>`;
+            }
+            
+            detailsElement.innerHTML = detailsHtml;
+        }
+        
+        async function updateTargetStatus(targetId, success) {
+            const updateData = {
+                last_scraped: new Date().toISOString(),
+                success_count: success ? 1 : 0,
+                error_count: success ? 0 : 1
+            };
+            
+            await fetch(
+                `${SUPABASE_URL}/scraping_targets?id=eq.${targetId}`,
+                {
+                    method: 'PATCH',
+                    headers: HEADERS,
+                    body: JSON.stringify(updateData)
+                }
+            );
+        }
+        
+        async function verifyTargets() {
+            if (isVerifying) return;
+            
+            isVerifying = true;
+            const verifyBtn = document.getElementById('verifyBtn');
+            const statusBadge = document.getElementById('statusBadge');
+            const progressText = document.getElementById('progressText');
+            const resultsDiv = document.getElementById('results');
+            const summaryDiv = document.getElementById('summary');
+            
+            verifyBtn.disabled = true;
+            statusBadge.className = 'status running';
+            statusBadge.textContent = 'Running';
+            resultsDiv.innerHTML = '';
+            summaryDiv.style.display = 'none';
+            authWarningShown = false;
+            document.getElementById('authWarning').style.display = 'none';
+            
+            try {
+                // Load configuration
+                progressText.textContent = 'Loading configuration...';
+                const platformData = await loadPlatformData();
+                const targets = await loadScrapingTargets();
+                
+                if (targets.length === 0) {
+                    resultsDiv.innerHTML = '<p>No enabled scraping targets found.</p>';
+                    return;
+                }
+                
+                // Create result elements for all targets
+                targets.forEach((target, i) => {
+                    resultsDiv.appendChild(createTargetResultElement(target, i + 1, targets.length));
+                });
+                
+                // Test each target
+                let successCount = 0;
+                let failureCount = 0;
+                
+                for (let i = 0; i < targets.length; i++) {
+                    const target = targets[i];
+                    progressText.textContent = `Testing ${i + 1} of ${targets.length}...`;
+                    
+                    const platform = platformData.platforms[target.platform_id];
+                    const endpoint = platformData.endpoints[target.platform_id];
+                    const auth = platformData.auth[target.platform_id] || {};
+                    
+                    if (!platform || !endpoint) {
+                        updateTargetResult(target.id, false, 'Missing platform or endpoint configuration');
+                        failureCount++;
+                        continue;
+                    }
+                    
+                    // Validate configuration
+                    const validation = validateTargetConfig(target);
+                    if (!validation.valid) {
+                        updateTargetResult(
+                            target.id, 
+                            false, 
+                            'Missing required parameters',
+                            null,
+                            target.config,
+                            validation.missing
+                        );
+                        failureCount++;
+                        await updateTargetStatus(target.id, false);
+                        continue;
+                    }
+                    
+                    // Build URL
+                    const url = buildApiUrl(platform, endpoint, target);
+                    if (url.startsWith('ERROR:')) {
+                        updateTargetResult(target.id, false, url, null, target.config);
+                        failureCount++;
+                        await updateTargetStatus(target.id, false);
+                        continue;
+                    }
+                    
+                    // Test endpoint
+                    const result = await testApiEndpoint(url, auth);
+                    
+                    if (result.success) {
+                        successCount++;
+                    } else {
+                        failureCount++;
+                    }
+                    
+                    updateTargetResult(target.id, result.success, result.message, url, target.config);
+                    await updateTargetStatus(target.id, result.success);
+                    
+                    // Rate limiting
+                    if (i < targets.length - 1) {
+                        await new Promise(resolve => setTimeout(resolve, 2000));
+                    }
+                }
+                
+                // Show summary
+                document.getElementById('totalCount').textContent = targets.length;
+                document.getElementById('successCount').textContent = successCount;
+                document.getElementById('failureCount').textContent = failureCount;
+                document.getElementById('successRate').textContent = 
+                    targets.length > 0 ? `${Math.round(successCount / targets.length * 100)}%` : '0%';
+                summaryDiv.style.display = 'block';
+                
+                statusBadge.className = failureCount === 0 ? 'status success' : 'status error';
+                statusBadge.textContent = failureCount === 0 ? 'All Passed' : 'Some Failed';
+                
+            } catch (error) {
+                console.error('Verification error:', error);
+                resultsDiv.innerHTML = `<div class="error-message">Error: ${error.message}</div>`;
+                statusBadge.className = 'status error';
+                statusBadge.textContent = 'Error';
+            } finally {
+                isVerifying = false;
+                verifyBtn.disabled = false;
+                progressText.textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>
